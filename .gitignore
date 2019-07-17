@@ -2,3 +2,5 @@ node_modules
 .DS_Store
 public
 server.js
+server.js.map
+.idea/
