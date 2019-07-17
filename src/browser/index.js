@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {hydrate} from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import ReactMaterialUI from '../shared';
+import ReactMaterialUI from '../react';
 
 
 function ReactBrowserApp() {

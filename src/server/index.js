@@ -5,8 +5,8 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import {StaticRouter, matchPath} from 'react-router-dom';
 import {ServerStyleSheets} from '@material-ui/styles';
-import routes from '../shared/routes';
-import {ReactMaterialUI} from '../shared';
+import routes from '../react/routes';
+import {ReactMaterialUI} from '../react';
 
 
 const app = express();
