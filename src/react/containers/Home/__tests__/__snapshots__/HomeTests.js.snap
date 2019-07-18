@@ -2,6 +2,11 @@
 
 exports[`Home renders correctly 1`] = `
 <div>
-  Welcome!
+  <div>
+    Welcome
+  </div>
+  <div>
+    Welcome Again
+  </div>
 </div>
 `;
