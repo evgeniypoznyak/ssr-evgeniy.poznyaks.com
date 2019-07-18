@@ -2611,7 +2611,7 @@ export const skills = [
 ];
 
 export const getSkillsByPanes = (skills) => {
-    const sortedSkills = skills.slice().sort(compareByOrder);
+    const sortedSkills = skills.slice().sort(sortByOrder);
     return sortedSkills.reduce((acc, curr) => {
         if (curr['panel'] === 'left') {
             acc['left'].push(curr);
@@ -2623,7 +2623,7 @@ export const getSkillsByPanes = (skills) => {
     }, {left: [], right: []});
 };
 
-export const compareByOrder = (a, b) => {
+export const sortByOrder = (a, b) => {
     if (a.order < b.order) {
         return -1;
     }

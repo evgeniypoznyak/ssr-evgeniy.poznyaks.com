@@ -1,4 +1,4 @@
-import {skills, getSkillsByPanes, compareByOrder} from '../api';
+import {skills, getSkillsByPanes, sortByOrder} from '../api';
 
 const api = getSkillsByPanes(skills);
 
@@ -8,7 +8,7 @@ describe('api', () => {
         expect(api).toHaveProperty('right');
     });
 
-    it('compareByOrder should sort by order property', () => {
+    it('sortByOrder should sort by order property', () => {
         const testArray = [
             {name: 'd', order: 4},
             {name: 'b', order: 2},
@@ -24,7 +24,7 @@ describe('api', () => {
             {name: 'e', order: 5},
         ];
 
-        const actual = testArray.sort(compareByOrder);
+        const actual = testArray.sort(sortByOrder);
 
         expect(actual).toEqual(expected);
     });

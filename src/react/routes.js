@@ -1,4 +1,4 @@
-import Home from './Home';
+import Home from './containers/Home/Home';
 import Grid from './Grid';
 import {fetchPopularRepos} from './api';
 
