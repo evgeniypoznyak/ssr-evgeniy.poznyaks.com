@@ -1,14 +1,7 @@
 import React from 'react';
 import Home from '../Home';
 import renderer from 'react-test-renderer';
-// import {shallow} from 'enzyme';
-// setup file
-import {configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-configure({adapter: new Adapter()});
-
-// test file
-import { shallow, mount, render } from 'enzyme';
+import {shallow} from 'enzyme';
 
 describe('Home', () => {
     it('renders correctly', () => {
@@ -17,8 +10,10 @@ describe('Home', () => {
         expect(tree.children.length).toBe(2);
     });
 
-    it('should render correctly', () => {
+    it('should render correctly with enzyme', () => {
         const wrapper = shallow(<Home/>);
-        console.log(wrapper);
+        // console.log(wrapper.getElement().props.children.length);
+        expect(wrapper.getElement()).toMatchSnapshot();
+        expect(wrapper.getElement().props.children.length).toBe(2);
     });
 });

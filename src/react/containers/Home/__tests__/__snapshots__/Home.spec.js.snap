@@ -10,3 +10,14 @@ exports[`Home renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Home should render correctly with enzyme 1`] = `
+<div>
+  <div>
+    Welcome
+  </div>
+  <div>
+    Welcome Again
+  </div>
+</div>
+`;
