@@ -8,11 +8,11 @@ import {ServerStyleSheets} from '@material-ui/styles';
 import routes from '../react/routes';
 import {ReactMaterialUI} from '../react';
 
-
 const app = express();
 app.use(cors());
 app.use(express.static('public'));
 
+//
 function renderStartUpPage({html, css, data} = {}) {
     return `
     <!DOCTYPE html>
@@ -41,11 +41,13 @@ app.get('*', (req, res, next) => {
         : Promise.resolve();
 
     promise.then((data) => {
+        // console.log('PROMISE: ', data);
         const sheets = new ServerStyleSheets();
         const context = {data};
 
         const html = ReactDOMServer.renderToString(
             sheets.collect(
+                // context will be available only where is routes will be rendered by <Switch>
                 <StaticRouter location={req.url} context={context}>
                     <ReactMaterialUI/>
                 </StaticRouter>),

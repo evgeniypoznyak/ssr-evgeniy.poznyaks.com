@@ -1,17 +1,18 @@
 import Home from './containers/Home/Home';
 import Grid from './Grid';
-import {fetchPopularRepos} from './api';
+import {fetchPopularRepos, fetchSkills} from './api';
 
 const routes = [
     {
         path: '/',
         exact: true,
         component: Home,
+        fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
     },
     {
-        path: '/popular/:id',
+        path: '/skills/:id',
         component: Grid,
-        fetchInitialData: (path = '') => fetchPopularRepos(path.split('/').pop()),
+        fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
     },
 ];
 

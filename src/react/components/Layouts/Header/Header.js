@@ -22,8 +22,6 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import {Link} from 'react-router-dom';
 
-/* TODO: refactor this */
-import {State} from '../../shared/StateManager';
 
 function ElevationScroll(props) {
     const {children, window} = props;
@@ -77,9 +75,6 @@ function Header(props) {
             margin: 'auto',
         },
     }));
-
-    /* TODO: refactor this call*/
-    const skills = useContext(State);
 
     const [state, setState] = React.useState({
         top: false,

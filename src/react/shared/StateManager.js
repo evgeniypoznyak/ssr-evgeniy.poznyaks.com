@@ -1,8 +1,4 @@
-import React from 'react';
-
-export const State = React.createContext(null);
-
-export const SortSkills = (skills) => {
+export const sortSkills = (skills) => {
     const sortedSkills = skills.slice().sort(compareByOrder);
     return sortedSkills.reduce((acc, curr,) => {
         if (curr['panel'] === 'left') {
