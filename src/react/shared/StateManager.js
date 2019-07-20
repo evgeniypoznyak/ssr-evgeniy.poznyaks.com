@@ -1,6 +1,8 @@
+import {createContext} from 'react';
+
 export const sortSkills = (skills) => {
     const sortedSkills = skills.slice().sort(compareByOrder);
-    return sortedSkills.reduce((acc, curr,) => {
+    return sortedSkills.reduce((acc, curr) => {
         if (curr['panel'] === 'left') {
             acc['left'].push(curr);
         }
@@ -20,3 +22,6 @@ export const compareByOrder = (a, b) => {
     }
     return 0;
 };
+
+
+export const State = createContext(null);

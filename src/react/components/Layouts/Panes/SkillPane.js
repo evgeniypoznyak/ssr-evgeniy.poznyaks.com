@@ -21,36 +21,40 @@ const useStyles = makeStyles((theme) => ({
     list: {
         width: 250,
     },
+    hiddenSkill: {
+        display: 'none',
+    },
+
 }));
 const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
 const SkillPane = (props) => {
+    // console.log(props.skills[0].name);
     const classes = useStyles();
     return (
-        <Hidden only={['sm', 'xs']}>
-            <Grid item md={2} lg={2}>
-                <Paper style={props.styles.Paper}>
-                    <List>
-                        {props.skills.map((skill, index) => (
-                            <Fragment key={skill.id}>
-                                <ListItem
-                                    alignItems={'center'}
-                                    button
-                                    component={AdapterLink}
-                                    to={'/skills/' + skill.id}>
-                                    <ListItemAvatar>
-                                        <Avatar alt={skill.name} src={skill.logo}/>
-                                    </ListItemAvatar>
-                                    <ListItemText primary={skill.name} className={classes.skillName}/>
-                                </ListItem>
-                                {props.skills[index + 1] ? <Divider component={'li'}/> : null}
-                            </Fragment>
-                        ))}
-                    </List>
-                </Paper>
 
-            </Grid>
+        <Grid item md={2} lg={2}>
+            <Paper style={props.styles.Paper}>
+                <List>
+                    {props.skills.map((skill, index) => (
+                        <Fragment key={skill.id}>
+                            <ListItem
+                                alignItems={'center'}
+                                button
+                                component={AdapterLink}
+                                to={'/skills/' + skill.id}>
+                                <ListItemAvatar>
+                                    <Avatar alt={skill.name} src={skill.logo}/>
+                                </ListItemAvatar>
+                                <ListItemText primary={skill.name} className={classes.skillName}/>
+                            </ListItem>
+                            {props.skills[index + 1] ? <Divider component={'li'}/> : null}
+                        </Fragment>
+                    ))}
+                </List>
+            </Paper>
 
-        </Hidden>
+        </Grid>
+
     );
 };
 export default SkillPane;

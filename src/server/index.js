@@ -7,10 +7,12 @@ import {StaticRouter, matchPath} from 'react-router-dom';
 import {ServerStyleSheets} from '@material-ui/styles';
 import routes from '../react/routes';
 import {ReactMaterialUI} from '../react';
+import {State} from '../react/shared/StateManager';
 
 const app = express();
 app.use(cors());
 app.use(express.static('public'));
+
 
 //
 function renderStartUpPage({html, css, data} = {}) {
@@ -48,11 +50,13 @@ app.get('*', (req, res, next) => {
         const html = ReactDOMServer.renderToString(
             sheets.collect(
                 // context will be available only where is routes will be rendered by <Switch>
-                <StaticRouter location={req.url} context={context}>
-                    <ReactMaterialUI/>
-                </StaticRouter>),
+                <State.Provider value={{data}}>
+                    <StaticRouter location={req.url} context={context}>
+                        <ReactMaterialUI/>
+                    </StaticRouter>
+                </State.Provider>,
+            ),
         );
-        // Grab the CSS from our sheets.
         const css = sheets.toString();
         res.send(renderStartUpPage({html, css, data}));
     }).catch(next);

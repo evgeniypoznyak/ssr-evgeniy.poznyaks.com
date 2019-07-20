@@ -21,6 +21,7 @@ import {NavLink} from 'react-router-dom';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import {Link} from 'react-router-dom';
+import {State} from '../../../shared/StateManager';
 
 
 function ElevationScroll(props) {
@@ -83,7 +84,7 @@ function Header(props) {
         right: false,
     });
     const classes = useStyles();
-
+    const context = useContext(State);
     const toggleDrawer = (side, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -113,22 +114,21 @@ function Header(props) {
                 <Typography variant={'h6'} align={'center'}>
                     My skills
                 </Typography>
-                {/* TODO: refactor this block*/}
-                {/* {skills.data.rawData.map((skill) => (*/}
-                {/*    <Fragment key={skill.id}>*/}
-                {/*        <ListItem*/}
-                {/*            alignItems={'center'}*/}
-                {/*            button*/}
-                {/*            component={AdapterLink}*/}
-                {/*            to={'/skills/' + skill.id}>*/}
-                {/*            <ListItemAvatar>*/}
-                {/*                <Avatar alt={skill.name} src={skill.logo}/>*/}
-                {/*            </ListItemAvatar>*/}
-                {/*            <ListItemText primary={skill.name} className={classes.skillName}/>*/}
-                {/*        </ListItem>*/}
-                {/*        <Divider component="li"/>*/}
-                {/*    </Fragment>*/}
-                {/* ))}*/}
+                {context.data.rawData.map((skill) => (
+                    <Fragment key={skill.id}>
+                        <ListItem
+                            alignItems={'center'}
+                            button
+                            component={AdapterLink}
+                            to={'/skills/' + skill.id}>
+                            <ListItemAvatar>
+                                <Avatar alt={skill.name} src={skill.logo}/>
+                            </ListItemAvatar>
+                            <ListItemText primary={skill.name} className={classes.skillName}/>
+                        </ListItem>
+                        <Divider component="li"/>
+                    </Fragment>
+                ))}
             </List>
         </div>
     );
@@ -173,7 +173,7 @@ function Header(props) {
                 <AppBar>
                     <Toolbar>
                         <IconButton edge="start" className={classes.menuButton} onClick={toggleDrawer('left', true)}
-                            color="inherit" aria-label="Menu">
+                                    color="inherit" aria-label="Menu">
                             <MenuIcon/>
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>
@@ -181,13 +181,13 @@ function Header(props) {
                                 to={'/'}
                                 style={{textDecoration: 'none', color: 'inherit'}}
                                 activeClassName={classes.active}>
-                                <Button color="inherit">Evgeniy Poznyak</Button></NavLink>
+                                <Button color="inherit">REACT SSR TEST</Button></NavLink>
                         </Typography>
                         <Button
                             href={'https://evgeniy.poznyaks.com/docs/resume/Evgeniy_Poznyak_Resume.pdf'}
                             color="inherit"
                             target="_blank"
-                        >Resume</Button>
+                        >TEST</Button>
                         {adminMenu}
                     </Toolbar>
                 </AppBar>
