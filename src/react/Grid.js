@@ -8,21 +8,22 @@ class Grid extends Component {
         // eslint-disable-next-line no-undef
         if (__isBrowser__) {
             repos = window.__INITIAL_DATA__;
-            console.log("1: ",repos);
+            // console.log("1: ",repos);
             // delete window.__INITIAL_DATA__;
         }
         if (!__isBrowser__ && this.props.staticContext) {
             repos = this.props.staticContext.data;
-            console.log("2: ",repos);
+            // console.log("2: ",repos);
         }
         if (!__isBrowser__ && !this.props.staticContext) {
             const context = useContext(State);
             repos = context.data;
-            console.log("3: ", repos);
+            // console.log("3: ", repos);
         }
+        // console.log(repos);
 
         this.state = {
-            repos: repos.rawData,
+            repos: repos,
             loading: !repos,
         };
 
@@ -58,20 +59,10 @@ class Grid extends Component {
         if (loading === true) {
             return <p>LOADING...</p>;
         }
-        console.log(repos);
+        // console.log(repos);
 
         return (
             <ul style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
-                {/*{repos.map(({name, owner, stargazers_count, html_url, score}) => (*/}
-                {/*    <li key={name} style={{margin: 30}}>*/}
-                {/*        <ul>*/}
-                {/*            <li><a href={html_url}>{name}</a></li>*/}
-                {/*            /!* <li>@{owner.login}</li>*!/*/}
-                {/*            /!* <li>{stargazers_count} stars</li>*!/*/}
-                {/*            /!* <li>{score} score</li>*!/*/}
-                {/*        </ul>*/}
-                {/*    </li>*/}
-                {/*))}*/}
             </ul>
         );
     }

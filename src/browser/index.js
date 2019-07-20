@@ -18,6 +18,7 @@ function ReactBrowserApp() {
         data = window.__INITIAL_DATA__;
         // delete window.__INITIAL_DATA__;
     }
+    // console.log(data);
     return (
         <State.Provider value={{data}}>
             <BrowserRouter>
