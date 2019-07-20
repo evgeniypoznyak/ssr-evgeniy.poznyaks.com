@@ -1,17 +1,12 @@
-import React, {useContext} from 'react';
-// import {State} from './App';
-// import {State} from '../server';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 
-/**
- *
- * @return {*}
- * @constructor
- */
 export default function NoMatch(props) {
-
     return (
         <div>
-            Four Oh Four
+            <Typography variant="h1" component="h2">
+                404: Page not found
+            </Typography>
         </div>
     );
 }

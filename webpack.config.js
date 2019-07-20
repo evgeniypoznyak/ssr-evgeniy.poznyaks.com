@@ -5,6 +5,7 @@ const nodeExternals = require('webpack-node-externals');
 const common = {
     devtool: 'cheap-module-source-map',
     module: {
+        //
         rules: [
             {
                 test: /\.(js)$/,
@@ -12,7 +13,9 @@ const common = {
                 loader: ['babel-loader'],
             },
         ],
+
     },
+
     resolve: {
         alias: {
             '@material-ui/core': '@material-ui/core/es',

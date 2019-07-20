@@ -8,13 +8,12 @@ import {ServerStyleSheets} from '@material-ui/styles';
 import routes from '../react/routes';
 import {ReactMaterialUI} from '../react';
 import {State} from '../react/shared/StateManager';
+import {getSkillsByPanes, skills} from '../react/api';
 
 const app = express();
 app.use(cors());
 app.use(express.static('public'));
 
-
-//
 function renderStartUpPage({html, css, data} = {}) {
     return `
     <!DOCTYPE html>
@@ -23,7 +22,6 @@ function renderStartUpPage({html, css, data} = {}) {
         <title>Evgeniy Poznyak - Software Engineer</title>
         <style id="jss-server-side">${css}</style>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <!-- Fonts to support Material Design -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       </head>
       <body>
@@ -43,8 +41,11 @@ app.get('*', (req, res, next) => {
         : Promise.resolve();
 
     promise.then((data) => {
-        // console.log('PROMISE: ', data);
         const sheets = new ServerStyleSheets();
+        // todo fix this!
+        if (!data) {
+            data = {rawData: skills, sortedData: getSkillsByPanes(skills)};
+        }
         const context = {data};
 
         const html = ReactDOMServer.renderToString(

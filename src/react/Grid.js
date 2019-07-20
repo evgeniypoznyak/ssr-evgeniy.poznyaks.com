@@ -4,34 +4,31 @@ import {State} from './shared/StateManager';
 class Grid extends Component {
     constructor(props) {
         super(props);
-        let repos;
+        let skills;
         // eslint-disable-next-line no-undef
         if (__isBrowser__) {
-            repos = window.__INITIAL_DATA__;
-            // console.log("1: ",repos);
-            // delete window.__INITIAL_DATA__;
+            skills = window.__INITIAL_DATA__;
         }
         if (!__isBrowser__ && this.props.staticContext) {
-            repos = this.props.staticContext.data;
-            // console.log("2: ",repos);
+            skills = this.props.staticContext.data;
         }
         if (!__isBrowser__ && !this.props.staticContext) {
             const context = useContext(State);
-            repos = context.data;
-            // console.log("3: ", repos);
+            skills = context.data;
         }
-        // console.log(repos);
 
         this.state = {
-            repos: repos,
-            loading: !repos,
+            skills
+                : skills,
+            loading: !skills,
         };
 
         this.fetchRepos = this.fetchRepos.bind(this);
     }
 
     componentDidMount() {
-        if (!this.state.repos) {
+        if (!this.state.skills
+        ) {
             this.fetchRepos(this.props.match.params.id);
         }
     }
@@ -48,19 +45,20 @@ class Grid extends Component {
         }));
 
         this.props.fetchInitialData(lang)
-            .then((repos) => this.setState(() => ({
-                repos,
+            .then((skills
+            ) => this.setState(() => ({
+                skills
+                ,
                 loading: false,
             })));
     }
 
     render() {
-        const {loading, repos} = this.state;
+        const {loading, skills
+        } = this.state;
         if (loading === true) {
             return <p>LOADING...</p>;
         }
-        // console.log(repos);
-
         return (
             <ul style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
             </ul>

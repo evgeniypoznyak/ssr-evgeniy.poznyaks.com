@@ -1,4 +1,4 @@
-import {skills, getSkillsByPanes, sortByOrder} from '../api';
+import {skills, getSkillsByPanes, sortByOrder} from './api';
 
 const api = getSkillsByPanes(skills);
 

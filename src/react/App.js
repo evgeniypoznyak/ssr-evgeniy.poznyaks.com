@@ -20,11 +20,9 @@ const App = (props) => {
     </Switch>;
 
     return (
-
         <Layout>
             {reactRoutes}
         </Layout>
-
     );
 };
 export default App;

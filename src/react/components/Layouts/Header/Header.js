@@ -173,7 +173,7 @@ function Header(props) {
                 <AppBar>
                     <Toolbar>
                         <IconButton edge="start" className={classes.menuButton} onClick={toggleDrawer('left', true)}
-                                    color="inherit" aria-label="Menu">
+                            color="inherit" aria-label="Menu">
                             <MenuIcon/>
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>
