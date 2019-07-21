@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render correctly with enzyme 1`] = `
+<div>
+  <ForwardRef(WithStyles)
+    component="h2"
+    variant="h1"
+  >
+    404: Page not found
+  </ForwardRef(WithStyles)>
+</div>
+`;

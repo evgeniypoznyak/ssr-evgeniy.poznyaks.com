@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import routes from './routes';
 import {Route, Switch} from 'react-router-dom';
-import NoMatch from './NoMatch';
+import NoMatch from './components/404/NoMatch';
 import Layout from './hoc/Layout/Layout';
 
 const App = (props) => {

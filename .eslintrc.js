@@ -17,13 +17,14 @@ module.exports = {
     },
     plugins: ['react'],
     rules: {
-        "require-jsdoc": [2, {
-            "require": {
-                "FunctionDeclaration": false,
-                "MethodDefinition": false,
-                "ClassDeclaration": false
-            }
+        'require-jsdoc': [2, {
+            'require': {
+                'FunctionDeclaration': false,
+                'MethodDefinition': false,
+                'ClassDeclaration': false,
+            },
         }],
+        'arrow-parens': ['error', 'as-needed'],
         'max-len': [2, 120, 4],
         'react/prop-types': ['off'],
         'react/display-name': ['off'],
@@ -41,8 +42,8 @@ module.exports = {
         'prefer-arrow-callback': 'error',
         strict: 'error',
         'symbol-description': 'error',
-        yoda: ['error', 'never', {exceptRange: true}
+        yoda: ['error', 'never', {exceptRange: true},
         ],
-        "no-trailing-spaces": ["error", {"skipBlankLines": true}]
+        'no-trailing-spaces': ['error', {'skipBlankLines': true}],
     },
 };

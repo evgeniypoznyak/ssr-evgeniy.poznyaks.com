@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render correctly with enzyme 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <ForwardRef(WithStyles)
+    color="inherit"
+    position="static"
+  >
+    <ForwardRef(WithStyles)
+      indicatorColor="primary"
+      onChange={[Function]}
+      textColor="primary"
+      value={0}
+      variant="fullWidth"
+    >
+      <ForwardRef(WithStyles)
+        label="Item One"
+      />
+      <ForwardRef(WithStyles)
+        label="Item Two"
+      />
+      <ForwardRef(WithStyles)
+        label="Item Three"
+      />
+    </ForwardRef(WithStyles)>
+  </ForwardRef(WithStyles)>
+</div>
+`;

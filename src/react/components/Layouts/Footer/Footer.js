@@ -1,16 +1,12 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-// import SwipeableViews from 'react-swipeable-views';
 import {
     makeStyles,
-    // useTheme
 } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-
-// import PictureAsPdf from '@material-ui/icons/PictureAsPdf';
 
 function TabContainer({children, dir}) {
     return (
@@ -25,27 +21,19 @@ TabContainer.propTypes = {
     dir: PropTypes.string.isRequired,
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     root: {
-        // backgroundColor: theme.palette.background.paper,
-        // width: 500,
         marginTop: 20,
     },
 }));
 
 export default function Footer() {
     const classes = useStyles();
-    // const theme = useTheme();
     const [value, setValue] = useState(0);
 
     function handleChange(event, newValue) {
         setValue(newValue);
     }
-
-
-    // function handleChangeIndex(index) {
-    //     setValue(index);
-    // }
 
     return (
         <div className={classes.root}>
@@ -62,16 +50,6 @@ export default function Footer() {
                     <Tab label="Item Three"/>
                 </Tabs>
             </AppBar>
-            {/* <SwipeableViews*/}
-            {/*    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}*/}
-            {/*    index={value}*/}
-            {/*    onChangeIndex={handleChangeIndex}*/}
-            {/* >*/}
-            {/*    <TabContainer dir={theme.direction}>Item One</TabContainer>*/}
-            {/*    <TabContainer dir={theme.direction}>Item Two</TabContainer>*/}
-            {/*    <TabContainer dir={theme.direction}>Item Three</TabContainer>*/}
-            {/* </SwipeableViews>*/}
         </div>
     );
 }
-// export default Footer;
