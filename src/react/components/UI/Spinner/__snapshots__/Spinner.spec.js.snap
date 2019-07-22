@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render correctly with enzyme 1`] = `
+<div>
+  <ForwardRef(WithStyles)
+    className="makeStyles-progress-1"
+  />
+</div>
+`;
+
+exports[`Spinner should render correctly with enzyme 1`] = `
+<div>
+  <ForwardRef(WithStyles)
+    className="makeStyles-progress-1"
+  />
+</div>
+`;

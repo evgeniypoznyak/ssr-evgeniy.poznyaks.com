@@ -1,13 +1,12 @@
 import React, {useContext} from 'react';
 import {Grid} from '@material-ui/core';
-import CenterPane from '../Panes/CenterPane';
+import CenterPane from '../Panes/CenterPane/CenterPane';
 import {State} from '../../../shared/StateManager';
-import SkillPane from '../Panes/SkillPane';
+import SkillPane from '../Panes/SkillPane/SkillPane';
 
 
 const styles = {
     Paper: {
-        // height: "100%",
         marginTop: 5,
         marginBottom: 10,
     },
@@ -21,10 +20,8 @@ const styles = {
     },
 };
 
-const Main = (props) => {
+const Main = props => {
     const context = useContext(State);
-
-    // console.log(context.data);
     return (
         <Grid container justify={'space-between'}>
             <SkillPane styles={styles} skills={context.data.sortedData.left}/>
