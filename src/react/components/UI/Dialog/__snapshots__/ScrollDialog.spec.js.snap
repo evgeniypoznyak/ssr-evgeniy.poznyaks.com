@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollDialog should render correctly with enzyme 1`] = `
+<div>
+  <ForwardRef(WithStyles)
+    onClick={[Function]}
+  >
+    Read more
+  </ForwardRef(WithStyles)>
+  <ForwardRef(WithStyles)
+    aria-labelledby="scroll-dialog-title"
+    fullWidth={true}
+    maxWidth="lg"
+    onClose={[Function]}
+    open={true}
+    scroll="paper"
+  >
+    <ForwardRef(WithStyles)
+      id="scroll-dialog-title"
+    >
+      test title
+    </ForwardRef(WithStyles)>
+    <ForwardRef(WithStyles)
+      className="makeStyles-content-2"
+      dividers={true}
+    >
+      <ForwardRef(WithStyles)
+        className="makeStyles-content-2"
+      >
+        Some Text
+      </ForwardRef(WithStyles)>
+    </ForwardRef(WithStyles)>
+    <ForwardRef(WithStyles)>
+      <ForwardRef(WithStyles)
+        color="primary"
+        onClick={[Function]}
+      >
+        Close
+      </ForwardRef(WithStyles)>
+    </ForwardRef(WithStyles)>
+  </ForwardRef(WithStyles)>
+</div>
+`;

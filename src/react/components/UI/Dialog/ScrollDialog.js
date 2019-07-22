@@ -6,8 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {makeStyles} from '@material-ui/core/styles';
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     title: {
         flexGrow: 1,
     },
@@ -15,12 +14,13 @@ const useStyles = makeStyles((theme) => ({
         padding: 10,
     },
 }));
+
 export default function ScrollDialog(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [scroll, setScroll] = React.useState('paper');
 
-    const handleClickOpen = (scrollType) => () => {
+    const handleClickOpen = scrollType => () => {
         setOpen(true);
         setScroll(scrollType);
     };
@@ -28,7 +28,6 @@ export default function ScrollDialog(props) {
     function handleClose() {
         setOpen(false);
     }
-
 
     return (
         <div>
