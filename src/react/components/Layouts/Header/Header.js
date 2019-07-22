@@ -85,6 +85,9 @@ function Header(props) {
     });
     const classes = useStyles();
     const context = useContext(State);
+
+    console.log(context);
+
     const toggleDrawer = (side, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;

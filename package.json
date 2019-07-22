@@ -40,6 +40,7 @@
     "eslint-plugin-react": "^7.14.2",
     "jest": "^24.8.0",
     "jest-config": "latest",
+    "jooks": "0.0.16",
     "nodemon": "^1.19.1",
     "react-test-renderer": "^16.8.6",
     "webpack": "^3.10.0",
