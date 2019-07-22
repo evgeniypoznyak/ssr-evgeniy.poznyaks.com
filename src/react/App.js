@@ -20,7 +20,7 @@ const App = (props) => {
     </Switch>;
 
     return (
-        <Layout>
+        <Layout context={props.context}>
             {reactRoutes}
         </Layout>
     );

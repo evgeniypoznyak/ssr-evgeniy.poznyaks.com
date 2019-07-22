@@ -1,7 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Grid} from '@material-ui/core';
 import CenterPane from '../Panes/CenterPane/CenterPane';
-import {State} from '../../../shared/StateManager';
 import SkillPane from '../Panes/SkillPane/SkillPane';
 
 
@@ -21,12 +20,11 @@ const styles = {
 };
 
 const Main = props => {
-    const context = useContext(State);
     return (
         <Grid container justify={'space-between'}>
-            <SkillPane styles={styles} skills={context.data.sortedData.left}/>
+            <SkillPane styles={styles} skills={props.context.data.sortedData.left}/>
             <CenterPane styles={styles}>{props.children}</CenterPane>
-            <SkillPane styles={styles} skills={context.data.sortedData.right}/>
+            <SkillPane styles={styles} skills={props.context.data.sortedData.right}/>
         </Grid>
     );
 };
