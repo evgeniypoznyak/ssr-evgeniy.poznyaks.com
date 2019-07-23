@@ -22,7 +22,7 @@ describe('Main', () => {
         expect(wrapper.children.length).toBe(1);
         expect(wrapper.getElement()).toMatchSnapshot();
     });
-    it('should be text on the page', () => {
+    it('should be tested text on the page', () => {
         const grid = wrapper.find(Grid);
         const skillPane = wrapper.find(SkillPane);
         const centerPane = wrapper.find(CenterPane);

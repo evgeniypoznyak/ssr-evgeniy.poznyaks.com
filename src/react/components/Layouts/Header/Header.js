@@ -1,4 +1,4 @@
-import React, {Fragment, useContext} from 'react';
+import React, {Fragment} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -21,14 +21,9 @@ import {NavLink} from 'react-router-dom';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import {Link} from 'react-router-dom';
-import {State} from '../../../shared/StateManager';
-
 
 function ElevationScroll(props) {
     const {children, window} = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 0,
@@ -42,13 +37,11 @@ function ElevationScroll(props) {
 
 ElevationScroll.propTypes = {
     children: PropTypes.node.isRequired,
-    // Injected by the documentation to work in an iframe.
-    // You won't need it on your project.
     window: PropTypes.func,
 };
 
 function Header(props) {
-    const useStyles = makeStyles((theme) => ({
+    const useStyles = makeStyles(theme => ({
         root: {
             flexGrow: 1,
         },
@@ -84,11 +77,8 @@ function Header(props) {
         right: false,
     });
     const classes = useStyles();
-    const context = useContext(State);
 
-    console.log(context);
-
-    const toggleDrawer = (side, open) => (event) => {
+    const toggleDrawer = (side, open) => event => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
@@ -96,7 +86,7 @@ function Header(props) {
         setState({...state, [side]: open});
     };
     const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
-    const leftSideList = (side) => (
+    const leftSideMenu = side => (
         <div
             className={classes.list}
             role="presentation"
@@ -117,7 +107,7 @@ function Header(props) {
                 <Typography variant={'h6'} align={'center'}>
                     My skills
                 </Typography>
-                {context.data.rawData.map((skill) => (
+                {props.context.data.rawData.map(skill => (
                     <Fragment key={skill.id}>
                         <ListItem
                             alignItems={'center'}
@@ -135,39 +125,6 @@ function Header(props) {
             </List>
         </div>
     );
-    const rightSideList = (side) => (
-        <div
-            className={classes.list}
-            role="presentation"
-            onClick={toggleDrawer(side, false)}
-            onKeyDown={toggleDrawer(side, false)}
-        >
-            <List>
-                <Typography variant={'h6'} align={'center'}>
-                    Admin menu
-                </Typography>
-                {/* todo replace this loop */}
-                {['Right-Inbox', 'Right-Starred', 'Right-Send email', 'Right-Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                        <ListItemText primary={text}/>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider/>
-            <List>
-                {/* todo replace this loop */}
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                        <ListItemText primary={text}/>
-                    </ListItem>
-                ))}
-            </List>
-        </div>
-    );
-
-    const adminMenu = null;
 
     return (
         <React.Fragment>
@@ -191,16 +148,12 @@ function Header(props) {
                             color="inherit"
                             target="_blank"
                         >TEST</Button>
-                        {adminMenu}
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
             <Toolbar/>
             <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
-                {leftSideList('left')}
-            </Drawer>
-            <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-                {rightSideList('right')}
+                {leftSideMenu('left')}
             </Drawer>
         </React.Fragment>
     );
