@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home should render correctly with enzyme 1`] = `
+exports[`<NoMatch/> should render correctly with enzyme 1`] = `
 <div>
   <ForwardRef(WithStyles)
     component="h2"
