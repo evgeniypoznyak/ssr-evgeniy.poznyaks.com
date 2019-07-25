@@ -8,7 +8,7 @@ import {ServerStyleSheets} from '@material-ui/styles';
 import routes from '../react/routes';
 import {ReactMaterialUI} from '../react';
 import {State} from '../react/shared/StateManager';
-import {getSkillsByPanes, skills} from '../react/api';
+import {getSkillsByPanes, skills} from '../react/shared/api';
 
 const app = express();
 app.use(cors());

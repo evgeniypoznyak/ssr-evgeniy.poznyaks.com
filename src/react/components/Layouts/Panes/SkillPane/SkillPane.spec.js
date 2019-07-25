@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount, shallow} from 'enzyme';
 import SkillPane from './SkillPane';
-import {skills, getSkillsByPanes} from '../../../../api';
+import {skills, getSkillsByPanes} from '../../../../shared/api';
 import {MemoryRouter} from 'react-router-dom';
 
 let wrapperLeft;

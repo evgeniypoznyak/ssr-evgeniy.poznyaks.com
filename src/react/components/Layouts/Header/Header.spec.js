@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import {MemoryRouter} from 'react-router-dom';
-import {getSkillsByPanes, skills} from '../../../api';
+import {getSkillsByPanes, skills} from '../../../shared/api';
 import Header from './Header';
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {mount, shallow} from 'enzyme';
 import App from './App';
 import {MemoryRouter, Route} from 'react-router-dom';
-import {getSkillsByPanes, skills} from '../api';
+import {getSkillsByPanes, skills} from '../shared/api';
 import Layout from '../hoc/Layout/Layout';
 
 let wrapper;
