@@ -1,4 +1,4 @@
-import {skills, getSkillsByPanes, sortByOrder} from './api';
+import {skills, getSkillsByPanes, sortByOrder, fetchSkills} from './api';
 
 const api = getSkillsByPanes(skills);
 
@@ -27,5 +27,15 @@ describe('api', () => {
         const actual = testArray.sort(sortByOrder);
 
         expect(actual).toEqual(expected);
+    });
+
+    it('Should fetchSkill return Promise', () => {
+        const promise = fetchSkills();
+        promise.then(data => {
+            expect(data).toHaveProperty('rawData');
+            expect(data).toHaveProperty('sortedData');
+            expect(data.sortedData).toHaveProperty('left');
+            expect(data.sortedData).toHaveProperty('right');
+        });
     });
 });

@@ -10,17 +10,21 @@ export const checkValidity = (value, rules) => {
     if (!rules) {
         return true;
     }
+    if (typeof (value) == 'undefined' || value == null) {
+        return false;
+    }
 
     if (rules.required) {
-        isValid = value.trim() !== '' && isValid;
+        isValid = ('' + value).trim() !== '' && isValid;
     }
 
     if (rules.minLength) {
-        isValid = value.length >= rules.minLength && isValid;
+        isValid = ('' + value).trim().length >= rules.minLength && isValid;
     }
 
     if (rules.maxLength) {
-        isValid = value.length <= rules.maxLength && isValid;
+        const lenght = ('' + value).trim().length;
+        isValid = lenght <= rules.maxLength && lenght > 0 && value !== '' && isValid;
     }
 
     if (rules.isEmail) {
@@ -46,4 +50,4 @@ export const browserLanguage = function browserLocale() {
     return navigator.language;
 };
 
-export const stripHtmlTags = (element) => element.replace(/<\/?[^>]+(>|$)/g, '');
+export const stripHtmlTags = element => element.replace(/<\/?[^>]+(>|$)/g, '');

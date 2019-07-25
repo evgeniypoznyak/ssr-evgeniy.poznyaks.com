@@ -1,6 +1,6 @@
 import Home from './containers/Home/Home';
 import Grid from './Grid';
-import {fetchPopularRepos, fetchSkills} from './api';
+import {fetchSkills} from './api';
 
 const routes = [
     {

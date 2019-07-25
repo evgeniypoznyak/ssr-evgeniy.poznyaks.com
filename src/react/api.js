@@ -1,47 +1,7 @@
-import fetch from 'isomorphic-fetch';
-
-/**
- *
- * @param {string} language
- * @return {Promise<any | never>}
- */
-export function fetchPopularRepos(language = 'all') {
-    const encodedURI = encodeURI(
-        `https://api.github.com/search/repositories?q=stars:>1+language:
-        ${language}&sort=stars&order=desc&type=Repositories`,
-    );
-
-    return fetch(encodedURI)
-        .then((data) => data.json())
-        .then((repos) => repos.items)
-        .catch((error) => {
-            console.warn(error);
-            return null;
-        });
-}
-
-
 export function fetchSkills(skill = 'all') {
-    console.log(skill);
     return new Promise((resolve, reject) => {
         resolve({rawData: skills, sortedData: getSkillsByPanes(skills)});
     });
-
-    //
-    // const encodedURI = encodeURI(
-    //     `https://api.github.com/search/repositories?q=stars:>1+language:
-    //     ${language}&sort=stars&order=desc&type=Repositories`,
-    // );
-    //
-    // return fetch(encodedURI)
-    //     .then((data) => data.json())
-    //     .then((repos) => repos.items)
-    //     .catch((error) => {
-    //         console.warn(error);
-    //         return null;
-    //     });
-    //
-    //
 }
 
 
