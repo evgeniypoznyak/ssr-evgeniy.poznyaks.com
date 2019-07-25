@@ -1,19 +1,31 @@
 import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
+import {Bio} from '../../shared/api';
 
-export default function Home(props) {
-    // let repos;
-    // // eslint-disable-next-line no-undef
-    // if (__isBrowser__) {
-    //     repos = window.__INITIAL_DATA__;
-    //     console.log("Home browser: ", repos);
-    // } else {
-    //     repos = props.staticContext;
-    //     console.log("Home Server: ", repos);
-    // }
+const useStyles = makeStyles(theme => ({
+
+    avatar: {
+        margin: 10,
+    },
+    bigAvatar: {
+        margin: 20,
+        width: 100,
+        height: 100,
+    },
+}));
+
+const Home = props => {
+    const classes = useStyles();
     return (
         <div>
-            <div>Welcome</div>
-            <div>Welcome Again</div>
+            <Grid container justify="flex-end">
+                <Avatar alt="Evgeniy Poznyak" src={'/assets/me.jpg'} className={classes.bigAvatar}/>
+            </Grid>
+            {Bio}
         </div>
     );
-}
+};
+
+export default Home;

@@ -12,7 +12,6 @@ describe('<Home/>', () => {
 
     it('should render correctly with enzyme', () => {
         const wrapper = shallow(<Home/>);
-        // console.log(wrapper.getElement().props.children.length);
         expect(wrapper.getElement()).toMatchSnapshot();
         expect(wrapper.getElement().props.children.length).toBe(2);
     });
