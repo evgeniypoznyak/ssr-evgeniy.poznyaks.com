@@ -44,8 +44,6 @@ export const checkValidity = (value, rules) => {
 export const browserLanguage = function browserLocale() {
     if (navigator.languages && navigator.languages.length) {
         return navigator.languages[0];
-    } else if (navigator.userLanguage) {
-        return navigator.userLanguage;
     }
     return navigator.language;
 };

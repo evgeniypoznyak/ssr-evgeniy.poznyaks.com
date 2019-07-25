@@ -1,4 +1,4 @@
-import {checkValidity, updateObject} from './utility';
+import {browserLanguage, checkValidity, updateObject} from './utility';
 
 describe('StateManager', () => {
     it('should return checkValidity with required=true works', () => {
@@ -96,6 +96,12 @@ describe('StateManager', () => {
         };
         const actual = updateObject(oldObj, newObj);
         expect(expected).toEqual(actual);
+    });
+
+    it('Should browserLanguage work', () => {
+        const actual = browserLanguage();
+        expect(actual.length > 0 ).toBeTruthy();
+        expect(actual).toEqual('en-US');
     });
 });
 

@@ -18,8 +18,7 @@ class Grid extends Component {
         }
 
         this.state = {
-            skills
-                : skills,
+            skills: skills,
             loading: !skills,
         };
 
@@ -45,16 +44,15 @@ class Grid extends Component {
         }));
 
         this.props.fetchInitialData(lang)
-            .then((skills
-            ) => this.setState(() => ({
-                skills
-                ,
+            .then(skills => this.setState(() => ({
+                skills,
                 loading: false,
             })));
     }
 
     render() {
-        const {loading, skills
+        const {
+            loading, skills,
         } = this.state;
         if (loading === true) {
             return <p>LOADING...</p>;
