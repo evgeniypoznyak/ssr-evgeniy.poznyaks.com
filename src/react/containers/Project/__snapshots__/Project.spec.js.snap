@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Project/> renders ScrollDialog 1`] = `ReactWrapper {}`;
+
+exports[`<Project/> renders correctly 1`] = `
+<ForwardRef(WithStyles)
+  className="makeStyles-card-2"
+>
+  <ForwardRef(WithStyles)
+    avatar={
+      <ForwardRef(WithStyles)
+        aria-label="Project"
+        className="makeStyles-avatar-6"
+        src="https://media.keyshot.com/uploads/2018/10/keyshot-icon-256.png"
+      />
+    }
+    subheader="May 29, 2013"
+    title="E and K Photography"
+  />
+  <div
+    className="makeStyles-sliderRoot-1"
+  >
+    <ForwardRef(WithStyles)
+      className="makeStyles-header-8"
+      elevation={0}
+      square={true}
+    >
+      <ForwardRef(WithStyles)
+        variant="caption"
+      >
+        Main page
+      </ForwardRef(WithStyles)>
+    </ForwardRef(WithStyles)>
+    <img
+      alt="Main page"
+      className="makeStyles-img-9"
+      src="https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60"
+    />
+    <ForwardRef(WithStyles)
+      activeStep={0}
+      backButton={
+        <ForwardRef(WithStyles)
+          disabled={true}
+          onClick={[Function]}
+          size="small"
+        >
+          <Memo />
+          Back
+        </ForwardRef(WithStyles)>
+      }
+      nextButton={
+        <ForwardRef(WithStyles)
+          disabled={false}
+          onClick={[Function]}
+          size="small"
+        >
+          Next
+          <Memo />
+        </ForwardRef(WithStyles)>
+      }
+      position="static"
+      steps={5}
+      variant="text"
+    />
+  </div>
+  <ForwardRef(WithStyles)>
+    <ForwardRef(WithStyles)
+      color="textSecondary"
+      component="p"
+      variant="body2"
+    >
+      In very beginning I created this website from scratch. It wasn't like it look like today, but back in the days my first sandbox live was this website.When I started write script, I didn't choice any library or framework, it was in pure php. Today this website is completely different.
+    </ForwardRef(WithStyles)>
+  </ForwardRef(WithStyles)>
+  <ForwardRef(WithStyles)
+    disableSpacing={true}
+  >
+    <ForwardRef(WithStyles)
+      aria-label="GitHub"
+      href="https://github.com/evgeniypoznyak/eandkphoto.com"
+      target="_blank"
+    >
+      <ForwardRef(WithStyles)
+        aria-label="Project"
+        className="makeStyles-smallAvatar-7"
+        src="https://pngimg.com/uploads/github/github_PNG42.png"
+      />
+    </ForwardRef(WithStyles)>
+    <ForwardRef(WithStyles)
+      aria-label="Website"
+      href="https://eandkphoto.com"
+      target="_blank"
+    >
+      <Memo />
+    </ForwardRef(WithStyles)>
+    <ForwardRef(WithStyles)
+      container={true}
+      justify="flex-end"
+    >
+      <ScrollDialog
+        title="E and K Photography"
+      >
+        <DetailedProject
+          description={
+            Array [
+              Object {
+                "description": "In very beginning I created PHP website from scratch. I didn't choice any library or framework, it was in pure php. In very beginning I created PHP website from scratch. I didn't choice any library or framework, it was in pure php.",
+                "picture": "https://hygger.io/blog/wp-content/uploads/2018/05/Scrum-3.jpg",
+              },
+              Object {
+                "description": "In very beginning I created PHP website from scratch. I didn't choice any library or framework, it was in pure php. In very beginning I created PHP website from scratch. I didn't choice any library or framework, it was in pure php.",
+                "picture": "https://hygger.io/blog/wp-content/uploads/2018/05/Scrum-3.jpg",
+              },
+            ]
+          }
+        />
+      </ScrollDialog>
+    </ForwardRef(WithStyles)>
+  </ForwardRef(WithStyles)>
+</ForwardRef(WithStyles)>
+`;

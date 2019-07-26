@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DetailedProject/> renders correctly 1`] = `
+<React.Fragment>
+  <React.Fragment>
+    <ForwardRef(WithStyles)
+      className="makeStyles-descriptionElement-4"
+    >
+      <React.Fragment>
+        <div
+          className="makeStyles-imageWrapper-2"
+        >
+          <img
+            alt="detailed"
+            className="makeStyles-image-3"
+            src="https://hygger.io/blog/wp-content/uploads/2018/05/Scrum-3.jpg"
+          />
+        </div>
+      </React.Fragment>
+      <ForwardRef(WithStyles)
+        className="makeStyles-divider-5"
+        component="hr"
+        variant="middle"
+      />
+      <div>
+        In very beginning I created PHP website from scratch. I didn't choice any library or framework, it was in pure php. In very beginning I created PHP website from scratch. I didn't choice any library or framework, it was in pure php.
+      </div>
+    </ForwardRef(WithStyles)>
+  </React.Fragment>
+  <React.Fragment>
+    <ForwardRef(WithStyles)
+      className="makeStyles-descriptionElement-4"
+    >
+      <React.Fragment>
+        <div
+          className="makeStyles-imageWrapper-2"
+        >
+          <img
+            alt="detailed"
+            className="makeStyles-image-3"
+            src="https://hygger.io/blog/wp-content/uploads/2018/05/Scrum-3.jpg"
+          />
+        </div>
+      </React.Fragment>
+      <ForwardRef(WithStyles)
+        className="makeStyles-divider-5"
+        component="hr"
+        variant="middle"
+      />
+      <div>
+        In very beginning I created PHP website from scratch. I didn't choice any library or framework, it was in pure php. In very beginning I created PHP website from scratch. I didn't choice any library or framework, it was in pure php.
+      </div>
+    </ForwardRef(WithStyles)>
+  </React.Fragment>
+</React.Fragment>
+`;

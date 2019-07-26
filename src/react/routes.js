@@ -1,6 +1,6 @@
 import Home from './containers/Home/Home';
-import Grid from './Grid';
 import {fetchSkills} from './shared/api';
+import Skill from './containers/Skill/Skill';
 
 const routes = [
     {
@@ -11,7 +11,7 @@ const routes = [
     },
     {
         path: '/skills/:id',
-        component: Grid,
+        component: Skill,
         fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
     },
 ];
