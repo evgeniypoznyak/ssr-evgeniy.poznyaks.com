@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
+import {getRandomString} from '../../../shared/utility';
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,7 +33,7 @@ export default function DetailedProject(props) {
         <Fragment>
             {props.description.map(d => {
                 return (
-                    <Fragment key={Math.floor(Math.random() * 20)}>
+                    <Fragment key={getRandomString(99)}>
                         <Paper className={classes.descriptionElement}>
                             {d.picture ? <Fragment>
                                 <div className={classes.imageWrapper}>

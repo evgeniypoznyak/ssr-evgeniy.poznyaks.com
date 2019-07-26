@@ -1,4 +1,4 @@
-import {browserLanguage, checkValidity, updateObject} from './utility';
+import {browserLanguage, checkValidity, getRandomString, updateObject} from './utility';
 
 describe('StateManager', () => {
     it('should return checkValidity with required=true works', () => {
@@ -100,8 +100,16 @@ describe('StateManager', () => {
 
     it('Should browserLanguage work', () => {
         const actual = browserLanguage();
-        expect(actual.length > 0 ).toBeTruthy();
+        expect(actual.length > 0).toBeTruthy();
         expect(actual).toEqual('en-US');
+    });
+
+    it('Should getRandomString work with 1000 random examples', () => {
+        for (let i = 0; i < 1000; i++) {
+            const expected = getRandomString(9);
+            const actual = getRandomString(9);
+            expect(actual).not.toEqual(expected);
+        }
     });
 });
 

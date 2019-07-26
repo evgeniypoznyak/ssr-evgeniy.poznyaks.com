@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Project from '../Project/Project';
 import {State} from '../../shared/StateManager';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import {getRandomString} from '../../shared/utility';
 
 const Skill = props => {
     const skills = [];
@@ -15,6 +16,7 @@ const Skill = props => {
     const state = useContext(State);
 
     let content = <Spinner/>;
+
     if (state) {
         skills.push(...state.data.rawData);
         const selectedSkill = skills.find(el => el.id === selectedPath);
@@ -36,7 +38,7 @@ const Skill = props => {
 
                     <Grid container justify={'space-evenly'}>
                         {selectedSkill.projects.map(project =>
-                            <Grid item key={project.id + Math.floor(Math.random() * 20)}>
+                            <Grid item key={project.id + '_' + getRandomString(99)}>
                                 <Project project={project}/>
                             </Grid>,
                         )}
