@@ -21,6 +21,7 @@ import {NavLink} from 'react-router-dom';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import {Link} from 'react-router-dom';
+import {processToggleDrawer} from './HeaderUtils';
 
 function ElevationScroll(props) {
     const {children, window} = props;
@@ -78,13 +79,8 @@ function Header(props) {
     });
     const classes = useStyles();
 
-    const toggleDrawer = (side, open) => event => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
+    const toggleDrawer = processToggleDrawer(setState, state);
 
-        setState({...state, [side]: open});
-    };
     const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
     const leftSideMenu = side => (
         <div
@@ -132,8 +128,13 @@ function Header(props) {
             <ElevationScroll {...props}>
                 <AppBar>
                     <Toolbar>
-                        <IconButton edge="start" className={classes.menuButton} onClick={toggleDrawer('left', true)}
-                            color="inherit" aria-label="Menu">
+                        <IconButton
+                            edge="start"
+                            className={classes.menuButton}
+                            onClick={toggleDrawer('left', true)}
+                            color="inherit"
+                            aria-label="Menu"
+                        >
                             <MenuIcon/>
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>

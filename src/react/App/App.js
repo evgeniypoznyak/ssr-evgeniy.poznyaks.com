@@ -9,7 +9,6 @@ const App = props => {
 
     }, []);
 
-    // Where is a Switch and is then StaticContent from router defined
     const reactRoutes = <Switch>
         {routes.map(({path, exact, component: Component, ...rest}) => (
             <Route key={path} path={path} exact={exact} render={props => (
