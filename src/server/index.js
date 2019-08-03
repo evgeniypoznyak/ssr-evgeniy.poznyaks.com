@@ -34,19 +34,25 @@ function renderStartUpPage({html, css, data} = {}) {
 }
 
 app.get('*', (req, res, next) => {
-    const activeRoute = routes.find((route) => matchPath(req.url, route)) || {};
+    const activeRoute = routes.find(route => matchPath(req.url, route)) || {};
 
     const promise = activeRoute.fetchInitialData
         ? activeRoute.fetchInitialData(req.path)
         : Promise.resolve();
 
-    promise.then((data) => {
+    promise.then(data => {
         const sheets = new ServerStyleSheets();
-        // todo fix this!
-        if (!data) {
+        if (!data.data) {
+            console.log('NOT!!!');
             data = {rawData: skills, sortedData: getSkillsByPanes(skills)};
         }
+        // const sortedData = getSkillsByPanes(data.data);
+        // data = {rawData: skills, sortedData: getSkillsByPanes(skills)};
         const context = {data};
+        // console.log('SERVER: rawData 0', data.rawData[0].name);
+        // console.log('SERVER: rawData 1', data.rawData[1].name);
+        // console.log('SERVER: 0', data.sortedData.left[0].name);
+        // console.log('SERVER: 1', data.sortedData.left[1].name);
 
         const html = ReactDOMServer.renderToString(
             sheets.collect(

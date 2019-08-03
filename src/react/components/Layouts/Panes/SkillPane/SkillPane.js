@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import {Grid, makeStyles, Paper} from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import Hidden from '@material-ui/core/Hidden';
 import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -10,7 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     button: {
         margin: theme.spacing(0.5),
         textAlign: 'center',
@@ -27,8 +26,9 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
-const SkillPane = (props) => {
-    // console.log(props.skills[0].name);
+const SkillPane = props => {
+    console.log(props.skills[0].name);
+    console.log(props.skills[1].name);
     const classes = useStyles();
     return (
 
