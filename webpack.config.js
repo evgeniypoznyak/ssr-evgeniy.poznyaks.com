@@ -25,7 +25,7 @@ const common = {
 
 const browserConfig = {
     ...common,
-    entry: './src/browser/index.js',
+    entry: ['@babel/polyfill', './src/browser/index.js'],
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
@@ -40,7 +40,7 @@ const browserConfig = {
 
 const serverConfig = {
     ...common,
-    entry: './src/server/index.js',
+    entry: ['@babel/polyfill', './src/server/index.js'],
     target: 'node',
     externals: [nodeExternals()],
     output: {

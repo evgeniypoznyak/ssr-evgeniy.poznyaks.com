@@ -8,7 +8,10 @@ import {ServerStyleSheets} from '@material-ui/styles';
 import routes from '../react/routes';
 import {ReactMaterialUI} from '../react';
 import {State} from '../react/shared/StateManager';
-import {getSkillsByPanes, skills} from '../react/shared/api';
+import {getSkillsByPanes} from '../react/shared/api';
+import {getSkillsFromApiGateway} from './helper';
+
+const promiseSkillsFromApiGateway = getSkillsFromApiGateway();
 
 const app = express();
 app.use(cors());
@@ -33,7 +36,9 @@ function renderStartUpPage({html, css, data} = {}) {
   `;
 }
 
-app.get('*', (req, res, next) => {
+app.get('*', async (req, res, next) => {
+    const skills = await promiseSkillsFromApiGateway;
+
     const activeRoute = routes.find(route => matchPath(req.url, route)) || {};
 
     const promise = activeRoute.fetchInitialData
@@ -42,18 +47,14 @@ app.get('*', (req, res, next) => {
 
     promise.then(data => {
         const sheets = new ServerStyleSheets();
-        if (!data.data) {
-            console.log('NOT!!!');
-            data = {rawData: skills, sortedData: getSkillsByPanes(skills)};
-        }
+        // if (!data.data) {
+        //     console.log('NOT!!!');
+        //     data = {rawData: skills, sortedData: getSkillsByPanes(skills)};
+        // }
         // const sortedData = getSkillsByPanes(data.data);
-        // data = {rawData: skills, sortedData: getSkillsByPanes(skills)};
-        const context = {data};
-        // console.log('SERVER: rawData 0', data.rawData[0].name);
-        // console.log('SERVER: rawData 1', data.rawData[1].name);
-        // console.log('SERVER: 0', data.sortedData.left[0].name);
-        // console.log('SERVER: 1', data.sortedData.left[1].name);
 
+        data = {rawData: skills, sortedData: getSkillsByPanes(skills)};
+        const context = {data};
         const html = ReactDOMServer.renderToString(
             sheets.collect(
                 // context will be available only where is routes will be rendered by <Switch>

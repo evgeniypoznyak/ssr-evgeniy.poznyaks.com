@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack -w & nodemon server.js",
     "verify-test": "jest --coverage",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "run-webpack": "webpack"
   },
   "author": "Evgeniy Poznyak",
   "license": "MIT",
@@ -47,6 +48,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
