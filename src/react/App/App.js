@@ -12,9 +12,8 @@ const App = props => {
     useEffect(() => {
         (async () => {
             const res = await verifyToken();
-            console.log(res);
             if (res === 'OK') {
-                context.data = {...context.data, 'authorized': true};
+                context.setData({...context.data, 'authorized': true});
             }
         })();
     }, []);

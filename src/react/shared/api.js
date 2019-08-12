@@ -20,8 +20,15 @@ export async function signInIntoApiGateway(data) {
 
 export async function verifyToken() {
     try {
+        // eslint-disable-next-line no-undef
+        if (__isBrowser__ && localStorage.getItem('token') && localStorage.getItem('token').length > 0) {
+            return 'OK';
+        }
+        // or make a real request, but everything will be verified on the server with token attached to the header.
+        /*
         const result = await axios.post('http://localhost:2222/api/auth/verify');
         return result.data;
+        */
     } catch (e) {
         console.log('Error: ', e.message);
         console.log('Something wrong happened with API Gateway! Returning default response.');

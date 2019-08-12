@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -42,16 +42,6 @@ ElevationScroll.propTypes = {
 };
 
 function Header(props) {
-    const {authorized, setAuthorized: setAuthorized} = useState(false);
-    useEffect(() => {
-        console.log('Header context: ', props.context);
-        if (props.context.authorized === true) {
-            setAuthorized(true);
-            console.log(authorized);
-
-        }
-    }, [props.context]);
-
 
     const useStyles = makeStyles(theme => ({
         root: {
@@ -133,6 +123,8 @@ function Header(props) {
         </div>
     );
 
+    const wow = props.context.data.authorized === true ? <Button>authorized</Button> : null;
+
     return (
         <React.Fragment>
             <CssBaseline/>
@@ -155,6 +147,7 @@ function Header(props) {
                                 activeClassName={classes.active}>
                                 <Button color="inherit">REACT SSR TEST</Button></NavLink>
                         </Typography>
+                        {wow}
                         <Button
                             href={'https://evgeniy.poznyaks.com/docs/resume/Evgeniy_Poznyak_Resume.pdf'}
                             color="inherit"
@@ -171,4 +164,4 @@ function Header(props) {
     );
 }
 
-export default Header;
+export default React.memo(Header);

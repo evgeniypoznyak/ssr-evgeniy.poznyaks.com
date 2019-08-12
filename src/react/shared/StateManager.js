@@ -1,4 +1,4 @@
-import {createContext} from 'react';
+import {createContext, useState} from 'react';
 
 export const sortSkills = skills => {
     const sortedSkills = skills.slice().sort(compareByOrder);
@@ -22,6 +22,7 @@ export const compareByOrder = (a, b) => {
     }
     return 0;
 };
+
 
 
 export const State = createContext(null);

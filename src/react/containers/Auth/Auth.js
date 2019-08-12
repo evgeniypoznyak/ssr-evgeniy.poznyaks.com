@@ -1,8 +1,9 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useContext} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {signInIntoApiGateway} from '../../shared/api';
+import {State} from '../../shared/StateManager';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -28,6 +29,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Auth() {
+    const context = useContext(State);
     const classes = useStyles();
     const [values, setValues] = React.useState({
         email: 'test@mail.com',
@@ -45,13 +47,19 @@ export default function Auth() {
                 password: values.password + '',
             });
         // eslint-disable-next-line no-undef
-        if (result.token.length > 0 && __isBrowser__) {
+        if (result.token.length > 0) {
             localStorage.setItem('token', result.token);
+            context.setData({...context.data, 'authorized': true});
         }
     };
 
+    const onSignOutClicked = async () => {
+        localStorage.removeItem('token');
+        context.setData({...context.data, 'authorized': false});
+    };
+
     const signInDisabled = () => {
-        return (values.email.length === 0 || values.password.length === 0);
+        return (context.data.authorized || (values.email.length === 0 || values.password.length === 0));
     };
 
     return (
@@ -91,6 +99,15 @@ export default function Auth() {
                 className={classes.button}
             >
                 Sign In
+            </Button>
+            <Button
+                disabled={!context.data.authorized}
+                variant="contained"
+                onClick={onSignOutClicked}
+                color="secondary"
+                className={classes.button}
+            >
+                Sign Out
             </Button>
         </Fragment>
 
