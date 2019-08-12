@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -42,6 +42,17 @@ ElevationScroll.propTypes = {
 };
 
 function Header(props) {
+    const {authorized, setAuthorized: setAuthorized} = useState(false);
+    useEffect(() => {
+        console.log('Header context: ', props.context);
+        if (props.context.authorized === true) {
+            setAuthorized(true);
+            console.log(authorized);
+
+        }
+    }, [props.context]);
+
+
     const useStyles = makeStyles(theme => ({
         root: {
             flexGrow: 1,

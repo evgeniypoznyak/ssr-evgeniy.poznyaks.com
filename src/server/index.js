@@ -52,13 +52,7 @@ app.get('*', async (req, res, next) => {
 
     promise.then(data => {
         const sheets = new ServerStyleSheets();
-        // if (!data.data) {
-        //     console.log('NOT!!!');
-        //     data = {rawData: skills, sortedData: getSkillsByPanes(skills)};
-        // }
-        // const sortedData = getSkillsByPanes(data.data);
-
-        data = {rawData: skills, sortedData: getSkillsByPanes(skills)};
+        data = {rawData: skills, sortedData: getSkillsByPanes(skills), authorized: false};
         const context = {data};
         const html = ReactDOMServer.renderToString(
             sheets.collect(

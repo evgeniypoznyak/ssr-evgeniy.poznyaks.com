@@ -1,17 +1,21 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import routes from '../routes';
 import {Route, Switch} from 'react-router-dom';
 import NoMatch from '../components/404/NoMatch';
 import Layout from '../hoc/Layout/Layout';
 import {verifyToken} from '../shared/api';
+import {State} from '../shared/StateManager';
 
 
 const App = props => {
-
+    const context = useContext(State);
     useEffect(() => {
         (async () => {
             const res = await verifyToken();
             console.log(res);
+            if (res === 'OK') {
+                context.data = {...context.data, 'authorized': true};
+            }
         })();
     }, []);
 
