@@ -11,10 +11,13 @@ import {State} from '../react/shared/StateManager';
 import {getSkillsByPanes} from '../react/shared/api';
 import {getSkillsFromApiGateway} from './helper';
 
+const cookieParser = require('cookie-parser');
+
 const promiseSkillsFromApiGateway = getSkillsFromApiGateway();
 
 const app = express();
 app.use(cors());
+app.use(cookieParser());
 app.use(express.static('public'));
 
 function renderStartUpPage({html, css, data} = {}) {
@@ -38,6 +41,8 @@ function renderStartUpPage({html, css, data} = {}) {
 
 app.get('*', async (req, res, next) => {
     const skills = await promiseSkillsFromApiGateway;
+
+    // res.cookie("token", 'poop');
 
     const activeRoute = routes.find(route => matchPath(req.url, route)) || {};
 

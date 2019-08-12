@@ -3,10 +3,16 @@ import routes from '../routes';
 import {Route, Switch} from 'react-router-dom';
 import NoMatch from '../components/404/NoMatch';
 import Layout from '../hoc/Layout/Layout';
+import {verifyToken} from '../shared/api';
+
 
 const App = props => {
-    useEffect(() => {
 
+    useEffect(() => {
+        (async () => {
+            const res = await verifyToken();
+            console.log(res);
+        })();
     }, []);
 
     const reactRoutes = <Switch>

@@ -1,7 +1,41 @@
+import client from './axios';
+
+
 export function fetchSkills(skill = 'all') {
     return new Promise((resolve, reject) => {
         resolve({rawData: skills, sortedData: getSkillsByPanes(skills)});
     });
+}
+
+
+export async function signInIntoApiGateway(data) {
+    try {
+        const result = await client.post('http://localhost:2222/api/auth', {...data});
+        return result.data;
+    } catch (e) {
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with API Gateway! Returning default response.');
+        return {token: ''};
+    }
+}
+
+export async function verifyToken() {
+    try {
+        // let token = '';
+        // if (localStorage) {
+        //     token = localStorage.getItem('token');
+        // }
+        // const headers = {
+        //     'Content-Type': 'application/json',
+        //     'x-auth-token': token,
+        // };
+        const result = await client.post('http://localhost:2222/api/auth/verify');
+        return result.data;
+    } catch (e) {
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with API Gateway! Returning default response.');
+        return {token: ''};
+    }
 }
 
 

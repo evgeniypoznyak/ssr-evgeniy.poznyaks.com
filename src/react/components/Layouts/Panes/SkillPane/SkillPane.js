@@ -27,11 +27,8 @@ const useStyles = makeStyles(theme => ({
 }));
 const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
 const SkillPane = props => {
-    console.log(props.skills[0].name);
-    console.log(props.skills[1].name);
     const classes = useStyles();
     return (
-
         <Grid item md={2} lg={2}>
             <Paper style={props.styles.Paper}>
                 <List>

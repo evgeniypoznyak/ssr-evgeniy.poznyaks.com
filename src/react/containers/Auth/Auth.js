@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import {signInIntoApiGateway} from '../../shared/api';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -37,6 +38,22 @@ export default function Auth() {
         setValues({...values, [name]: event.target.value});
     };
 
+    const onSignInClicked = async () => {
+        const result = await signInIntoApiGateway(
+            {
+                email: values.email + '',
+                password: values.password + '',
+            });
+        // eslint-disable-next-line no-undef
+        if (result.token.length > 0 && __isBrowser__) {
+            localStorage.setItem('token', result.token);
+        }
+    };
+
+    const signInDisabled = () => {
+        return (values.email.length === 0 || values.password.length === 0);
+    };
+
     return (
         <Fragment>
             <form className={classes.container} noValidate autoComplete="off">
@@ -53,7 +70,6 @@ export default function Auth() {
                     margin="normal"
                     variant="outlined"
                 />
-
                 <TextField
                     required
                     id="outlined-password-input"
@@ -67,7 +83,13 @@ export default function Auth() {
                     variant="outlined"
                 />
             </form>
-            <Button variant="contained" color="primary" className={classes.button}>
+            <Button
+                disabled={signInDisabled()}
+                variant="contained"
+                onClick={onSignInClicked}
+                color="primary"
+                className={classes.button}
+            >
                 Sign In
             </Button>
         </Fragment>
