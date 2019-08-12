@@ -1,4 +1,4 @@
-import client from './axios';
+import axios from './axios';
 
 
 export function fetchSkills(skill = 'all') {
@@ -7,10 +7,9 @@ export function fetchSkills(skill = 'all') {
     });
 }
 
-
 export async function signInIntoApiGateway(data) {
     try {
-        const result = await client.post('http://localhost:2222/api/auth', {...data});
+        const result = await axios.post('http://localhost:2222/api/auth', {...data});
         return result.data;
     } catch (e) {
         console.log('Error: ', e.message);
@@ -21,15 +20,7 @@ export async function signInIntoApiGateway(data) {
 
 export async function verifyToken() {
     try {
-        // let token = '';
-        // if (localStorage) {
-        //     token = localStorage.getItem('token');
-        // }
-        // const headers = {
-        //     'Content-Type': 'application/json',
-        //     'x-auth-token': token,
-        // };
-        const result = await client.post('http://localhost:2222/api/auth/verify');
+        const result = await axios.post('http://localhost:2222/api/auth/verify');
         return result.data;
     } catch (e) {
         console.log('Error: ', e.message);
@@ -37,7 +28,6 @@ export async function verifyToken() {
         return {token: ''};
     }
 }
-
 
 export const skills = [
     {

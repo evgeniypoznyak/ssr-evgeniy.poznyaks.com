@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 axios.interceptors.request.use(
     config => {
         let token = '';
@@ -10,7 +9,6 @@ axios.interceptors.request.use(
                 token = localStorage.getItem('token');
             }
         }
-
         config.headers['x-auth-token'] = token;
         return config;
     },
