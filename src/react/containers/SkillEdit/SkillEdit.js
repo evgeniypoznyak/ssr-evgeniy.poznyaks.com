@@ -8,6 +8,15 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexWrap: 'wrap',
     },
+    divider: {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: 15,
+        marginBottom: 15,
+        backgroundColor: '#c4c4c4',
+        height: 2,
+        width: '80%',
+    },
     textField: {
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
@@ -22,6 +31,8 @@ const useStyles = makeStyles(theme => ({
 
 const SkillEdit = props => {
     const skill = props.skill;
+    console.log(skill.projects[0]);
+    console.log(skill.projects[1]);
     const classes = useStyles();
     const [values, setValues] = useState(skill);
 
@@ -31,21 +42,20 @@ const SkillEdit = props => {
             [name]: event.target.value,
         });
     };
+    const handleProjectChange = (name, index) => event => {
+        let projects = skill.projects;
+        projects = skill.projects[index][name] = event.target.value;
+        setValues({
+            ...values,
+            projects,
+        });
+    };
 
     return (
         <Fragment>
             <Button color={'primary'} onClick={props.closeSkill}>Close Form</Button>
             <Fragment>
                 <form className={classes.container} noValidate autoComplete="off">
-                    <TextField
-                        disabled
-                        id="outlined-skill-id"
-                        value={values.id}
-                        label="Skill id is disabled"
-                        className={classes.textField}
-                        margin="normal"
-                        variant="outlined"
-                    />
                     <TextField
                         id="outlined-skill-name"
                         label="Skill Name"
@@ -123,6 +133,95 @@ const SkillEdit = props => {
                         }}
                         onChange={handleSkillChange('description')}
                     />
+                    <div>
+                        {skill.projects.map((project, index) => {
+                            return (
+                                <div className={classes.container} key={index}>
+                                    <div className={classes.divider}>
+                                    </div>
+                                    <TextField
+                                        id="outlined-project-name"
+                                        label="Project Name"
+                                        className={classes.textField}
+                                        value={skill.projects[index].name}
+                                        onChange={handleProjectChange('name', index)}
+                                        margin="normal"
+                                        variant="outlined"
+                                    />
+                                    <TextField
+                                        id="outlined-project-company-name"
+                                        label="Company Name"
+                                        className={classes.textField}
+                                        value={skill.projects[index].companyName}
+                                        onChange={handleProjectChange('companyName', index)}
+                                        margin="normal"
+                                        variant="outlined"
+                                    />
+                                    <TextField
+                                        id="outlined-project-website"
+                                        label="Website"
+                                        className={classes.textField}
+                                        value={skill.projects[index].website}
+                                        onChange={handleProjectChange('website', index)}
+                                        margin="normal"
+                                        variant="outlined"
+                                    />
+                                    <TextField
+                                        id="outlined-project-github"
+                                        label="GitHub"
+                                        className={classes.textField}
+                                        value={skill.projects[index].github}
+                                        onChange={handleProjectChange('github', index)}
+                                        margin="normal"
+                                        variant="outlined"
+                                    />
+                                    <TextField
+                                        id="outlined-project-logo"
+                                        label="Logo"
+                                        className={classes.textField}
+                                        value={skill.projects[index].logo}
+                                        onChange={handleProjectChange('logo', index)}
+                                        margin="normal"
+                                        variant="outlined"
+                                    />
+                                    <TextField
+                                        id="outlined-project-cardCover"
+                                        label="Card cover"
+                                        className={classes.textField}
+                                        value={skill.projects[index].cardCover}
+                                        onChange={handleProjectChange('cardCover', index)}
+                                        margin="normal"
+                                        variant="outlined"
+                                    />
+                                    <TextField
+                                        id="outlined-project-shortDescription"
+                                        label="Project short description"
+                                        className={classes.textField}
+                                        value={skill.projects[index].shortDescription}
+                                        style={{margin: 8}}
+                                        placeholder="Description"
+                                        fullWidth
+                                        margin="normal"
+                                        variant="outlined"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        onChange={handleProjectChange('shortDescription', index)}
+                                    />
+                                    <TextField
+                                        id="outlined-project-dateCreated"
+                                        label="Date Created"
+                                        type="date"
+                                        className={classes.textField}
+                                        value={skill.projects[index].dateCreated}
+                                        onChange={handleProjectChange('dateCreated', index)}
+                                        margin="normal"
+                                        variant="outlined"
+                                    />
+                                </div>
+                            );
+                        })}
+                    </div>
                 </form>
             </Fragment>
         </Fragment>
