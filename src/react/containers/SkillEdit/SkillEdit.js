@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         marginBottom: 15,
         backgroundColor: '#c4c4c4',
         height: 2,
-        width: '80%',
+        width: '90%',
     },
     textField: {
         marginLeft: theme.spacing(1),
@@ -42,9 +42,28 @@ const SkillEdit = props => {
             [name]: event.target.value,
         });
     };
+
     const handleProjectChange = (name, index) => event => {
         let projects = skill.projects;
         projects = skill.projects[index][name] = event.target.value;
+        setValues({
+            ...values,
+            projects,
+        });
+    };
+
+    const handleProjectImageChange = (name, index, imageIndex) => event => {
+        let projects = skill.projects;
+        projects = skill.projects[index].images[imageIndex][name] = event.target.value;
+        setValues({
+            ...values,
+            projects,
+        });
+    };
+
+    const handleProjectDescChange = (name, index, projectDescIndex) => event => {
+        let projects = skill.projects;
+        projects = skill.projects[index].longDescription[projectDescIndex][name] = event.target.value;
         setValues({
             ...values,
             projects,
@@ -194,6 +213,16 @@ const SkillEdit = props => {
                                         variant="outlined"
                                     />
                                     <TextField
+                                        id="outlined-project-dateCreated"
+                                        label="Date Created"
+                                        type="date"
+                                        className={classes.textField}
+                                        value={skill.projects[index].dateCreated}
+                                        onChange={handleProjectChange('dateCreated', index)}
+                                        margin="normal"
+                                        variant="outlined"
+                                    />
+                                    <TextField
                                         id="outlined-project-shortDescription"
                                         label="Project short description"
                                         className={classes.textField}
@@ -208,16 +237,59 @@ const SkillEdit = props => {
                                         }}
                                         onChange={handleProjectChange('shortDescription', index)}
                                     />
-                                    <TextField
-                                        id="outlined-project-dateCreated"
-                                        label="Date Created"
-                                        type="date"
-                                        className={classes.textField}
-                                        value={skill.projects[index].dateCreated}
-                                        onChange={handleProjectChange('dateCreated', index)}
-                                        margin="normal"
-                                        variant="outlined"
-                                    />
+                                    {skill.projects[index].images.map((image, imageIndex) => {
+                                        return (
+                                            <Fragment key={imageIndex}>
+                                                <img alt={'project image'} src={image.path}/>
+                                                <TextField
+                                                    id="outlined-project-image-label"
+                                                    label="Image label"
+                                                    className={classes.textField}
+                                                    value={skill.projects[index].images[imageIndex].label}
+                                                    margin="normal"
+                                                    variant="outlined"
+                                                    onChange={handleProjectImageChange('label', index, imageIndex)}
+                                                />
+                                                <TextField
+                                                    id="outlined-project-image-path"
+                                                    label="Image path"
+                                                    fullWidth
+                                                    className={classes.textField}
+                                                    value={skill.projects[index].images[imageIndex].path}
+                                                    onChange={handleProjectImageChange('path', index, imageIndex)}
+                                                    margin="normal"
+                                                    variant="outlined"
+                                                />
+                                            </Fragment>
+                                        );
+                                    })}
+                                    {skill.projects[index].longDescription.map((longDesc, lDIndex) => {
+                                        return (
+                                            <Fragment key={lDIndex}>
+                                                <img alt={'longDescription picture'} src={longDesc.picture}/>
+                                                <TextField
+                                                    id="outlined-project-description-image-path"
+                                                    label="Description Image path"
+                                                    fullWidth
+                                                    className={classes.textField}
+                                                    value={skill.projects[index].longDescription[lDIndex].picture}
+                                                    margin="normal"
+                                                    variant="outlined"
+                                                    onChange={handleProjectDescChange('picture', index, lDIndex)}
+                                                />
+                                                <TextField
+                                                    id="outlined-project-longDescription-description"
+                                                    label="Long Description Description"
+                                                    fullWidth
+                                                    className={classes.textField}
+                                                    value={skill.projects[index].longDescription[lDIndex].description}
+                                                    margin="normal"
+                                                    variant="outlined"
+                                                    onChange={handleProjectDescChange('description', index, lDIndex)}
+                                                />
+                                            </Fragment>
+                                        );
+                                    })}
                                 </div>
                             );
                         })}
