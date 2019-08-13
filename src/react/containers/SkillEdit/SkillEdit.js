@@ -31,8 +31,6 @@ const useStyles = makeStyles(theme => ({
 
 const SkillEdit = props => {
     const skill = props.skill;
-    console.log(skill.projects[0]);
-    console.log(skill.projects[1]);
     const classes = useStyles();
     const [values, setValues] = useState(skill);
 

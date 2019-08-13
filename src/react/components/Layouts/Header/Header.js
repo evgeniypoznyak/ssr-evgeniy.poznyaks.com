@@ -145,14 +145,14 @@ function Header(props) {
                                 to={'/'}
                                 style={{textDecoration: 'none', color: 'inherit'}}
                                 activeClassName={classes.active}>
-                                <Button color="inherit">REACT SSR TEST</Button></NavLink>
+                                <Button color="inherit">Evgeniy Poznyak</Button></NavLink>
                         </Typography>
                         {wow}
                         <Button
                             href={'https://evgeniy.poznyaks.com/docs/resume/Evgeniy_Poznyak_Resume.pdf'}
                             color="inherit"
                             target="_blank"
-                        >TEST</Button>
+                        >Resume</Button>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>

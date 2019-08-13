@@ -1,4 +1,4 @@
-import React, {Fragment, useContext, useState} from 'react';
+import React, {Fragment, useContext, useEffect, useState} from 'react';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
@@ -35,16 +35,17 @@ const useStyles = makeStyles(theme => ({
 }));
 const Skill = props => {
     const context = useContext(State);
-
     const [skillToEdit, setSkillToEdit] = useState(null);
-    let selectedPath = null;
-
+    const [selectedPath, setSelectedPath] = useState(null);
     const classes = useStyles();
     const skills = [];
+    useEffect(() => {
+        if (props && props.history && props.history.location && props.history.location.pathname) {
+            setSelectedPath(props.history.location.pathname.split('/').pop());
+            setSkillToEdit(null);
+        }
+    }, [props.history.location.pathname]);
 
-    if (props && props.history && props.history.location && props.history.location.pathname) {
-        selectedPath = props.history.location.pathname.split('/').pop();
-    }
 
     let content = <Spinner/>;
 
