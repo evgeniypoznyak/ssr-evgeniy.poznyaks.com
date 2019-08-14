@@ -1,7 +1,7 @@
 {
   "name": "ssr-evgeniy-poznyaks-com",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "webpack -w & nodemon server.js",
     "verify-test": "jest --coverage",

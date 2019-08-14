@@ -9,11 +9,8 @@ import routes from '../react/routes';
 import {ReactMaterialUI} from '../react';
 import {State} from '../react/shared/StateManager';
 import {getSkillsByPanes} from '../react/shared/api';
-import {getSkillsFromApiGateway} from './helper';
 
 const cookieParser = require('cookie-parser');
-
-const promiseSkillsFromApiGateway = getSkillsFromApiGateway();
 
 const app = express();
 app.use(cors());
@@ -48,10 +45,9 @@ app.get('*', async (req, res, next) => {
         ? activeRoute.fetchInitialData(req.path)
         : Promise.resolve();
 
-    // todo extra call should be here const skills = await promiseSkillsFromApiGateway;
     promise.then(data => {
         const sheets = new ServerStyleSheets();
-        data = {rawData: data.data.skills, sortedData: getSkillsByPanes(data.data.skills), authorized: false};
+        data = {rawData: data.skills, sortedData: getSkillsByPanes(data.skills), authorized: false};
         // console.log(data.rawData[35]);
         const context = {data};
         const html = ReactDOMServer.renderToString(
@@ -69,6 +65,5 @@ app.get('*', async (req, res, next) => {
     }).catch(next);
 });
 
-app.listen(3000, () => {
-    console.log('Server is listening on port: 3000');
-});
+const port = process.env.PORT || 3001;
+app.listen(port, () => console.log(`Server is listening on port: ${port}`));

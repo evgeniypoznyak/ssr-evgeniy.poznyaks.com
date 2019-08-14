@@ -1,4 +1,5 @@
-import {skills, getSkillsByPanes, sortByOrder, fetchSkills} from './api';
+import {getSkillsByPanes, sortByOrder, fetchSkills} from './api';
+import {skills} from './initialData/skills';
 
 const api = getSkillsByPanes(skills);
 

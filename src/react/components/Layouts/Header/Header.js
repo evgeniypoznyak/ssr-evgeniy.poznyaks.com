@@ -42,7 +42,6 @@ ElevationScroll.propTypes = {
 };
 
 function Header(props) {
-
     const useStyles = makeStyles(theme => ({
         root: {
             flexGrow: 1,

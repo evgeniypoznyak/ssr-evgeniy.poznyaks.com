@@ -1,8 +1,9 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import {MemoryRouter} from 'react-router-dom';
-import {getSkillsByPanes, skills} from '../../../shared/api';
+import {getSkillsByPanes} from '../../../shared/api';
 import Header from './Header';
+import {skills} from '../../../shared/initialData/skills';
 
 
 const context = {

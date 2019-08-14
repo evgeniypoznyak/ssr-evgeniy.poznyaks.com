@@ -1,8 +1,8 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {skills} from '../../../shared/api';
 import {Divider, Paper} from '@material-ui/core';
 import DetailedProject from './DetailedProject';
+import {skills} from '../../../shared/initialData/skills';
 
 let wrapper;
 

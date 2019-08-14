@@ -1,10 +1,10 @@
 import React from 'react';
 import {mount, shallow} from 'enzyme';
-import {skills} from '../../shared/api';
 import {Grid} from '@material-ui/core';
 import Project from '../Project/Project';
 import ScrollDialog from '../../components/UI/Dialog/ScrollDialog';
 import DetailedProject from './DetailedProject/DetailedProject';
+import {skills} from '../../shared/initialData/skills';
 
 let wrapper;
 let mountWrapper;

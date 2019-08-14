@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {skills} from '../react/shared/api';
+import {skills} from '../react/shared/initialData/skills';
 
 export const getSkillsFromApiGateway = async () => {
     try {

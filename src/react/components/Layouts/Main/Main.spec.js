@@ -2,10 +2,11 @@ import React from 'react';
 import {mount} from 'enzyme';
 import {MemoryRouter} from 'react-router-dom';
 import {Grid} from '@material-ui/core';
-import {getSkillsByPanes, skills} from '../../../shared/api';
+import {getSkillsByPanes} from '../../../shared/api';
 import Main from './Main';
 import SkillPane from '../Panes/SkillPane/SkillPane';
 import CenterPane from '../Panes/CenterPane/CenterPane';
+import {skills} from '../../../shared/initialData/skills';
 
 
 const context = {
