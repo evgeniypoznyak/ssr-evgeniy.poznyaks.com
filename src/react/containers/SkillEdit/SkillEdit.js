@@ -1,11 +1,23 @@
-import React, {Fragment, useContext, useEffect, useState} from 'react';
+import React, {Fragment, useContext, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import {getSkillsByPanes, patchSkill, verifyToken} from '../../shared/api';
+import {getSkillsByPanes, patchSkill} from '../../shared/api';
 import {State} from '../../shared/StateManager';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles(theme => ({
+    root: {
+        width: '100%',
+    },
+    heading: {
+        fontSize: theme.typography.pxToRem(15),
+        fontWeight: theme.typography.fontWeightRegular,
+    },
     container: {
         display: 'flex',
         flexWrap: 'wrap',
@@ -29,13 +41,21 @@ const useStyles = makeStyles(theme => ({
     menu: {
         width: 200,
     },
+    button: {
+        margin: theme.spacing(1),
+    },
 }));
 
 const SkillEdit = props => {
+    const [expanded, setExpanded] = useState(null);
     const context = useContext(State);
     const skill = props.skill;
     const classes = useStyles();
     const [values, setValues] = useState(skill);
+
+    const handleExpandedChange = panel => (event, newExpanded) => {
+        setExpanded(newExpanded ? panel : false);
+    };
 
     const handleSkillChange = name => event => {
         setValues({
@@ -84,12 +104,20 @@ const SkillEdit = props => {
         context.setData(dataToBeUpdated);
     };
 
-    console.log(values);
-
     return (
-        <Fragment>
-            <Button color={'primary'} onClick={props.closeSkill}>Close Form</Button>
-            <Button color={'primary'} onClick={onSaveSkillClicked}>Save skill</Button>
+        <div className={classes.root}>
+            <Button
+                className={classes.button}
+                color={'secondary'}
+                variant="contained"
+                onClick={props.closeSkill}
+            >Close Form</Button>
+            <Button
+                className={classes.button}
+                color={'primary'}
+                variant="contained"
+                onClick={onSaveSkillClicked}
+            >Save skill</Button>
             <Fragment>
                 <form className={classes.container} noValidate autoComplete="off">
                     <TextField
@@ -170,150 +198,230 @@ const SkillEdit = props => {
                         onChange={handleSkillChange('description')}
                     />
                     <div>
-                        {skill.projects.map((project, index) => {
-                            return (
-                                <div className={classes.container} key={index}>
-                                    <div className={classes.divider}>
-                                    </div>
-                                    <TextField
-                                        id="outlined-project-name"
-                                        label="Project Name"
-                                        className={classes.textField}
-                                        value={skill.projects[index].name}
-                                        onChange={handleProjectPropChange('name', index)}
-                                        margin="normal"
-                                        variant="outlined"
-                                    />
-                                    <TextField
-                                        id="outlined-project-company-name"
-                                        label="Company Name"
-                                        className={classes.textField}
-                                        value={skill.projects[index].companyName}
-                                        onChange={handleProjectPropChange('companyName', index)}
-                                        margin="normal"
-                                        variant="outlined"
-                                    />
-                                    <TextField
-                                        id="outlined-project-website"
-                                        label="Website"
-                                        className={classes.textField}
-                                        value={skill.projects[index].website}
-                                        onChange={handleProjectPropChange('website', index)}
-                                        margin="normal"
-                                        variant="outlined"
-                                    />
-                                    <TextField
-                                        id="outlined-project-github"
-                                        label="GitHub"
-                                        className={classes.textField}
-                                        value={skill.projects[index].github}
-                                        onChange={handleProjectPropChange('github', index)}
-                                        margin="normal"
-                                        variant="outlined"
-                                    />
-                                    <TextField
-                                        id="outlined-project-logo"
-                                        label="Logo"
-                                        className={classes.textField}
-                                        value={skill.projects[index].logo}
-                                        onChange={handleProjectPropChange('logo', index)}
-                                        margin="normal"
-                                        variant="outlined"
-                                    />
-                                    <TextField
-                                        id="outlined-project-cardCover"
-                                        label="Card cover"
-                                        className={classes.textField}
-                                        value={skill.projects[index].cardCover}
-                                        onChange={handleProjectPropChange('cardCover', index)}
-                                        margin="normal"
-                                        variant="outlined"
-                                    />
-                                    <TextField
-                                        id="outlined-project-dateCreated"
-                                        label="Date Created"
-                                        type="date"
-                                        className={classes.textField}
-                                        value={skill.projects[index].dateCreated}
-                                        onChange={handleProjectPropChange('dateCreated', index)}
-                                        margin="normal"
-                                        variant="outlined"
-                                    />
-                                    <TextField
-                                        id="outlined-project-shortDescription"
-                                        label="Project short description"
-                                        className={classes.textField}
-                                        value={skill.projects[index].shortDescription}
-                                        style={{margin: 8}}
-                                        placeholder="Description"
-                                        fullWidth
-                                        margin="normal"
-                                        variant="outlined"
-                                        InputLabelProps={{
-                                            shrink: true,
-                                        }}
-                                        onChange={handleProjectPropChange('shortDescription', index)}
-                                    />
-                                    {skill.projects[index].images.map((image, imageIndex) => {
+                        <Button
+                            className={classes.button}
+                            fullWidth
+                            variant="contained"
+                            color={'primary'}
+                        >Add New Project</Button>
+                        <ExpansionPanel>
+                            <ExpansionPanelSummary
+                                expandIcon={<ExpandMoreIcon/>}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                            >
+                                <Typography className={classes.heading}>Projects</Typography>
+                            </ExpansionPanelSummary>
+                            <ExpansionPanelDetails>
+                                <div>
+                                    {skill.projects.map((project, index) => {
                                         return (
-                                            <Fragment key={imageIndex}>
-                                                <img alt={'project image'} src={image.path}/>
-                                                <TextField
-                                                    id="outlined-project-image-label"
-                                                    label="Image label"
-                                                    className={classes.textField}
-                                                    value={skill.projects[index].images[imageIndex].label}
-                                                    margin="normal"
-                                                    variant="outlined"
-                                                    onChange={handleProjectImageChange('label', index, imageIndex)}
-                                                />
-                                                <TextField
-                                                    id="outlined-project-image-path"
-                                                    label="Image path"
-                                                    fullWidth
-                                                    className={classes.textField}
-                                                    value={skill.projects[index].images[imageIndex].path}
-                                                    onChange={handleProjectImageChange('path', index, imageIndex)}
-                                                    margin="normal"
-                                                    variant="outlined"
-                                                />
-                                            </Fragment>
-                                        );
-                                    })}
-                                    {skill.projects[index].longDescription.map((longDesc, lDIndex) => {
-                                        return (
-                                            <Fragment key={lDIndex}>
-                                                <img alt={'longDescription picture'} src={longDesc.picture}/>
-                                                <TextField
-                                                    id="outlined-project-description-image-path"
-                                                    label="Description Image path"
-                                                    fullWidth
-                                                    className={classes.textField}
-                                                    value={skill.projects[index].longDescription[lDIndex].picture}
-                                                    margin="normal"
-                                                    variant="outlined"
-                                                    onChange={handleProjectDescChange('picture', index, lDIndex)}
-                                                />
-                                                <TextField
-                                                    id="outlined-project-longDescription-description"
-                                                    label="Long Description Description"
-                                                    fullWidth
-                                                    className={classes.textField}
-                                                    value={skill.projects[index].longDescription[lDIndex].description}
-                                                    margin="normal"
-                                                    variant="outlined"
-                                                    onChange={handleProjectDescChange('description', index, lDIndex)}
-                                                />
-                                            </Fragment>
+                                            <ExpansionPanel key={index}>
+                                                <ExpansionPanelSummary
+                                                    expandIcon={<ExpandMoreIcon/>}
+                                                    aria-controls="panel1d-content"
+                                                    id="panel1d-header">
+                                                    <Typography>{project.name}</Typography>
+                                                </ExpansionPanelSummary>
+                                                <ExpansionPanelDetails>
+                                                    <div>
+                                                        <div className={classes.container}>
+                                                            <TextField
+                                                                id="outlined-project-name"
+                                                                label="Project Name"
+                                                                className={classes.textField}
+                                                                value={skill.projects[index].name}
+                                                                onChange={handleProjectPropChange('name', index)}
+                                                                margin="normal"
+                                                                variant="outlined"
+                                                            />
+                                                            <TextField
+                                                                id="outlined-project-company-name"
+                                                                label="Company Name"
+                                                                className={classes.textField}
+                                                                value={skill.projects[index].companyName}
+                                                                onChange={handleProjectPropChange('companyName', index)}
+                                                                margin="normal"
+                                                                variant="outlined"
+                                                            />
+                                                            <TextField
+                                                                id="outlined-project-website"
+                                                                label="Website"
+                                                                className={classes.textField}
+                                                                value={skill.projects[index].website}
+                                                                onChange={handleProjectPropChange('website', index)}
+                                                                margin="normal"
+                                                                variant="outlined"
+                                                            />
+                                                            <TextField
+                                                                id="outlined-project-github"
+                                                                label="GitHub"
+                                                                className={classes.textField}
+                                                                value={skill.projects[index].github}
+                                                                onChange={handleProjectPropChange('github', index)}
+                                                                margin="normal"
+                                                                variant="outlined"
+                                                            />
+                                                            <TextField
+                                                                id="outlined-project-logo"
+                                                                label="Logo"
+                                                                className={classes.textField}
+                                                                value={skill.projects[index].logo}
+                                                                onChange={handleProjectPropChange('logo', index)}
+                                                                margin="normal"
+                                                                variant="outlined"
+                                                            />
+                                                            <TextField
+                                                                id="outlined-project-cardCover"
+                                                                label="Card cover"
+                                                                className={classes.textField}
+                                                                value={skill.projects[index].cardCover}
+                                                                onChange={handleProjectPropChange('cardCover', index)}
+                                                                margin="normal"
+                                                                variant="outlined"
+                                                            />
+                                                            <TextField
+                                                                id="outlined-project-dateCreated"
+                                                                label="Date Created"
+                                                                type="date"
+                                                                className={classes.textField}
+                                                                value={skill.projects[index].dateCreated}
+                                                                onChange={handleProjectPropChange('dateCreated', index)}
+                                                                margin="normal"
+                                                                variant="outlined"
+                                                            />
+                                                            <TextField
+                                                                id="outlined-project-shortDescription"
+                                                                label="Project short description"
+                                                                className={classes.textField}
+                                                                value={skill.projects[index].shortDescription}
+                                                                style={{margin: 8}}
+                                                                placeholder="Description"
+                                                                fullWidth
+                                                                margin="normal"
+                                                                variant="outlined"
+                                                                InputLabelProps={{
+                                                                    shrink: true,
+                                                                }}
+                                                                onChange={handleProjectPropChange('shortDescription', index)}
+                                                            />
+                                                            <Button
+                                                                className={classes.button}
+                                                                fullWidth
+                                                                variant="contained"
+                                                                color={'primary'}
+                                                            >Add Image With Name</Button>
+                                                            <ExpansionPanel
+                                                                expanded={expanded === 'project-image' + index}
+                                                                onChange={handleExpandedChange('project-image' + index)}
+                                                            >
+                                                                <ExpansionPanelSummary
+                                                                    expandIcon={<ExpandMoreIcon/>}
+                                                                    aria-controls="project-image-content"
+                                                                    id="project-image-header"
+                                                                >
+                                                                    <Typography className={classes.heading}>Project
+                                                                        Images</Typography>
+                                                                </ExpansionPanelSummary>
+                                                                <ExpansionPanelDetails>
+                                                                    <div>
+                                                                        {skill.projects[index].images.map((image, imageIndex) => {
+                                                                            return (
+                                                                                <Fragment key={imageIndex}>
+                                                                                    <img alt={'project image'}
+                                                                                         src={image.path}/>
+                                                                                    <TextField
+                                                                                        id="outlined-project-image-label"
+                                                                                        label="Image label"
+                                                                                        className={classes.textField}
+                                                                                        value={skill.projects[index].images[imageIndex].label}
+                                                                                        margin="normal"
+                                                                                        variant="outlined"
+                                                                                        onChange={handleProjectImageChange('label', index, imageIndex)}
+                                                                                    />
+                                                                                    <TextField
+                                                                                        id="outlined-project-image-path"
+                                                                                        label="Image path"
+                                                                                        fullWidth
+                                                                                        className={classes.textField}
+                                                                                        value={skill.projects[index].images[imageIndex].path}
+                                                                                        onChange={handleProjectImageChange('path', index, imageIndex)}
+                                                                                        margin="normal"
+                                                                                        variant="outlined"
+                                                                                    />
+                                                                                </Fragment>
+                                                                            );
+                                                                        })}
+                                                                    </div>
+                                                                </ExpansionPanelDetails>
+                                                            </ExpansionPanel>
+
+                                                            <Button
+                                                                className={classes.button}
+                                                                fullWidth
+                                                                variant="contained"
+                                                                color={'primary'}
+                                                            >Add Long Description Section with Image</Button>
+                                                            <ExpansionPanel
+                                                                expanded={expanded === 'project-description' + index}
+                                                                onChange={handleExpandedChange('project-description' + index)}>
+                                                                <ExpansionPanelSummary
+                                                                    expandIcon={<ExpandMoreIcon/>}
+                                                                    aria-controls="project-description-content"
+                                                                    id="project-description-header"
+                                                                >
+                                                                    <Typography className={classes.heading}>Project
+                                                                        Detailed
+                                                                        Description</Typography>
+                                                                </ExpansionPanelSummary>
+                                                                <ExpansionPanelDetails>
+                                                                    <div>
+                                                                        {skill.projects[index].longDescription.map((longDesc, lDIndex) => {
+                                                                            return (
+                                                                                <Fragment key={lDIndex}>
+                                                                                    <img alt={'longDescription picture'}
+                                                                                         src={longDesc.picture}/>
+                                                                                    <TextField
+                                                                                        id="outlined-project-description-image-path"
+                                                                                        label="Description Image path"
+                                                                                        fullWidth
+                                                                                        className={classes.textField}
+                                                                                        value={skill.projects[index].longDescription[lDIndex].picture}
+                                                                                        margin="normal"
+                                                                                        variant="outlined"
+                                                                                        onChange={handleProjectDescChange('picture', index, lDIndex)}
+                                                                                    />
+                                                                                    <TextField
+                                                                                        id="outlined-project-longDescription-description"
+                                                                                        label="Long Description Description"
+                                                                                        fullWidth
+                                                                                        className={classes.textField}
+                                                                                        value={skill.projects[index].longDescription[lDIndex].description}
+                                                                                        margin="normal"
+                                                                                        variant="outlined"
+                                                                                        onChange={handleProjectDescChange('description', index, lDIndex)}
+                                                                                    />
+                                                                                </Fragment>
+                                                                            );
+                                                                        })}
+                                                                    </div>
+                                                                </ExpansionPanelDetails>
+                                                            </ExpansionPanel>
+
+                                                        </div>
+                                                    </div>
+                                                </ExpansionPanelDetails>
+                                            </ExpansionPanel>
                                         );
                                     })}
                                 </div>
-                            );
-                        })}
+                            </ExpansionPanelDetails>
+                        </ExpansionPanel>
+
                     </div>
                 </form>
             </Fragment>
-        </Fragment>
+        </div>
     );
 };
 export default SkillEdit;

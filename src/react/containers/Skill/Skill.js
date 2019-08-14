@@ -82,6 +82,7 @@ const Skill = props => {
                     {redirect}
                     <div className={classes.container}>
                         <Button
+                            disabled={(skillToEdit !== null)}
                             onClick={() => onSetSkillEdit(selectedSkill)}
                             className={classes.button}
                             variant="contained"
