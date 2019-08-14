@@ -4,6 +4,7 @@ import {skills} from '../react/shared/api';
 export const getSkillsFromApiGateway = async () => {
     try {
         const result = await axios.get('http://localhost:2222/api/skills');
+        // console.log(result.data.skills[36]);
         return result.data.skills;
     } catch (e) {
         console.log('Error: ', e.message);

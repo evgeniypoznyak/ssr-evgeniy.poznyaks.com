@@ -40,9 +40,7 @@ function renderStartUpPage({html, css, data} = {}) {
 }
 
 app.get('*', async (req, res, next) => {
-    const skills = await promiseSkillsFromApiGateway;
-
-    // res.cookie("token", 'poop');
+    // todo this call happened only once, when application starts. I need here something witch can run for every route.
 
     const activeRoute = routes.find(route => matchPath(req.url, route)) || {};
 
@@ -50,9 +48,11 @@ app.get('*', async (req, res, next) => {
         ? activeRoute.fetchInitialData(req.path)
         : Promise.resolve();
 
+    // todo extra call should be here const skills = await promiseSkillsFromApiGateway;
     promise.then(data => {
         const sheets = new ServerStyleSheets();
-        data = {rawData: skills, sortedData: getSkillsByPanes(skills), authorized: false};
+        data = {rawData: data.data.skills, sortedData: getSkillsByPanes(data.data.skills), authorized: false};
+        // console.log(data.rawData[35]);
         const context = {data};
         const html = ReactDOMServer.renderToString(
             sheets.collect(

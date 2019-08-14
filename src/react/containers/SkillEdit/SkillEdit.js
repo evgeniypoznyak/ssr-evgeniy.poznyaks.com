@@ -1,7 +1,9 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useContext, useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import {getSkillsByPanes, patchSkill, verifyToken} from '../../shared/api';
+import {State} from '../../shared/StateManager';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -30,6 +32,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SkillEdit = props => {
+    const context = useContext(State);
     const skill = props.skill;
     const classes = useStyles();
     const [values, setValues] = useState(skill);
@@ -41,36 +44,52 @@ const SkillEdit = props => {
         });
     };
 
-    const handleProjectChange = (name, index) => event => {
-        let projects = skill.projects;
-        projects = skill.projects[index][name] = event.target.value;
+    const handleProjectPropChange = (name, index) => event => {
+        const projects = values.projects.slice();
+        projects[index][name] = event.target.value;
         setValues({
             ...values,
-            projects,
+            projects: projects,
         });
     };
 
     const handleProjectImageChange = (name, index, imageIndex) => event => {
-        let projects = skill.projects;
-        projects = skill.projects[index].images[imageIndex][name] = event.target.value;
+        const projects = values.projects.slice();
+        projects[index].images[imageIndex][name] = event.target.value;
         setValues({
             ...values,
-            projects,
+            projects: projects,
         });
     };
 
     const handleProjectDescChange = (name, index, projectDescIndex) => event => {
-        let projects = skill.projects;
-        projects = skill.projects[index].longDescription[projectDescIndex][name] = event.target.value;
+        const projects = values.projects.slice();
+        projects[index].longDescription[projectDescIndex][name] = event.target.value;
         setValues({
             ...values,
-            projects,
+            projects: projects,
         });
     };
+
+    const onSaveSkillClicked = async () => {
+        const rawData = context.data.rawData.slice();
+        await patchSkill(values);
+        const indexToBeUpdated = rawData.findIndex(skill => skill.id === values.id);
+        rawData[indexToBeUpdated] = values;
+        const dataToBeUpdated = {
+            ...context.data,
+            rawData,
+            sortedData: getSkillsByPanes(rawData.slice()),
+        };
+        context.setData(dataToBeUpdated);
+    };
+
+    console.log(values);
 
     return (
         <Fragment>
             <Button color={'primary'} onClick={props.closeSkill}>Close Form</Button>
+            <Button color={'primary'} onClick={onSaveSkillClicked}>Save skill</Button>
             <Fragment>
                 <form className={classes.container} noValidate autoComplete="off">
                     <TextField
@@ -161,7 +180,7 @@ const SkillEdit = props => {
                                         label="Project Name"
                                         className={classes.textField}
                                         value={skill.projects[index].name}
-                                        onChange={handleProjectChange('name', index)}
+                                        onChange={handleProjectPropChange('name', index)}
                                         margin="normal"
                                         variant="outlined"
                                     />
@@ -170,7 +189,7 @@ const SkillEdit = props => {
                                         label="Company Name"
                                         className={classes.textField}
                                         value={skill.projects[index].companyName}
-                                        onChange={handleProjectChange('companyName', index)}
+                                        onChange={handleProjectPropChange('companyName', index)}
                                         margin="normal"
                                         variant="outlined"
                                     />
@@ -179,7 +198,7 @@ const SkillEdit = props => {
                                         label="Website"
                                         className={classes.textField}
                                         value={skill.projects[index].website}
-                                        onChange={handleProjectChange('website', index)}
+                                        onChange={handleProjectPropChange('website', index)}
                                         margin="normal"
                                         variant="outlined"
                                     />
@@ -188,7 +207,7 @@ const SkillEdit = props => {
                                         label="GitHub"
                                         className={classes.textField}
                                         value={skill.projects[index].github}
-                                        onChange={handleProjectChange('github', index)}
+                                        onChange={handleProjectPropChange('github', index)}
                                         margin="normal"
                                         variant="outlined"
                                     />
@@ -197,7 +216,7 @@ const SkillEdit = props => {
                                         label="Logo"
                                         className={classes.textField}
                                         value={skill.projects[index].logo}
-                                        onChange={handleProjectChange('logo', index)}
+                                        onChange={handleProjectPropChange('logo', index)}
                                         margin="normal"
                                         variant="outlined"
                                     />
@@ -206,7 +225,7 @@ const SkillEdit = props => {
                                         label="Card cover"
                                         className={classes.textField}
                                         value={skill.projects[index].cardCover}
-                                        onChange={handleProjectChange('cardCover', index)}
+                                        onChange={handleProjectPropChange('cardCover', index)}
                                         margin="normal"
                                         variant="outlined"
                                     />
@@ -216,7 +235,7 @@ const SkillEdit = props => {
                                         type="date"
                                         className={classes.textField}
                                         value={skill.projects[index].dateCreated}
-                                        onChange={handleProjectChange('dateCreated', index)}
+                                        onChange={handleProjectPropChange('dateCreated', index)}
                                         margin="normal"
                                         variant="outlined"
                                     />
@@ -233,7 +252,7 @@ const SkillEdit = props => {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        onChange={handleProjectChange('shortDescription', index)}
+                                        onChange={handleProjectPropChange('shortDescription', index)}
                                     />
                                     {skill.projects[index].images.map((image, imageIndex) => {
                                         return (

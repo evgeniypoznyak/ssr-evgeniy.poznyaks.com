@@ -2,9 +2,10 @@ import axios from './axios';
 
 
 export function fetchSkills(skill = 'all') {
-    return new Promise((resolve, reject) => {
-        resolve({rawData: skills, sortedData: getSkillsByPanes(skills)});
-    });
+    return axios.get('http://localhost:2222/api/skills');
+    // return new Promise((resolve, reject) => {
+    //     resolve({rawData: skills, sortedData: getSkillsByPanes(skills)});
+    // });
 }
 
 export async function signInIntoApiGateway(data) {
@@ -33,6 +34,30 @@ export async function verifyToken() {
         console.log('Error: ', e.message);
         console.log('Something wrong happened with API Gateway! Returning default response.');
         return {token: ''};
+    }
+}
+
+export async function patchSkill(skill) {
+    try {
+        const url = 'http://localhost:2222/api/skills';
+        const result = await axios.patch(url, {skill});
+        return result.data;
+    } catch (e) {
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with API Gateway! Returning default response.');
+        return 'Skill not been patched';
+    }
+}
+
+export async function deleteSkill(skillId) {
+    try {
+        const url = 'http://localhost:2222/api/skills/' + skillId;
+        const result = await axios.delete(url);
+        return result.data;
+    } catch (e) {
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with API Gateway! Returning default response.');
+        return 'Skill not been patched';
     }
 }
 

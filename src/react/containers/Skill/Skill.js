@@ -1,4 +1,5 @@
 import React, {Fragment, useContext, useEffect, useState} from 'react';
+import {Redirect} from 'react-router';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
@@ -9,6 +10,7 @@ import {State} from '../../shared/StateManager';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import {getRandomString} from '../../shared/utility';
 import SkillEdit from '../SkillEdit/SkillEdit';
+import {deleteSkill, getSkillsByPanes} from '../../shared/api';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -37,6 +39,7 @@ const Skill = props => {
     const context = useContext(State);
     const [skillToEdit, setSkillToEdit] = useState(null);
     const [selectedPath, setSelectedPath] = useState(null);
+    const [redirect, setRedirect] = useState(null);
     const classes = useStyles();
     const skills = [];
     useEffect(() => {
@@ -55,6 +58,20 @@ const Skill = props => {
         );
     };
 
+    const onDeleteSkill = async skillId => {
+        await deleteSkill(skillId);
+        const rawData = context.data.rawData.slice();
+        const indexToBeUpdated = rawData.findIndex(skill => skill.id === skillId);
+        rawData.splice(indexToBeUpdated, 1);
+        const dataToBeUpdated = {
+            ...context.data,
+            rawData,
+            sortedData: getSkillsByPanes(rawData.slice()),
+        };
+        setRedirect(<Redirect to="/"/>);
+        context.setData(dataToBeUpdated);
+    };
+
     if (context) {
         let adminOptions = null;
         skills.push(...context.data.rawData);
@@ -62,6 +79,7 @@ const Skill = props => {
         if (selectedSkill) {
             if (context.data.authorized) {
                 adminOptions = <Fragment>
+                    {redirect}
                     <div className={classes.container}>
                         <Button
                             onClick={() => onSetSkillEdit(selectedSkill)}
@@ -70,7 +88,12 @@ const Skill = props => {
                             color={'primary'}
                         >Edit</Button>
                         <Button className={classes.button} variant="contained" color={'default'}>New</Button>
-                        <Button className={classes.button} variant="contained" color={'secondary'}>Delete</Button>
+                        <Button
+                            className={classes.button}
+                            variant="contained"
+                            color={'secondary'}
+                            onClick={() => onDeleteSkill(selectedSkill.id)}
+                        >Delete</Button>
                     </div>
                 </Fragment>;
             }
@@ -84,7 +107,9 @@ const Skill = props => {
                         }}>
                             {selectedSkill.name}
                         </Typography>
-                        <Avatar alt="Skill logo" src={selectedSkill.logo}
+                        <Avatar
+                            alt="Skill logo"
+                            src={selectedSkill.logo}
                             style={{margin: 5, width: 70, height: 70}}/>
                     </Grid>
                     <Typography variant="subtitle1">
