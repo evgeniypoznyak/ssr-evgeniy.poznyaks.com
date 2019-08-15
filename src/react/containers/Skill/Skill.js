@@ -1,5 +1,5 @@
 import React, {Fragment, useContext, useEffect, useState} from 'react';
-import {Redirect} from 'react-router';
+import {Redirect, Switch} from 'react-router';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
@@ -11,6 +11,7 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import {getRandomString} from '../../shared/utility';
 import SkillEdit from '../SkillEdit/SkillEdit';
 import {deleteSkill, getSkillsByPanes} from '../../shared/api';
+import {BrowserRouter} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -39,7 +40,6 @@ const Skill = props => {
     const context = useContext(State);
     const [skillToEdit, setSkillToEdit] = useState(null);
     const [selectedPath, setSelectedPath] = useState(null);
-    const [redirect, setRedirect] = useState(null);
     const classes = useStyles();
     const skills = [];
     useEffect(() => {
@@ -68,7 +68,7 @@ const Skill = props => {
             rawData,
             sortedData: getSkillsByPanes(rawData.slice()),
         };
-        setRedirect(<Redirect to="/"/>);
+        props.history.push('/');
         context.setData(dataToBeUpdated);
     };
 
@@ -79,7 +79,6 @@ const Skill = props => {
         if (selectedSkill) {
             if (context.data.authorized) {
                 adminOptions = <Fragment>
-                    {redirect}
                     <div className={classes.container}>
                         <Button
                             disabled={(skillToEdit !== null)}

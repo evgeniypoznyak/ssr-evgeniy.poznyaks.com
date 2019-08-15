@@ -9,6 +9,7 @@ import routes from '../react/routes';
 import {ReactMaterialUI} from '../react';
 import {State} from '../react/shared/StateManager';
 import {getSkillsByPanes} from '../react/shared/api';
+import {skills} from '../react/shared/initialData/skills';
 
 const cookieParser = require('cookie-parser');
 
@@ -47,7 +48,12 @@ app.get('*', async (req, res, next) => {
 
     promise.then(data => {
         const sheets = new ServerStyleSheets();
-        data = {rawData: data.skills, sortedData: getSkillsByPanes(data.skills), authorized: false};
+        if (data && data.skills) {
+            data = {rawData: data.skills, sortedData: getSkillsByPanes(data.skills), authorized: false};
+        } else {
+            data = {rawData: skills, sortedData: getSkillsByPanes(skills), authorized: false};
+        }
+
         // console.log(data.rawData[35]);
         const context = {data};
         const html = ReactDOMServer.renderToString(
