@@ -42,8 +42,7 @@ const useStyles = makeStyles(theme => ({
     expandOpen: {
         transform: 'rotate(180deg)',
     },
-    avatar: {
-    },
+    avatar: {},
     smallAvatar: {
         width: 25,
         height: 25,
@@ -142,8 +141,8 @@ export default function Project(props) {
             </CardContent>
             <CardActions disableSpacing>
                 <IconButton aria-label="GitHub" target={'_blank'} href={props.project.github}>
-                    <Avatar aria-label="Project" src={'https://pngimg.com/uploads/github/github_PNG42.png'}
-                            className={classes.smallAvatar}/>
+                    <Avatar aria-label="Project" src={'/assets/projects/github-logo.png'}
+                        className={classes.smallAvatar}/>
                 </IconButton>
                 <IconButton aria-label="Website" target={'_blank'} href={props.project.website}>
                     <PublicIcon/>

@@ -197,10 +197,9 @@ const SkillEdit = props => {
                         }}
                         onChange={handleSkillChange('description')}
                     />
-                    <div>
+                    <div className={classes.root}>
                         <Button
                             className={classes.button}
-                            fullWidth
                             variant="contained"
                             color={'primary'}
                         >Add New Project</Button>
@@ -213,7 +212,7 @@ const SkillEdit = props => {
                                 <Typography className={classes.heading}>Projects</Typography>
                             </ExpansionPanelSummary>
                             <ExpansionPanelDetails>
-                                <div>
+                                <div className={classes.root}>
                                     {skill.projects.map((project, index) => {
                                         return (
                                             <ExpansionPanel key={index}>
@@ -224,7 +223,7 @@ const SkillEdit = props => {
                                                     <Typography>{project.name}</Typography>
                                                 </ExpansionPanelSummary>
                                                 <ExpansionPanelDetails>
-                                                    <div>
+                                                    <div className={classes.root}>
                                                         <div className={classes.container}>
                                                             <TextField
                                                                 id="outlined-project-name"
@@ -307,11 +306,11 @@ const SkillEdit = props => {
                                                             />
                                                             <Button
                                                                 className={classes.button}
-                                                                fullWidth
                                                                 variant="contained"
                                                                 color={'primary'}
                                                             >Add Image With Name</Button>
                                                             <ExpansionPanel
+                                                                className={classes.root}
                                                                 expanded={expanded === 'project-image' + index}
                                                                 onChange={handleExpandedChange('project-image' + index)}
                                                             >
@@ -327,9 +326,10 @@ const SkillEdit = props => {
                                                                     <div>
                                                                         {skill.projects[index].images.map((image, imageIndex) => {
                                                                             return (
-                                                                                <Fragment key={imageIndex}>
+                                                                                <div key={imageIndex}
+                                                                                    className={classes.root}>
                                                                                     <img alt={'project image'}
-                                                                                         src={image.path}/>
+                                                                                        src={image.path}/>
                                                                                     <TextField
                                                                                         id="outlined-project-image-label"
                                                                                         label="Image label"
@@ -342,14 +342,13 @@ const SkillEdit = props => {
                                                                                     <TextField
                                                                                         id="outlined-project-image-path"
                                                                                         label="Image path"
-                                                                                        fullWidth
                                                                                         className={classes.textField}
                                                                                         value={skill.projects[index].images[imageIndex].path}
                                                                                         onChange={handleProjectImageChange('path', index, imageIndex)}
                                                                                         margin="normal"
                                                                                         variant="outlined"
                                                                                     />
-                                                                                </Fragment>
+                                                                                </div>
                                                                             );
                                                                         })}
                                                                     </div>
@@ -358,11 +357,11 @@ const SkillEdit = props => {
 
                                                             <Button
                                                                 className={classes.button}
-                                                                fullWidth
                                                                 variant="contained"
                                                                 color={'primary'}
                                                             >Add Long Description Section with Image</Button>
                                                             <ExpansionPanel
+                                                                className={classes.root}
                                                                 expanded={expanded === 'project-description' + index}
                                                                 onChange={handleExpandedChange('project-description' + index)}>
                                                                 <ExpansionPanelSummary
@@ -375,12 +374,12 @@ const SkillEdit = props => {
                                                                         Description</Typography>
                                                                 </ExpansionPanelSummary>
                                                                 <ExpansionPanelDetails>
-                                                                    <div>
+                                                                    <div className={classes.root}>
                                                                         {skill.projects[index].longDescription.map((longDesc, lDIndex) => {
                                                                             return (
-                                                                                <Fragment key={lDIndex}>
+                                                                                <div key={lDIndex}>
                                                                                     <img alt={'longDescription picture'}
-                                                                                         src={longDesc.picture}/>
+                                                                                        src={longDesc.picture}/>
                                                                                     <TextField
                                                                                         id="outlined-project-description-image-path"
                                                                                         label="Description Image path"
@@ -401,7 +400,7 @@ const SkillEdit = props => {
                                                                                         variant="outlined"
                                                                                         onChange={handleProjectDescChange('description', index, lDIndex)}
                                                                                     />
-                                                                                </Fragment>
+                                                                                </div>
                                                                             );
                                                                         })}
                                                                     </div>

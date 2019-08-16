@@ -22,6 +22,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import {Link} from 'react-router-dom';
 import {processToggleDrawer} from './HeaderUtils';
+import AdminMenu from './AdminMenu/AdminMenu';
 
 function ElevationScroll(props) {
     const {children, window} = props;
@@ -51,6 +52,8 @@ function Header(props) {
         },
         title: {
             flexGrow: 1,
+            display: 'flex',
+            justifyContent: 'center',
         },
         list: {
             width: 250,
@@ -122,7 +125,7 @@ function Header(props) {
         </div>
     );
 
-    const wow = props.context.data.authorized === true ? <Button>authorized</Button> : null;
+    const adminMenu = props.context.data.authorized === true ? <AdminMenu/> : null;
 
     return (
         <React.Fragment>
@@ -139,14 +142,19 @@ function Header(props) {
                         >
                             <MenuIcon/>
                         </IconButton>
-                        <Typography variant="h6" className={classes.title}>
+                        <Typography variant="h6" >
                             <NavLink
                                 to={'/'}
                                 style={{textDecoration: 'none', color: 'inherit'}}
                                 activeClassName={classes.active}>
                                 <Button color="inherit">Evgeniy Poznyak</Button></NavLink>
                         </Typography>
-                        {wow}
+                        <Typography className={classes.title} variant="subtitle1" edge="center">
+                            <div>
+                                Software Engineer
+                            </div>
+                        </Typography>
+                        {adminMenu}
                         <Button
                             href={'https://evgeniy.poznyaks.com/docs/resume/Evgeniy_Poznyak_Resume.pdf'}
                             color="inherit"

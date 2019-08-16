@@ -5,13 +5,21 @@ const nodeExternals = require('webpack-node-externals');
 const common = {
     devtool: 'cheap-module-source-map',
     module: {
-        //
         rules: [
             {
                 test: /\.(js)$/,
                 exclude: /node_modules/,
                 loader: ['babel-loader'],
             },
+            {
+                test: /\.css$/,
+                use: ['isomorphic-style-loader', {loaders: ['style-loader', 'css-loader']}],
+            },
+            // {
+            //     test: /\.css$/,
+            //     include: /node_modules/,
+            //     loaders: ['style-loader', 'css-loader'],
+            // },
         ],
 
     },

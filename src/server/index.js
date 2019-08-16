@@ -25,6 +25,7 @@ function renderStartUpPage({html, css, data} = {}) {
       <head>
         <title>Evgeniy Poznyak - Software Engineer</title>
         <style id="jss-server-side">${css}</style>
+        <style> .Pane {} @media (max-width: 960px) { .Pane { display: none; background-color: #0074D9; } } </style>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       </head>
