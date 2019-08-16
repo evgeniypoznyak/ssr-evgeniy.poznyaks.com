@@ -27,7 +27,7 @@ describe('<App/>', () => {
         expect(wrapper.getElement()).toMatchSnapshot();
     });
 
-    it('should render App with routes and children', () => {
+    it('should render App with reactRoutes and children', () => {
         const route = mountWrapper.find(Route);
         expect(route).toHaveLength(2);
         expect(route.children).toHaveLength(1);

@@ -4,16 +4,16 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import {StaticRouter, matchPath} from 'react-router-dom';
 import {ServerStyleSheets} from '@material-ui/styles';
-import routes from '../react/routes';
+import reactRoutes from '../react/reactRoutes';
 import {ReactMaterialUI} from '../react';
 import {State} from '../react/shared/StateManager';
 import {getSkillsByPanes} from '../react/shared/api';
 import {skills} from '../react/shared/initialData/skills';
 
-import nodeRoutes from './routes';
+import routes from './routes';
 
 const app = express();
-nodeRoutes(app);
+routes(app);
 
 process.on('unhandledRejection', ex => {
     console.log('unhandledRejection: ', ex);
@@ -44,7 +44,7 @@ function renderStartUpPage({html, css, data} = {}) {
 }
 
 app.get('*', async (req, res, next) => {
-    const activeRoute = routes.find(route => matchPath(req.url, route)) || {};
+    const activeRoute = reactRoutes.find(route => matchPath(req.url, route)) || {};
     const promise = activeRoute.fetchInitialData
         ? activeRoute.fetchInitialData(req.path)
         : Promise.resolve();
@@ -59,7 +59,7 @@ app.get('*', async (req, res, next) => {
         const context = {data};
         const html = ReactDOMServer.renderToString(
             sheets.collect(
-                // context will be available only where is routes will be rendered by <Switch>
+                // context will be available only where is reactRoutes will be rendered by <Switch>
                 <State.Provider value={{data}}>
                     <StaticRouter location={req.url} context={context}>
                         <ReactMaterialUI/>

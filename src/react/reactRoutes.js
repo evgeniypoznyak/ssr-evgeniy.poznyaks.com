@@ -4,7 +4,7 @@ import Skill from './containers/Skill/Skill';
 import Auth from './containers/Auth/Auth';
 import Resume from './containers/Resume/Resume';
 
-const routes = [
+const reactRoutes = [
     {
         path: '/',
         exact: true,
@@ -28,4 +28,4 @@ const routes = [
     },
 ];
 
-export default routes;
+export default reactRoutes;
