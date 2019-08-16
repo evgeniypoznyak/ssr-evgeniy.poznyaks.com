@@ -11,12 +11,6 @@ router.get('/', async (req, res, next) => {
     res.send(data);
 });
 
-// app.get('/resume', async (req, res, next) => {
-//     const data = fs.readFileSync('./public/docs/Evgeniy_Poznyak_Resume.pdf');
-//     res.contentType('application/pdf');
-//     res.send(data);
-// });
-
 router.post('/', async (req, res, next) => {
     upload(req, res, err => {
         if (err instanceof multer.MulterError) {
