@@ -156,7 +156,7 @@ function Header(props) {
                         </Typography>
                         {adminMenu}
                         <Button
-                            href={'https://evgeniy.poznyaks.com/docs/resume/Evgeniy_Poznyak_Resume.pdf'}
+                            href={'/resume'}
                             color="inherit"
                             target="_blank"
                         >Resume</Button>

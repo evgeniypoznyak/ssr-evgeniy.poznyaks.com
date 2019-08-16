@@ -7,8 +7,6 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
-import './SkillPane.css';
-
 
 const useStyles = makeStyles(theme => ({
     button: {

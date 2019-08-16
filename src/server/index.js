@@ -1,5 +1,4 @@
 import express from 'express';
-import cors from 'cors';
 import serialize from 'serialize-javascript';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
@@ -11,12 +10,18 @@ import {State} from '../react/shared/StateManager';
 import {getSkillsByPanes} from '../react/shared/api';
 import {skills} from '../react/shared/initialData/skills';
 
-const cookieParser = require('cookie-parser');
+import nodeRoutes from './routes';
 
 const app = express();
-app.use(cors());
-app.use(cookieParser());
-app.use(express.static('public'));
+nodeRoutes(app);
+
+process.on('unhandledRejection', ex => {
+    console.log('unhandledRejection: ', ex);
+    throw ex;
+});
+process.on('uncaughtException', err => {
+    console.log('uncaughtException: ', err);
+});
 
 function renderStartUpPage({html, css, data} = {}) {
     return `
@@ -39,10 +44,7 @@ function renderStartUpPage({html, css, data} = {}) {
 }
 
 app.get('*', async (req, res, next) => {
-    // todo this call happened only once, when application starts. I need here something witch can run for every route.
-
     const activeRoute = routes.find(route => matchPath(req.url, route)) || {};
-
     const promise = activeRoute.fetchInitialData
         ? activeRoute.fetchInitialData(req.path)
         : Promise.resolve();
@@ -54,8 +56,6 @@ app.get('*', async (req, res, next) => {
         } else {
             data = {rawData: skills, sortedData: getSkillsByPanes(skills), authorized: false};
         }
-
-        // console.log(data.rawData[35]);
         const context = {data};
         const html = ReactDOMServer.renderToString(
             sheets.collect(
@@ -71,6 +71,7 @@ app.get('*', async (req, res, next) => {
         res.send(renderStartUpPage({html, css, data}));
     }).catch(next);
 });
+
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`Server is listening on port: ${port}`));

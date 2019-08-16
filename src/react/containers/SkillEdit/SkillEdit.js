@@ -9,6 +9,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -161,7 +162,7 @@ const SkillEdit = props => {
                         variant="outlined"
                     />
                     <TextField
-                        id="outlined-select-currency-native"
+                        id="outlined-select-pane-native"
                         select
                         label="Pane"
                         className={classes.textField}
@@ -186,12 +187,14 @@ const SkillEdit = props => {
                     <TextField
                         id="outlined-skill-description"
                         label="Skill Description"
-                        value={values.description}
-                        style={{margin: 8}}
-                        placeholder="Description"
-                        fullWidth
-                        margin="normal"
+                        className={clsx(classes.textField, classes.dense)}
+                        margin="dense"
                         variant="outlined"
+                        multiline
+                        fullWidth
+                        rowsMax="4"
+                        value={values.description}
+                        placeholder="Description"
                         InputLabelProps={{
                             shrink: true,
                         }}
@@ -292,12 +295,13 @@ const SkillEdit = props => {
                                                             <TextField
                                                                 id="outlined-project-shortDescription"
                                                                 label="Project short description"
-                                                                className={classes.textField}
                                                                 value={skill.projects[index].shortDescription}
-                                                                style={{margin: 8}}
+                                                                className={clsx(classes.textField, classes.dense)}
+                                                                margin="dense"
+                                                                multiline
+                                                                rowsMax="4"
                                                                 placeholder="Description"
                                                                 fullWidth
-                                                                margin="normal"
                                                                 variant="outlined"
                                                                 InputLabelProps={{
                                                                     shrink: true,
@@ -394,10 +398,15 @@ const SkillEdit = props => {
                                                                                         id="outlined-project-longDescription-description"
                                                                                         label="Long Description Description"
                                                                                         fullWidth
-                                                                                        className={classes.textField}
+                                                                                        className={clsx(classes.textField, classes.dense)}
                                                                                         value={skill.projects[index].longDescription[lDIndex].description}
-                                                                                        margin="normal"
                                                                                         variant="outlined"
+                                                                                        margin="dense"
+                                                                                        multiline
+                                                                                        rowsMax="4"
+                                                                                        InputLabelProps={{
+                                                                                            shrink: true,
+                                                                                        }}
                                                                                         onChange={handleProjectDescChange('description', index, lDIndex)}
                                                                                     />
                                                                                 </div>

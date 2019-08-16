@@ -49,6 +49,13 @@ export default function AdminMenu() {
                     onClick={handleClose}>
                     Login/Logout
                 </MenuItem>
+                <MenuItem
+                    key={1}
+                    component={AdapterLink}
+                    to={'/upload-resume'}
+                    onClick={handleClose}>
+                    Resume
+                </MenuItem>
 
             </Menu>
         </div>
