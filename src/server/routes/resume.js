@@ -6,9 +6,13 @@ import multer from 'multer';
 import {upload} from '../services/resumeUploader';
 
 router.get('/', async (req, res, next) => {
-    const data = fs.readFileSync('./public/docs/Evgeniy_Poznyak_Resume.pdf');
-    res.contentType('application/pdf');
-    res.send(data);
+    try {
+        const data = fs.readFileSync('./public/docs/Evgeniy_Poznyak_Resume.pdf');
+        res.contentType('application/pdf');
+        res.send(data);
+    } catch (e) {
+        res.sendStatus(500).send(e.message);
+    }
 });
 
 router.post('/', async (req, res, next) => {
