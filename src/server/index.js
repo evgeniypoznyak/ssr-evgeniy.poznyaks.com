@@ -9,6 +9,7 @@ import {ReactMaterialUI} from '../react';
 import {State} from '../react/shared/StateManager';
 import {getSkillsByPanes} from '../react/shared/api';
 import {skills} from '../react/shared/initialData/skills';
+import biography from '../../public/docs/biography';
 
 import routes from './routes';
 
@@ -52,9 +53,19 @@ app.get('*', async (req, res, next) => {
     promise.then(data => {
         const sheets = new ServerStyleSheets();
         if (data && data.skills) {
-            data = {rawData: data.skills, sortedData: getSkillsByPanes(data.skills), authorized: false};
+            data = {
+                rawData: data.skills,
+                sortedData: getSkillsByPanes(data.skills),
+                authorized: false,
+                biography: biography.biography,
+            };
         } else {
-            data = {rawData: skills, sortedData: getSkillsByPanes(skills), authorized: false};
+            data = {
+                rawData: skills,
+                sortedData: getSkillsByPanes(skills),
+                authorized: false,
+                biography: biography.biography,
+            };
         }
         const context = {data};
         const html = ReactDOMServer.renderToString(

@@ -17,6 +17,21 @@ export async function fetchSkills(skill = 'all') {
     }
 }
 
+export async function fetchBiography(path) {
+    console.log(path);
+    const url = '/biography';
+    try {
+        console.log('[GET] processing url: ', `${url}/`);
+        const result = await axios.get(`${url}/`);
+        return result.data;
+    } catch (e) {
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with API Gateway! Returning default response.');
+        console.log('returning regular skills...');
+        return {skills};
+    }
+}
+
 export async function signInIntoApiGateway(data) {
     try {
         console.log('[POST] processing url: ', `${apiPublic}/api/auth`);
@@ -35,6 +50,19 @@ export async function verifyToken() {
         if (__isBrowser__ && localStorage.getItem('token') && localStorage.getItem('token').length > 0) {
             return 'OK';
         }
+    } catch (e) {
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with API Gateway! Returning default response.');
+        return {token: ''};
+    }
+}
+
+export async function verifyTokenApi() {
+    try {
+        const url = `${apiPublic}/api/auth/verify`;
+        console.log('[POST] processing url: ', `${url}`);
+        const result = await axios.post(url);
+        return result.data;
     } catch (e) {
         console.log('Error: ', e.message);
         console.log('Something wrong happened with API Gateway! Returning default response.');
@@ -70,13 +98,42 @@ export async function deleteSkill(skillId) {
 
 export async function uploadResume(resume) {
     try {
-        const url = '/resume';
-        console.log('[POST] processing url: ', `${url}`);
-        console.log('[POST] processing resume: ', resume);
+        const verification = await verifyTokenApi();
+        if (verification === 'OK') {
+            console.log('verification: ', verification);
+            const url = '/resume';
+            console.log('[POST] processing url: ', `${url}`);
+            return await axios.post(url, resume);
+        }
+    } catch (e) {
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with this server! Returning default response.');
+        return 'Resume not been uploaded';
+    }
+}
 
-        const result = await axios.post(url, resume);
-        console.log('result: ', result);
-        return result;
+export async function uploadBiography(biography) {
+    try {
+        const verification = await verifyTokenApi();
+        if (verification === 'OK') {
+            console.log('verification: ', verification);
+            const url = '/biography';
+            console.log('[POST] processing url: ', `${url}`);
+            return await axios.post(url, {biography});
+        }
+    } catch (e) {
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with this server! Returning default response.');
+        return 'Resume not been uploaded';
+    }
+}
+
+export async function getBiography() {
+    try {
+        const url = '/biography';
+        console.log('[GET] processing url: ', `${url}`);
+        const result = await axios.get(url);
+        return result.data.biography;
     } catch (e) {
         console.log('Error: ', e.message);
         console.log('Something wrong happened with this server! Returning default response.');

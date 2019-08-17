@@ -24,26 +24,22 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function OutlinedTextFields() {
+export default function Resume(props) {
     const classes = useStyles();
     const [values, setValues] = React.useState({
-        resume: {},
+        resume: null,
         age: '',
     });
 
     const handleFileChange = name => event => {
-        const file = event.target.files[0];
-        console.log(file);
-        let data = new FormData();
-        data.append('file', file);
-        data.append('name', 'evgeniy_poznyak_resume.pdf');
-        console.log(data.get('file'));
+        const data = new FormData();
+        data.append('file', event.target.files[0]);
         setValues({...values, [name]: data});
     };
 
     const onUploadResume = async () => {
-        const result = await uploadResume(values.resume);
-        console.log(result);
+        await uploadResume(values.resume);
+        props.history.push('/');
     };
 
     return (
@@ -60,6 +56,7 @@ export default function OutlinedTextFields() {
                     type="file"
                 />
                 <Button
+                    disabled={!values.resume}
                     fullWidth
                     className={classes.button}
                     color={'primary'}

@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import resume from './routes/resume';
+import biography from './routes/biography';
 
 export default app => {
     app.use(express.json());
@@ -16,4 +17,5 @@ export default app => {
         next();
     });
     app.use('/resume', resume);
+    app.use('/biography', biography);
 };

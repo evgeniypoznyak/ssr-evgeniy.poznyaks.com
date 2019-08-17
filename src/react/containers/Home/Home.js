@@ -1,8 +1,8 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useContext} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
-import {Bio} from '../../shared/initialData/bio';
+import {State} from '../../shared/StateManager';
 
 const useStyles = makeStyles(theme => ({
     avatar: {
@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Home = props => {
+    const context = useContext(State);
     const classes = useStyles();
     return (
         <Fragment>
@@ -28,7 +29,7 @@ const Home = props => {
 
             </Grid>
             <div>
-                {Bio}
+                {context.data.biography}
             </div>
         </Fragment>
     );

@@ -56,6 +56,13 @@ export default function AdminMenu() {
                     onClick={handleClose}>
                     Resume
                 </MenuItem>
+                <MenuItem
+                    key={2}
+                    component={AdapterLink}
+                    to={'/upload-biography'}
+                    onClick={handleClose}>
+                   Biography
+                </MenuItem>
 
             </Menu>
         </div>
