@@ -32,8 +32,8 @@ export default function Auth() {
     const context = useContext(State);
     const classes = useStyles();
     const [values, setValues] = React.useState({
-        email: 'test@mail.com',
-        password: 12345,
+        email: '',
+        password: null,
     });
 
     const handleChange = name => event => {

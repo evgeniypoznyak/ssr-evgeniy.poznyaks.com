@@ -10,7 +10,7 @@ const reactRoutes = [
         path: '/',
         exact: true,
         component: Home,
-        fetchInitialData: (path = '') => fetchBiography(path.split('/').pop()),
+        fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
     },
     {
         path: '/auth',
