@@ -2,7 +2,10 @@ import axios from './axios';
 import {skills} from './initialData/skills';
 
 const url = process.env.API_GATEWAY || 'http://localhost:2222';
-const apiPublic = process.env.API_PUBLIC || 'http://localhost:2222';
+const apiPublic = process.env.API_GATEWAY_PUBLIC ||
+    'http://api.evgeniy.poznyaks.com'
+    // 'http://localhost:2222'
+;
 
 export async function fetchSkills(skill = 'all') {
     try {

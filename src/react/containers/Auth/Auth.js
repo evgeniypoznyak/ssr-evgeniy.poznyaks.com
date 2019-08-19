@@ -33,7 +33,7 @@ export default function Auth() {
     const classes = useStyles();
     const [values, setValues] = React.useState({
         email: '',
-        password: null,
+        password: '',
     });
 
     const handleChange = name => event => {
