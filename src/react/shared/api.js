@@ -115,7 +115,6 @@ export async function uploadResume(resume) {
     try {
         const verification = await verifyTokenApi();
         if (verification === 'OK') {
-            console.log('verification: ', verification);
             const url = '/resume';
             console.log('[POST] processing url: ', `${url}`);
             return await axios.post(url, resume);
@@ -128,12 +127,16 @@ export async function uploadResume(resume) {
 }
 
 
-export async function patchSkills(skills) {
+export async function putSkills(skills) {
     try {
-        const url = `${apiPublic}/api/upload-skills`;
-        console.log('[PATCH] processing url: ', `${url}`);
-        const result = await axios.patch(url, {skills});
-        return result.data;
+        const verification = await verifyTokenApi();
+        if (verification === 'OK') {
+            const url = `${apiPublic}/api/skills`;
+            console.log('[PATCH] processing url: ', `${url}`);
+            const payload = skills.skills;
+            const result = await axios.put(url, {skills: payload});
+            return result.data;
+        }
     } catch (e) {
         console.log('Error: ', e.message);
         console.log('Something wrong happened with API Gateway! Returning default response.');
@@ -146,7 +149,6 @@ export async function uploadBiography(biography) {
     try {
         const verification = await verifyTokenApi();
         if (verification === 'OK') {
-            console.log('verification: ', verification);
             const url = '/biography';
             console.log('[POST] processing url: ', `${url}`);
             return await axios.post(url, {biography});

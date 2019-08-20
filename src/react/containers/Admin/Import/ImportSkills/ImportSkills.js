@@ -2,6 +2,7 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import {putSkills} from '../../../../shared/api';
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,13 +33,21 @@ export default function ImportSkills(props) {
     const handleFileChange = name => event => {
         const data = new FormData();
         data.append('file', event.target.files[0]);
-        setValues({...values, [name]: data});
+        const reader = new FileReader();
+        reader.onload = onReaderLoad;
+        reader.readAsText(event.target.files[0]);
     };
+
+    function onReaderLoad(event) {
+        const obj = JSON.parse(event.target.result);
+        setValues({...values, ['skills']: obj});
+    }
 
     const onImportSkills = async () => {
         console.log(values.skills);
-        // await uploadResume(values.resume);
-        // props.history.push('/');
+        const result = await putSkills(values.skills);
+        console.log(result);
+        props.history.push('/');
     };
 
     return (
