@@ -2,8 +2,8 @@ import React, {Fragment, useContext} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {signInIntoApiGateway} from '../../shared/api';
-import {State} from '../../shared/StateManager';
+import {signInIntoApiGateway} from '../../../shared/api';
+import {State} from '../../../shared/StateManager';
 
 const useStyles = makeStyles(theme => ({
     container: {

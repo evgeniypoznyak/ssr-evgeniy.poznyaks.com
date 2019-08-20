@@ -8,7 +8,7 @@ import Project from '../Project/Project';
 import {State} from '../../shared/StateManager';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import {getRandomString} from '../../shared/utility';
-import SkillEdit from '../SkillEdit/SkillEdit';
+import SkillEdit from '../Admin/SkillEdit/SkillEdit';
 import {deleteSkill, getSkillsByPanes} from '../../shared/api';
 
 const useStyles = makeStyles(theme => ({

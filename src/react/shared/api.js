@@ -10,7 +10,10 @@ const apiPublic = process.env.API_GATEWAY_PUBLIC ||
     // 'http://localhost:2222'
 ;
 
-const selfUrl = process.env.SELF_URL || '';
+const selfUrl = process.env.SELF_URL ||
+    ''
+    // 'http://localhost:3001'
+;
 
 export async function fetchSkills(path = 'all') {
     const biography = await getBiography();
@@ -123,6 +126,21 @@ export async function uploadResume(resume) {
         return 'Resume not been uploaded';
     }
 }
+
+
+export async function patchSkills(skills) {
+    try {
+        const url = `${apiPublic}/api/upload-skills`;
+        console.log('[PATCH] processing url: ', `${url}`);
+        const result = await axios.patch(url, {skills});
+        return result.data;
+    } catch (e) {
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with API Gateway! Returning default response.');
+        return 'Skill not been patched';
+    }
+}
+
 
 export async function uploadBiography(biography) {
     try {

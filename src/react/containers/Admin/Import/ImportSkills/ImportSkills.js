@@ -2,7 +2,6 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {uploadResume} from '../../shared/api';
 
 
 const useStyles = makeStyles(theme => ({
@@ -24,11 +23,10 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Resume(props) {
+export default function ImportSkills(props) {
     const classes = useStyles();
     const [values, setValues] = React.useState({
-        resume: null,
-        age: '',
+        skills: null,
     });
 
     const handleFileChange = name => event => {
@@ -37,33 +35,34 @@ export default function Resume(props) {
         setValues({...values, [name]: data});
     };
 
-    const onUploadResume = async () => {
-        await uploadResume(values.resume);
-        props.history.push('/');
+    const onImportSkills = async () => {
+        console.log(values.skills);
+        // await uploadResume(values.resume);
+        // props.history.push('/');
     };
 
     return (
         <div>
             <form className={classes.container} noValidate autoComplete="off">
-                <h2 align={'center'}>Resume</h2>
+                <h2 align={'center'}>Import Skills</h2>
                 <TextField
                     required
                     id="outlined-resume"
                     className={classes.textField}
-                    onChange={handleFileChange('resume')}
+                    onChange={handleFileChange('skills')}
                     margin="normal"
                     variant="outlined"
                     type="file"
                 />
                 <Button
-                    disabled={!values.resume}
+                    disabled={!values.skills}
                     fullWidth
                     className={classes.button}
                     color={'primary'}
                     variant="contained"
                     value
-                    onClick={onUploadResume}
-                >Upload resume</Button>
+                    onClick={onImportSkills}
+                >Import skills</Button>
             </form>
         </div>
 

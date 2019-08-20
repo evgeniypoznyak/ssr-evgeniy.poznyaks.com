@@ -2,9 +2,9 @@ import React, {useContext, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {uploadBiography} from '../../shared/api';
+import {uploadBiography} from '../../../shared/api';
 import clsx from 'clsx';
-import {State} from '../../shared/StateManager';
+import {State} from '../../../shared/StateManager';
 
 
 const useStyles = makeStyles(theme => ({

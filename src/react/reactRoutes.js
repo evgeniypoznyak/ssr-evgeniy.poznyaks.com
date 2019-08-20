@@ -1,9 +1,10 @@
 import Home from './containers/Home/Home';
 import {fetchSkills} from './shared/api';
 import Skill from './containers/Skill/Skill';
-import Auth from './containers/Auth/Auth';
-import Resume from './containers/Resume/Resume';
-import Biography from './containers/Biography/Biography';
+import Auth from './containers/Admin/Auth/Auth';
+import Resume from './containers/Admin/Resume/Resume';
+import Biography from './containers/Admin/Biography/Biography';
+import ImportSkills from './containers/Admin/Import/ImportSkills/ImportSkills';
 
 const reactRoutes = [
     {
@@ -25,6 +26,11 @@ const reactRoutes = [
     {
         path: '/upload-biography',
         component: Biography,
+        fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
+    },
+    {
+        path: '/skills/import',
+        component: ImportSkills,
         fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
     },
     {

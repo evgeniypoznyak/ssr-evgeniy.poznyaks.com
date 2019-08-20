@@ -19,6 +19,25 @@ export default function AdminMenu() {
         setAnchorEl(null);
     }
 
+    const adminItems = [
+        {
+            to: '/auth',
+            name: 'Login/Logout',
+        },
+        {
+            to: '/upload-resume',
+            name: 'Resume',
+        },
+        {
+            to: '/upload-biography',
+            name: 'Biography',
+        },
+        {
+            to: '/skills/import',
+            name: 'Import Skills',
+        },
+    ];
+
     return (
         <div>
             <IconButton
@@ -42,27 +61,15 @@ export default function AdminMenu() {
                     },
                 }}
             >
-                <MenuItem
-                    key={0}
-                    component={AdapterLink}
-                    to={'/auth'}
-                    onClick={handleClose}>
-                    Login/Logout
-                </MenuItem>
-                <MenuItem
-                    key={1}
-                    component={AdapterLink}
-                    to={'/upload-resume'}
-                    onClick={handleClose}>
-                    Resume
-                </MenuItem>
-                <MenuItem
-                    key={2}
-                    component={AdapterLink}
-                    to={'/upload-biography'}
-                    onClick={handleClose}>
-                   Biography
-                </MenuItem>
+                ({adminItems.map((item, index) =>
+                    <MenuItem
+                        key={index}
+                        to={item.to}
+                        component={AdapterLink}
+                        onClick={handleClose}
+                    >{item.name}
+                    </MenuItem>,
+                )})
 
             </Menu>
         </div>
