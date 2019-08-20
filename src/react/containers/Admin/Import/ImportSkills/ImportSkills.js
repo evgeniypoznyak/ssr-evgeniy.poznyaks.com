@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {putSkills} from '../../../../shared/api';
+import {getSkillsByPanes, putSkills} from '../../../../shared/api';
+import {State} from '../../../../shared/StateManager';
 
 
 const useStyles = makeStyles(theme => ({
@@ -25,6 +26,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ImportSkills(props) {
+    const context = useContext(State);
     const classes = useStyles();
     const [values, setValues] = React.useState({
         skills: null,
@@ -44,9 +46,9 @@ export default function ImportSkills(props) {
     }
 
     const onImportSkills = async () => {
-        console.log(values.skills);
         const result = await putSkills(values.skills);
-        console.log(result);
+        const skills = result.skills;
+        context.setData({...context.data, rawData: result.skills, sortedData: getSkillsByPanes(skills)});
         props.history.push('/');
     };
 
