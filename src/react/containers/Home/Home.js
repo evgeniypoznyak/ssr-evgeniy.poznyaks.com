@@ -28,8 +28,7 @@ const Home = props => {
                 </Grid>
 
             </Grid>
-            <div>
-                {context.data.biography}
+            <div dangerouslySetInnerHTML={{__html: context.data.biography}}>
             </div>
         </Fragment>
     );

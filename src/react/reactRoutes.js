@@ -1,5 +1,5 @@
 import Home from './containers/Home/Home';
-import {fetchBiography, fetchSkills} from './shared/api';
+import {fetchSkills} from './shared/api';
 import Skill from './containers/Skill/Skill';
 import Auth from './containers/Auth/Auth';
 import Resume from './containers/Resume/Resume';

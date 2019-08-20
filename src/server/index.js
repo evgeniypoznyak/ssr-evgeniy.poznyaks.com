@@ -16,13 +16,13 @@ import routes from './routes';
 const app = express();
 routes(app);
 
-process.on('unhandledRejection', ex => {
-    console.log('unhandledRejection: ', ex);
-    throw ex;
-});
-process.on('uncaughtException', err => {
-    console.log('uncaughtException: ', err);
-});
+// process.on('unhandledRejection', ex => {
+//     console.log('unhandledRejection: ', ex);
+//     throw ex;
+// });
+// process.on('uncaughtException', err => {
+//     console.log('uncaughtException: ', err);
+// });
 
 function renderStartUpPage({html, css, data} = {}) {
     return `
@@ -57,7 +57,7 @@ app.get('*', async (req, res, next) => {
                 rawData: data.skills,
                 sortedData: getSkillsByPanes(data.skills),
                 authorized: false,
-                biography: biography.biography,
+                biography: data.biography,
             };
         } else {
             data = {

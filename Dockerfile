@@ -3,9 +3,16 @@
 #--env-file ./.env
 FROM node:10
 WORKDIR /usr/src/app
+#RUN chown -R root:root /usr/src/app
+#WORKDIR /usr/src/app
+#USER root
 COPY package*.json ./
 RUN npm install
+#RUN chown -R root:root /usr/src/app
 COPY . .
-RUN npm run run-webpack
+#RUN chown root:root /usr/local/bin/node
+#RUN chmod -R 777 /usr/local/bin/node
+#RUN chown -R root:root /usr/src/app
+RUN  npm run run-webpack
 EXPOSE 8080
 CMD [ "node", "server.js" ]

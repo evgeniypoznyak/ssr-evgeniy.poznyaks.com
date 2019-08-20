@@ -1,22 +1,31 @@
 import axios from './axios';
 import {skills} from './initialData/skills';
 
-const url = process.env.API_GATEWAY || 'http://localhost:2222';
+const url = process.env.API_GATEWAY ||
+    'https://api.evgeniy.poznyaks.com'
+    // 'http://localhost:2222'
+;
 const apiPublic = process.env.API_GATEWAY_PUBLIC ||
-    'http://api.evgeniy.poznyaks.com'
+    'https://api.evgeniy.poznyaks.com'
     // 'http://localhost:2222'
 ;
 
-export async function fetchSkills(skill = 'all') {
+const selfUrl = process.env.SELF_URL || '';
+
+export async function fetchSkills(path = 'all') {
+    const biography = await getBiography();
     try {
         console.log('[GET] processing url: ', `${url}/api/skills/`);
         const result = await axios.get(`${url}/api/skills/`);
-        return result.data;
+        return {
+            skills: result.data.skills,
+            biography,
+        };
     } catch (e) {
         console.log('Error: ', e.message);
         console.log('Something wrong happened with API Gateway! Returning default response.');
         console.log('returning regular skills...');
-        return {skills};
+        return {skills, biography};
     }
 }
 
@@ -133,14 +142,14 @@ export async function uploadBiography(biography) {
 
 export async function getBiography() {
     try {
-        const url = '/biography';
+        const url = `${selfUrl}/biography`;
         console.log('[GET] processing url: ', `${url}`);
         const result = await axios.get(url);
         return result.data.biography;
     } catch (e) {
         console.log('Error: ', e.message);
         console.log('Something wrong happened with this server! Returning default response.');
-        return 'Resume not been uploaded';
+        return 'Biography not been uploaded';
     }
 }
 
