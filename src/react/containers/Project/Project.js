@@ -17,6 +17,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import ScrollDialog from '../../components/UI/Dialog/ScrollDialog';
 import DetailedProject from './DetailedProject/DetailedProject';
+import {getMonthAndDay} from '../../shared/utility';
 
 const useStyles = makeStyles(theme => ({
     sliderRoot: {
@@ -90,7 +91,7 @@ export default function Project(props) {
         slider = <div className={classes.sliderRoot}>
 
             <Paper square elevation={0} className={classes.header}>
-                <Typography variant="caption">{images[activeStep].label}</Typography>
+                <Typography variant="subtitle1" >{images[activeStep].label}</Typography>
             </Paper>
             <img
                 className={classes.img}
@@ -126,12 +127,22 @@ export default function Project(props) {
         />;
     }
 
+    let avatarProject = null;
+    if (props.project.logo && props.project.logo.length > 0) {
+        avatarProject = <Avatar aria-label="Project" src={props.project.logo} className={classes.avatar}/>;
+    }
+
+    let dateCreated = null;
+    if (props.project.dateCreated && props.project.dateCreated.length > 0) {
+        dateCreated = 'Created: ' + getMonthAndDay(props.project.dateCreated);
+    }
+
     return (
         <Card className={classes.card}>
             <CardHeader
-                avatar={<Avatar aria-label="Project" src={props.project.logo} className={classes.avatar}/>}
+                avatar={avatarProject}
                 title={props.project.name}
-                subheader={props.project.dateCreated}
+                subheader={dateCreated}
             />
             {slider || cardImage}
             <CardContent>

@@ -133,8 +133,7 @@ export async function putSkills(skills) {
         if (verification === 'OK') {
             const url = `${apiPublic}/api/skills`;
             console.log('[PATCH] processing url: ', `${url}`);
-            const payload = skills.skills;
-            const result = await axios.put(url, {skills: payload});
+            const result = await axios.put(url, {skills});
             return result.data;
         }
     } catch (e) {

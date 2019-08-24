@@ -33,6 +33,10 @@ const useStyles = makeStyles(theme => ({
     input: {
         display: 'none',
     },
+    header: {
+        marginTop: 1,
+        textAlign: 'center',
+    },
 }));
 const Skill = props => {
     const path = props.history.location.pathname.split('/').pop();
@@ -99,7 +103,7 @@ const Skill = props => {
                 {adminOptions}
                 {skillToEdit}
                 <Grid container justify="center">
-                    <Typography variant="h5" style={{
+                    <Typography variant="h4" component="h4" style={{
                         flexGrow: 1, textAlign: 'center', marginTop: 28,
                     }}>
                         {selectedSkill.name}
@@ -112,7 +116,10 @@ const Skill = props => {
                 <Typography variant="subtitle1">
                     {selectedSkill.description}
                 </Typography>
-
+                <hr/>
+                <Typography className={classes.header} gutterBottom variant="h6" component="h4">
+                    Projects build with {selectedSkill.name}:
+                </Typography>
                 <Grid container justify={'space-evenly'}>
                     {selectedSkill.projects.map(project =>
                         <Grid item key={project.id + '_' + getRandomString(99)}>

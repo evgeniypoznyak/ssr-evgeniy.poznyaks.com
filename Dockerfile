@@ -1,4 +1,7 @@
 # docker build -t evgen1y/ssr-react .
+# docker tag 03c0c395c12e evgen1y/ssr-react
+# docker push evgen1y/ssr-react
+
 # docker run -p 3001:8080 -d --env-file ./.env --name evgeniy-ssr-react --network evgeniy_poznyaks_com evgen1y/ssr-react
 #--env-file ./.env
 FROM node:10

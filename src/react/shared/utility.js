@@ -59,3 +59,10 @@ export const getRandomString = function(length) {
 };
 
 export const stripHtmlTags = element => element.replace(/<\/?[^>]+(>|$)/g, '');
+
+export const getMonthAndDay = dateStr => {
+    const parts = dateStr.split('-');
+    const date = new Date(parts[0], parts[1] - 1, parts[2]);
+    const month = date.toLocaleString('default', { month: 'long' });
+    return month + ', ' + parts[0];
+};
