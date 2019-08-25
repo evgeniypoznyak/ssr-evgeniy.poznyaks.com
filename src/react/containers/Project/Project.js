@@ -18,6 +18,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import ScrollDialog from '../../components/UI/Dialog/ScrollDialog';
 import DetailedProject from './DetailedProject/DetailedProject';
 import {getMonthAndDay} from '../../shared/utility';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(theme => ({
     sliderRoot: {
@@ -62,6 +63,7 @@ const useStyles = makeStyles(theme => ({
         display: 'block',
         width: '100%',
     },
+
 }));
 
 
@@ -91,7 +93,7 @@ export default function Project(props) {
         slider = <div className={classes.sliderRoot}>
 
             <Paper square elevation={0} className={classes.header}>
-                <Typography variant="subtitle1" >{images[activeStep].label}</Typography>
+                <Typography variant="subtitle1">{images[activeStep].label}</Typography>
             </Paper>
             <img
                 className={classes.img}
@@ -137,13 +139,30 @@ export default function Project(props) {
         dateCreated = 'Created: ' + getMonthAndDay(props.project.dateCreated);
     }
 
+    let gitHubProjectLink = null;
+    if (props.project.github && props.project.github.length > 0) {
+        gitHubProjectLink = <IconButton aria-label="GitHub" target={'_blank'} href={props.project.github}>
+            <Avatar aria-label="Project" src={'/assets/projects/github-logo.png'}
+                className={classes.smallAvatar}/>
+        </IconButton>;
+    }
+
+    let companyName = null;
+    if (props.project.companyName && props.project.companyName.length > 0) {
+        companyName = <Box width="90%" display="flex" flexDirection="row" justifyContent="flex-end">
+            <div>Company: {props.project.companyName}</div>
+        </Box>;
+    }
+
     return (
         <Card className={classes.card}>
             <CardHeader
                 avatar={avatarProject}
                 title={props.project.name}
                 subheader={dateCreated}
+                content={'test'}
             />
+            {companyName}
             {slider || cardImage}
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
@@ -151,10 +170,7 @@ export default function Project(props) {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="GitHub" target={'_blank'} href={props.project.github}>
-                    <Avatar aria-label="Project" src={'/assets/projects/github-logo.png'}
-                        className={classes.smallAvatar}/>
-                </IconButton>
+                {gitHubProjectLink}
                 <IconButton aria-label="Website" target={'_blank'} href={props.project.website}>
                     <PublicIcon/>
                 </IconButton>
