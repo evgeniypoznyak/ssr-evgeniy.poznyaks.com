@@ -162,6 +162,14 @@ export default function Project(props) {
         </IconButton>;
     }
 
+    let longDescription = null;
+    if (props.project.longDescription && props.project.longDescription.length > 0) {
+        longDescription = <Grid container justify={'flex-end'}>
+            <ScrollDialog title={props.project.name}>
+                <DetailedProject description={props.project.longDescription}/>
+            </ScrollDialog>
+        </Grid>;
+    }
     return (
         <Card className={classes.card}>
             <CardHeader
@@ -180,11 +188,7 @@ export default function Project(props) {
             <CardActions disableSpacing>
                 {gitHubProjectLink}
                 {website}
-                <Grid container justify={'flex-end'}>
-                    <ScrollDialog title={props.project.name}>
-                        <DetailedProject description={props.project.longDescription}/>
-                    </ScrollDialog>
-                </Grid>
+                {longDescription}
             </CardActions>
         </Card>
     );
