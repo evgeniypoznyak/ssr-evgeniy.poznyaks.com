@@ -15,10 +15,10 @@ import Button from '@material-ui/core/Button';
 import PublicIcon from '@material-ui/icons/Public';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import Box from '@material-ui/core/Box';
 import ScrollDialog from '../../components/UI/Dialog/ScrollDialog';
 import DetailedProject from './DetailedProject/DetailedProject';
 import {getMonthAndDay} from '../../shared/utility';
-import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(theme => ({
     sliderRoot: {
@@ -27,8 +27,9 @@ const useStyles = makeStyles(theme => ({
     },
     card: {
         maxWidth: 345,
-        marginTop: 10,
-        marginBottom: 10,
+        margin: 10,
+        marginTop: 30,
+        boxShadow: '10px 10px 31px -5px rgba(0,0,0,0.55)',
     },
     media: {
         height: 0,
@@ -154,6 +155,13 @@ export default function Project(props) {
         </Box>;
     }
 
+    let website = null;
+    if (props.project.website && props.project.website.length > 0) {
+        website = <IconButton aria-label="Website" target={'_blank'} href={props.project.website}>
+            <PublicIcon/>
+        </IconButton>;
+    }
+
     return (
         <Card className={classes.card}>
             <CardHeader
@@ -171,9 +179,7 @@ export default function Project(props) {
             </CardContent>
             <CardActions disableSpacing>
                 {gitHubProjectLink}
-                <IconButton aria-label="Website" target={'_blank'} href={props.project.website}>
-                    <PublicIcon/>
-                </IconButton>
+                {website}
                 <Grid container justify={'flex-end'}>
                     <ScrollDialog title={props.project.name}>
                         <DetailedProject description={props.project.longDescription}/>
