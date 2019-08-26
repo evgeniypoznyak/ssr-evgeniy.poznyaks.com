@@ -27,6 +27,10 @@ const useStyles = makeStyles(theme => ({
 const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
 const SkillPane = props => {
     const classes = useStyles();
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
+
     return (
         <Grid item md={2} lg={2} className='Pane'>
             <Paper style={props.styles.Paper}>
@@ -34,6 +38,7 @@ const SkillPane = props => {
                     {props.skills.map((skill, index) => (
                         <Fragment key={skill.id}>
                             <ListItem
+                                onClick={scrollToTop}
                                 alignItems={'center'}
                                 button
                                 component={AdapterLink}

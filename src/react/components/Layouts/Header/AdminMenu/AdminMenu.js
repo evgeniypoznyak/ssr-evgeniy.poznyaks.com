@@ -17,6 +17,7 @@ export default function AdminMenu() {
 
     function handleClose() {
         setAnchorEl(null);
+        window.scrollTo(0, 0);
     }
 
     const adminItems = [

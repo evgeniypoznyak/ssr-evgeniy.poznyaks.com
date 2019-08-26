@@ -82,6 +82,10 @@ function Header(props) {
     });
     const classes = useStyles();
 
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
+
     const toggleDrawer = processToggleDrawer(setState, state);
 
     const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
@@ -109,6 +113,7 @@ function Header(props) {
                 {props.context.data.rawData.map(skill => (
                     <Fragment key={skill.id}>
                         <ListItem
+                            onClick={scrollToTop}
                             alignItems={'center'}
                             button
                             component={AdapterLink}
@@ -144,6 +149,7 @@ function Header(props) {
                         </IconButton>
                         <Typography variant="h6" >
                             <NavLink
+                                onClick={scrollToTop}
                                 to={'/'}
                                 style={{textDecoration: 'none', color: 'inherit'}}
                                 activeClassName={classes.active}>

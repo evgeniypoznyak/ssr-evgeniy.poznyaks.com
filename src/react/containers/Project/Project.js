@@ -150,7 +150,7 @@ export default function Project(props) {
 
     let companyName = null;
     if (props.project.companyName && props.project.companyName.length > 0) {
-        companyName = <Box width="90%" display="flex" flexDirection="row" justifyContent="flex-end">
+        companyName = <Box width="95%" display="flex" flexDirection="row" justifyContent="flex-end">
             <div>Company: {props.project.companyName}</div>
         </Box>;
     }
