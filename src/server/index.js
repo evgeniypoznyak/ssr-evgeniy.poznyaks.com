@@ -31,7 +31,6 @@ function renderStartUpPage({html, css, data} = {}) {
       <head>
         <title>Evgeniy Poznyak - Software Engineer</title>
         <style id="jss-server-side">${css}</style>
-        <style> .Pane {} @media (max-width: 960px) { .Pane { display: none; } } </style>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       </head>
@@ -44,7 +43,7 @@ function renderStartUpPage({html, css, data} = {}) {
   `;
 }
 
-app.get('*', async (req, res, next) => {
+app.get('*', (req, res, next) => {
     const activeRoute = reactRoutes.find(route => matchPath(req.url, route)) || {};
     const promise = activeRoute.fetchInitialData
         ? activeRoute.fetchInitialData(req.path)

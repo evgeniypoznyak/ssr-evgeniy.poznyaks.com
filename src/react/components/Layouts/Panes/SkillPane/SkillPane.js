@@ -22,7 +22,11 @@ const useStyles = makeStyles(theme => ({
     hiddenSkill: {
         display: 'none',
     },
-
+    Pane: {
+        '@media (max-width: 960px)': {
+            display: 'none',
+        },
+    },
 }));
 const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
 const SkillPane = props => {
@@ -32,7 +36,7 @@ const SkillPane = props => {
     };
 
     return (
-        <Grid item md={2} lg={2} className='Pane'>
+        <Grid item md={2} lg={2} className={classes.Pane}>
             <Paper style={props.styles.Paper}>
                 <List>
                     {props.skills.map((skill, index) => (
