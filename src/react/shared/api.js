@@ -187,10 +187,10 @@ export const getSkillsByPanes = skills => {
 };
 
 export const sortByOrder = (a, b) => {
-    if (a.order < b.order) {
+    if (a.order * 1 < b.order * 1) {
         return -1;
     }
-    if (a.order > b.order) {
+    if (a.order * 1 > b.order * 1) {
         return 1;
     }
     return 0;
