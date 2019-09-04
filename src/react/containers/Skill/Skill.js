@@ -77,6 +77,12 @@ const Skill = props => {
     let adminOptions = null;
     skills.push(...context.data.rawData);
     const selectedSkill = skills.find(el => el.id === selectedPath);
+    let projectsHeader = null;
+    if (selectedSkill.projects.length > 0) {
+        projectsHeader = <Typography className={classes.header} gutterBottom variant="h6" component="h4">
+            Projects build with {selectedSkill.name}:
+        </Typography>;
+    }
     if (selectedSkill) {
         if (context.data.authorized) {
             adminOptions = <Fragment>
@@ -117,9 +123,7 @@ const Skill = props => {
                     {selectedSkill.description}
                 </Typography>
                 <hr/>
-                <Typography className={classes.header} gutterBottom variant="h6" component="h4">
-                    Projects build with {selectedSkill.name}:
-                </Typography>
+                {projectsHeader}
                 <Grid container justify={'space-evenly'}>
                     {selectedSkill.projects.map(project =>
                         <Grid item key={project.id + '_' + getRandomString(99)}>
