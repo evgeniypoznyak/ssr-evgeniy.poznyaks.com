@@ -587,7 +587,7 @@ export const skills = [
         'version': '16',
         'logo': '/assets/skills/reactjs.png',
         'order': '33',
-        'description': 'What makes React so popular? Popular more than Angular? A big community? Maybe a isomorphic structure? Or maybe very short learning curve? Probably all of above. I started building my first professional project in 2017. Now I’m making React applications in enterprise world. I really like it because I can connect all my knowledge together now: Domain Driven Design, SOLID principles, DRY and many more.',
+        'description': 'What makes React so popular? Popular more than Angular? A big community? Maybe a isomorphic structure? Or maybe very short learning curve? Probably all of above. I started building my first professional project in 2016. Now I’m making React applications in enterprise world. I really like it because I can connect all my knowledge together now: Domain Driven Design, SOLID principles, DRY and many more.',
         'projects': [
             {
                 'id': 'holyskete-react',
@@ -929,7 +929,7 @@ export const skills = [
         'version': '4',
         'logo': '/assets/skills/symfony.png',
         'order': '77',
-        'description': 'Some awesome description',
+        'description': 'Where you can see SOLID design in PHP? Probably the answer is Symfony framework. All four acronyms  shine through when start following amazing Symfony’s documentation and follow big community guides. Symfony very similar to .Net Core MVC framework. I build and support a few projects with Symfony and API service for React support.',
         'projects': [
             {
                 'id': 'data.holyskete.com',
@@ -979,7 +979,7 @@ export const skills = [
         'version': '5',
         'logo': '/assets/skills/laravel.png',
         'order': '88',
-        'description': 'Some awesome description',
+        'description': 'Laravel is the most popular PHP framework in USA market. Build on top of Symfony framework with little spoon of magic, huge community support and amazing Laracast videos from PHP super star Jeffrey Way, all of this makes Laravel choice number one as PHP framework in US and outside. I build several websites in Laravel also I created API service for Angular support.',
         'projects': [
             {
                 'id': 'video.pacificnorthern.com',
@@ -1192,7 +1192,7 @@ export const skills = [
         'version': '5',
         'logo': '/assets/skills/expressjs.png',
         'order': '111',
-        'description': 'Some awesome description',
+        'description': 'Build server with NodeJS and Express is very fast and simple. It’s like one, two, three and “bam!” Everything is ready for use. ExpressJS supposed by big community and it’s been used very wildly in all level projects from small apps to enterprise level. I have experience to build NodeJS + Express projects. Please feel free to discover them.',
         'projects': [
             {
                 'id': 'api-gateway-for-portfolio',
@@ -1242,7 +1242,7 @@ export const skills = [
         'version': '5',
         'logo': '/assets/skills/mongo.png',
         'order': '122',
-        'description': 'Some awesome description',
+        'description': 'With MongoDB I created a few projects on NodeJS (JavaScript/TypeScript) and C# .Net Core. I really enjoining using NoSQL databases. They are easy to change, not strict structure and they are easily support JavaScript. This made they choice number one for JavaScript developers.',
         'projects': [
             {
                 'id': 'holyskete-react',
@@ -1880,7 +1880,7 @@ export const skills = [
         'version': '0',
         'logo': '/assets/skills/docker.png',
         'order': '144',
-        'description': 'Some awesome description',
+        'description': 'I keep asking myself this question all the time: Why I don’t use docker before? It’s simple, easy to setup, docker use isolated environment. You can build with docker combine together all your complex applications like a Lego blocks. Using docker is always fun and I find it very useful and productive. Currently I build small microservices system with docker containers. Before it was hard to do all deployments, now it’s just a managing artifacts.',
         'projects': [
             {
                 'id': 'express-recoveries-v2',
@@ -1966,7 +1966,7 @@ export const skills = [
         'version': '0',
         'logo': '/assets/skills/microservices.png',
         'order': '155',
-        'description': 'Some awesome description',
+        'description': 'Why microservices became so popular? Higher complexity of enterprise applications push engineering mind towards this direction. With right design microservice architecture you can protect your application for any sort of future changes. Also for each microservices same rules are been applied: SOLID, DRY, Rule of Thumb. Only with clean architecture microservices can help, otherwise it will be unnecessary step towards more complexity and it will bring more problems into already problematic code. Here microservices projects where I been involved as engineer.',
         'projects': [
             {
                 'id': 'express-recoveries-v2',
@@ -2084,7 +2084,7 @@ export const skills = [
         'version': '3',
         'logo': '/assets/skills/python.png',
         'order': '177',
-        'description': 'Some awesome description',
+        'description': 'As I get bored I decided to learn something new. My choice dropped on Python. I start learning from very basic to OOP with design patterns. I really like Python’s conditioning on the fly for dictionaries, tuples and lists. I didn’t create any professional application on Python, but I think this is going to be happen soon or later.',
         'projects': [],
     },
     {
@@ -2123,13 +2123,13 @@ export const skills = [
         '_id': {
             '$oid': '5d5c6c6b52b65ac348575088',
         },
-        'id': 'material-ui',
-        'name': 'Material UI',
+        'id': 'material-design',
+        'name': 'Material Design',
         'panel': 'right',
         'version': '0',
         'logo': '/assets/skills/material-ui.png',
         'order': '199',
-        'description': 'Some awesome description',
+        'description': 'As long I use Material Design as more I like it. With all elements, grid system, typography, flexible color base and UI looking like Android or Google apps. This makes Material Design UI framework without competitions. Here is my work where Material Design is been used.',
         'projects': [
             {
                 'id': 'express-digital-media',
@@ -2192,7 +2192,7 @@ export const skills = [
         'version': '',
         'logo': '/assets/skills/design-patterns.png',
         'order': '211',
-        'description': 'Some awesome description',
+        'description': 'Design Patterns in Software is solution for commonly happening problems, they are not final code, it’s just a skeleton for future implementations. Whey are helpful because of by implementation of them you put protection layer into your application which can protect for future changes. Also Design Pattern provide into complex code more organizing design looking, so any potential coming developers can easily understand code and start executing on code. Very commonly used design patterns are Singleton, Facade, Abstract Method/Factory, Observer, Strategy and Decorator.',
         'projects': [
             {
                 'id': 'express-recoveries-v2',
@@ -2278,7 +2278,7 @@ export const skills = [
         'version': '0',
         'logo': '/assets/skills/tdd.png',
         'order': '222',
-        'description': 'Some awesome description',
+        'description': 'Test Driven Development (TDD) is way of protect application by implementing repeatable practice into code. TDD cycle starts with small steps: In very beginning engineer create failing test and start implementing code for test not being falling, after that implementing that engineer starts refactoring by modifying tests and code to be more clean and DRY. And this is basically it. This TDD cycle will be implemented all time until story/software bug will be solved. By end of this engineering team got fully testable and coverable code. Later, down to the road, if engineers will be asked for implementing new feature or refactor existing code, then they are easily start writing code and just check their self by running these tests and implementing new one by TDD cycle. I was involved in a few project by implementing TDD practices. In the beginning it was very annoying and confusing, but later everything became so-so easy and clear.',
         'projects': [
             {
                 'id': 'ssr-reactjs-for-portfolio',
@@ -2364,7 +2364,7 @@ export const skills = [
         'version': '0',
         'logo': '/assets/skills/solid.png',
         'order': '233',
-        'description': 'Some awesome description',
+        'description': 'SOLID principles appears after Robert Martin book ”Clean Code” is being published, this was a result, or, if you prefer, engineering word answer on this incredible book. SOLID is an acronym. It is stand for: “S” for Single Responsibility Principle, “O” for Open/Closed Principle, “L” for Liskov Substitution, Principle, “I” for Interface Segregation Principle, “D” for Dependency Inversion Principle. All these principles are helping developers write clean easily supported code. I use these principles a lot and always trying to catch my self if I’m violating of one of these principles? Also, SOLID could be implemented not only in code, but in the design software also. For example, in microservices.',
         'projects': [
             {
                 'id': 'ssr-reactjs-for-portfolio',
@@ -2468,7 +2468,7 @@ export const skills = [
         'version': '0',
         'logo': '/assets/skills/ddd.gif',
         'order': '244',
-        'description': 'Some awesome description',
+        'description': 'DDD is acronym and is stand for Domain Driven Design, this coming from Eric Evans book: “Domain-Driven Design: Tackling Complexity in the Heart of Software”. This principle of designing and writing software commonly used in enterprise level applications. Domain is a main source where engineering team is gaining all information about business, and good resource on that is usually clients, operation teams and product managers. The whole team, from top manager to very low level of implementing code by engineers is speaking in ubiquitous language, they are defining scope (bonded context) for each business domain. Inside of this domain each word has specific meaning for the entire team. I was involved into this type of software processes, but before that was a lot of meetings with product team, white boarding, design sessions and design documents.',
         'projects': [
             {
                 'id': 'ssr-reactjs-for-portfolio',
@@ -2564,301 +2564,15 @@ export const skills = [
     },
     {
         '_id': {
-            '$oid': '5d5c6c6b52b65ac348575085',
-        },
-        'id': 'jquery',
-        'name': 'jQuery',
-        'panel': 'right',
-        'version': '0',
-        'logo': '/assets/skills/jquery.png',
-        'order': '255',
-        'description': 'Some awesome description',
-        'projects': [
-            {
-                'id': 'eandkphotography',
-                'name': 'E&K Photography (PHP)',
-                'companyName': 'E and K Photography',
-                'website': 'https://eandkphoto.com',
-                'github': 'https://github.com/evgeniypoznyak/eandkphoto.com',
-                'logo': '',
-                'dateCreated': '2013-06-18',
-                'cardCover': 'https://data.eandkphoto.com/events/2015/09-september/newborn/large/EVG_73831.jpg',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/eandkphoto.com/front.jpg',
-                    },
-                    {
-                        'label': 'Grid',
-                        'path': '/assets/projects/eandkphoto.com/grid.jpg',
-                    },
-                    {
-                        'label': 'Contact Us',
-                        'path': '/assets/projects/eandkphoto.com/contact-us.jpg',
-                    },
-                    {
-                        'label': 'Social Page',
-                        'path': '/assets/projects/eandkphoto.com/social.jpg',
-                    },
-                    {
-                        'label': 'Portfolio Page',
-                        'path': '/assets/projects/eandkphoto.com/portfolio.jpg',
-                    },
-                ],
-                'shortDescription': 'In very beginning I created this website from scratch on vanilla PHP. Today this website is completely different.',
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/eandkphoto.com/eandkphoto_php.jpg',
-                        'description': 'Project was lived in Virtual Private Server (VPS), used Apache Server on Linux system. Filesystem is been used to display list of pictures by year, month and date. Contact Us form utilized Google API such as reCaptcha. User data was stored in MySQL.',
-                    },
-                ],
-            },
-            {
-                'id': 'evgeniy.poznyaks.com_v1',
-                'name': 'Portfolio Website',
-                'companyName': '',
-                'website': 'https://evgeniy.poznyaks.com',
-                'github': 'https://github.com/evgeniypoznyak/evgeniy.poznyaks.com',
-                'logo': '/assets/projects/evgeniy.poznyaks.com_v1/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'Portfolio Website Build on PHP Framework Laravel with Eloquent ORM. For frontend used Bootstrap 4.',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/front.jpg',
-                    },
-                    {
-                        'label': 'Skills',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/skills.jpg',
-                    },
-                    {
-                        'label': 'Professional Experience',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/prof-exp.jpg',
-                    },
-                    {
-                        'label': 'Personal Experience',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/pers-exp.jpg',
-                    },
-                    {
-                        'label': 'Project Page',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/project-page.jpg',
-                    },
-                    {
-                        'label': 'Contact Us',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/contact-us.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/evgeniy.poznyaks.com_v1/portfolio_website_v1.jpg',
-                        'description': 'Application was on VPS with Apache server. Laravel was chosen as PHP framework and for front end was blade templates with Bootstrap and jQueryUI. Eloquent was used as ORM and MySQL as a storage unit.',
-                    },
-                ],
-            },
-            {
-                'id': 'video.pacificnorthern.com',
-                'name': 'Internal Video Content System',
-                'companyName': 'Pacific Northern Inc.',
-                'website': '',
-                'github': 'https://github.com/evgeniypoznyak/video.pacificnorthern.com',
-                'logo': '/assets/projects/video.pacificnorthern.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'Utilizing PHP Framework Laravel for backend and jQueryUI for frontend. A little similar to NETFLIX.',
-                'images': [
-                    {
-                        'label': 'Folders',
-                        'path': '/assets/projects/video.pacificnorthern.com/folders.jpg',
-                    },
-                    {
-                        'label': 'Video List',
-                        'path': '/assets/projects/video.pacificnorthern.com/video-list.jpg',
-                    },
-                    {
-                        'label': 'Video Player',
-                        'path': '/assets/projects/video.pacificnorthern.com/video.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/video.pacificnorthern.com/video.pacificnorthern.com.jpg',
-                        'description': 'Laravel is handling filesystem and database connection. Also in top level user’s information passed by Active Directory. Front end build with bootstrap and jQuery UI.',
-                    },
-                ],
-            },
-            {
-                'id': 'info.pndisplay.com',
-                'name': 'Information for PN Display',
-                'companyName': 'Pacific Northern Inc.',
-                'website': 'http://info.pndisplay.com/',
-                'github': '',
-                'logo': '/assets/projects/info.pndisplay.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'Simple website providing more information about E-Commerce PN Display website. Build on WordPress engine.',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/info.pndisplay.com/front.jpg',
-                    },
-                    {
-                        'label': 'List Page',
-                        'path': '/assets/projects/info.pndisplay.com/list.jpg',
-                    },
-                    {
-                        'label': 'Platforms Page',
-                        'path': '/assets/projects/info.pndisplay.com/platforms.jpg',
-                    },
-                    {
-                        'label': 'News Page',
-                        'path': '/assets/projects/info.pndisplay.com/news.jpg',
-                    },
-                ],
-                'longDescription': [],
-            },
-            {
-                'id': 'namesday.info',
-                'name': 'Names Day info',
-                'companyName': 'Andrei Pervychine',
-                'website': 'https://www.namesday.info/',
-                'github': '',
-                'logo': '',
-                'dateCreated': '2013-05-29',
-                'cardCover': '/assets/projects/namesday.info/cover.jpg',
-                'shortDescription': 'This is was my first professional work. I worked as intern an helped with backend and frontend. Mostly my work done for frontend.',
-                'images': [],
-                'longDescription': [],
-            },
-            {
-                'id': 'pacificnorthern',
-                'name': 'Pacific Northern Company Website',
-                'companyName': 'Pacific Northern Inc.',
-                'website': 'https://www.pacificnorthern.com/',
-                'github': '',
-                'logo': '/assets/projects/pacificnerthern.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/pacificnerthern.com/front-page.jpg',
-                    },
-                    {
-                        'label': 'Portfolio Page',
-                        'path': '/assets/projects/pacificnerthern.com/portfolio-page.jpg',
-                    },
-                    {
-                        'label': 'Portfolio Item Page',
-                        'path': '/assets/projects/pacificnerthern.com/portfolio-item-page.jpg',
-                    },
-                    {
-                        'label': 'What We Do Page',
-                        'path': '/assets/projects/pacificnerthern.com/what-we-do-page.jpg',
-                    },
-                    {
-                        'label': 'Our Team Page',
-                        'path': '/assets/projects/pacificnerthern.com/our-team-page.jpg',
-                    },
-                    {
-                        'label': 'About Us Page',
-                        'path': '/assets/projects/pacificnerthern.com/about-us-page.jpg',
-                    },
-                ],
-                'shortDescription': 'Company presentation website for displaying company information and products. Website utilized WordPress technology.',
-                'longDescription': [],
-            },
-            {
-                'id': 'infocenter.pacificnorthern',
-                'name': 'Internal Company’s Information Center',
-                'companyName': 'Pacific Northern Inc.',
-                'website': '',
-                'github': '',
-                'logo': '/assets/projects/infocenter.pacificnorthern.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'This is company’s internal website build on WordPress and using Active Directory Integration.',
-                'images': [
-                    {
-                        'label': 'Active Directory Cards View',
-                        'path': '/assets/projects/infocenter.pacificnorthern.com/ad-cards.jpg',
-                    },
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/infocenter.pacificnorthern.com/front.jpg',
-                    },
-                    {
-                        'label': 'Active Directory List View',
-                        'path': '/assets/projects/infocenter.pacificnorthern.com/ad-list.jpg',
-                    },
-                    {
-                        'label': 'Active Directory Profile View',
-                        'path': '/assets/projects/infocenter.pacificnorthern.com/profile.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/infocenter.pacificnorthern.com/infocenter.pacificnorthern.jpg',
-                        'description': 'I created integration with windows active directory from Wordpress internal website. Cron job was kicking the script and script was updating and making record into database. After that WordPress custom build plugin pull these changes and reflect them into website.',
-                    },
-                ],
-            },
-            {
-                'id': 'pndisplay.com',
-                'name': 'PN Display, E-Commerce Website',
-                'companyName': 'Pacific Northern Inc.',
-                'website': '',
-                'github': '',
-                'logo': '/assets/projects/pndisplay.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'E-Commerce Website. With custom more than 300 variations, fabrics and tiers for each product and platforms combos.',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/pndisplay.com/front.jpg',
-                    },
-                    {
-                        'label': 'Product List',
-                        'path': '/assets/projects/pndisplay.com/product-list.jpg',
-                    },
-                    {
-                        'label': 'Single Item',
-                        'path': '/assets/projects/pndisplay.com/single-item.jpg',
-                    },
-                    {
-                        'label': 'Multiple Custom Variations',
-                        'path': '/assets/projects/pndisplay.com/variations.jpg',
-                    },
-                    {
-                        'label': 'Backend Setup',
-                        'path': '/assets/projects/pndisplay.com/backend-setup.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/pndisplay.com/pndisplay.com.jpg',
-                        'description': 'Very complex WordPress/Woocomerce plugin. Plugin extends variant selections, by price tier, color, fabric and base made. Also admin can setup in custom made menu pages what exactly is going to be used by this plugin.',
-                    },
-                    {
-                        'picture': '/assets/projects/pndisplay.com/pndisplay.com_email.jpg',
-                        'description': 'Another plugin make multiple email blasts by chunks and specific time for that, witch can be configured in custom admin menu.',
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        '_id': {
             '$oid': '5d5c6c6b52b65ac348575086',
         },
         'id': 'bootstrap',
         'name': 'Bootstrap 3-4',
         'panel': 'right',
-        'version': '0',
+        'version': '4',
         'logo': '/assets/skills/bootstrap.png',
         'order': '266',
-        'description': 'Some awesome description',
+        'description': 'Bootstrap still popular and it’s been wildly used. After fourth version is been released with flexboxes this placed Bootstrap into new level of frontend framework. I created a lot projects where Bootstrap is been used.',
         'projects': [
             {
                 'id': 'eandkphotography',
@@ -3033,455 +2747,6 @@ export const skills = [
     },
     {
         '_id': {
-            '$oid': '5d5c6c6b52b65ac348575087',
-        },
-        'id': 'css3-html5',
-        'name': 'CSS3/HTML5',
-        'panel': 'right',
-        'version': '0',
-        'logo': '/assets/skills/html5.png',
-        'order': '277',
-        'description': 'Some awesome description',
-        'projects': [
-            {
-                'id': 'eandkphotography',
-                'name': 'E&K Photography (PHP)',
-                'companyName': 'E and K Photography',
-                'website': 'https://eandkphoto.com',
-                'github': 'https://github.com/evgeniypoznyak/eandkphoto.com',
-                'logo': '',
-                'dateCreated': '2013-06-18',
-                'cardCover': 'https://data.eandkphoto.com/events/2015/09-september/newborn/large/EVG_73831.jpg',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/eandkphoto.com/front.jpg',
-                    },
-                    {
-                        'label': 'Grid',
-                        'path': '/assets/projects/eandkphoto.com/grid.jpg',
-                    },
-                    {
-                        'label': 'Contact Us',
-                        'path': '/assets/projects/eandkphoto.com/contact-us.jpg',
-                    },
-                    {
-                        'label': 'Social Page',
-                        'path': '/assets/projects/eandkphoto.com/social.jpg',
-                    },
-                    {
-                        'label': 'Portfolio Page',
-                        'path': '/assets/projects/eandkphoto.com/portfolio.jpg',
-                    },
-                ],
-                'shortDescription': 'In very beginning I created this website from scratch on vanilla PHP. Today this website is completely different.',
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/eandkphoto.com/eandkphoto_php.jpg',
-                        'description': 'Project was lived in Virtual Private Server (VPS), used Apache Server on Linux system. Filesystem is been used to display list of pictures by year, month and date. Contact Us form utilized Google API such as reCaptcha. User data was stored in MySQL.',
-                    },
-                ],
-            },
-            {
-                'id': 'wp-holyskete',
-                'name': 'Holy Skete',
-                'companyName': 'The Hermitage Of The Holy Protection',
-                'website': 'http://holyskete.com/',
-                'github': '',
-                'logo': '/assets/projects/wp-holyskete.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'Multilingual mobile responsive web platform for displaying small business. Google API integrations for reCaptcha and Google Maps.',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/wp-holyskete.com/front.jpg',
-                    },
-                    {
-                        'label': 'History',
-                        'path': '/assets/projects/wp-holyskete.com/history.jpg',
-                    },
-                    {
-                        'label': 'Cemetery',
-                        'path': '/assets/projects/wp-holyskete.com/cemetery.jpg',
-                    },
-                    {
-                        'label': 'Directions',
-                        'path': '/assets/projects/wp-holyskete.com/directions.jpg',
-                    },
-                    {
-                        'label': 'Contact Us',
-                        'path': '/assets/projects/wp-holyskete.com/contact-us.jpg',
-                    },
-                    {
-                        'label': 'About Us',
-                        'path': '/assets/projects/wp-holyskete.com/about-us.jpg',
-                    },
-                    {
-                        'label': 'Cover Page',
-                        'path': '/assets/projects/wp-holyskete.com/cover.jpg',
-                    },
-                ],
-                'longDescription': [],
-            },
-            {
-                'id': 'express-recoveries-v1',
-                'name': 'Express Recoveries v1',
-                'companyName': 'Cox Automotive',
-                'website': '',
-                'github': '',
-                'logo': '',
-                'dateCreated': '2013-06-18',
-                'cardCover': '',
-                'images': [],
-                'shortDescription': 'Enterprise level application. Connect together high complexity API, workflows and different systems integrations.',
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/express-recoveries-v1/express-recoveries-v1.jpg',
-                        'description': 'Enterprise level application. Connect together high complexity API, different workflow and variant systems integrations.\nWith IP range protection layer, client can access to application via UI or sftp protocol. Some scripts are running daily with cron jobs. Frontend was build in pure HTML/CSS and pages being rendered on the PHP server.',
-                    },
-                ],
-            },
-            {
-                'id': 'express-recoveries-v2',
-                'name': 'Express Recoveries v2',
-                'companyName': 'Cox Automotive',
-                'website': '',
-                'github': '',
-                'logo': '',
-                'dateCreated': '2013-06-18',
-                'cardCover': '/assets/projects/express-recoveries-v2/microservices-application.jpg',
-                'images': [],
-                'shortDescription': 'Enterprise level application. Connect together high complexity API, workflows and different systems integrations.',
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/express-recoveries-v2/express-recoveries-v2.jpg',
-                        'description': 'Enterprise level application. Connect together high complexity API, workflows and different systems integrations. With IP range protection layer, client can access to application via UI, sftp protocol or via AWS Gateway and microservices. Some scripts are running daily with cron jobs. Frontend was build in AngularJS with Angular AgGrid.\nAlso by decoupling monolithic application we are introduced are microservices (C# with .Net Core) running in docker container and frontend for them in React.',
-                    },
-                ],
-            },
-            {
-                'id': 'data.holyskete.com',
-                'name': 'Holy Skete API Service',
-                'companyName': 'The Hermitage Of The Holy Protection',
-                'website': 'https://data.holyskete.com/rss?url=https://orthochristian.com/xml/rss.xml',
-                'github': 'https://github.com/evgeniypoznyak/holy-skete-data',
-                'logo': '/assets/projects/holyskete-api/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '/assets/projects/holyskete-api/data.holyskete.com-cover.jpg',
-                'shortDescription': 'Symfony 4 based API Service. Providing Email service and XML to JSON service.',
-                'images': [],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/holyskete-api/data.holyskete.com.jpg',
-                        'description': 'Symfony 4 based API Service. Providing Email service and XML to JSON service. Basically any potential XML news feed could be parsed into JSON format and returned back to UI with CORS headers for better UI integration. In this current scenario two types of XML news feeds is been transferred over to JSON format for React multi language application.',
-                    },
-                ],
-            },
-            {
-                'id': 'service-group',
-                'name': 'Service Group',
-                'companyName': 'Cox Automotive',
-                'website': '',
-                'github': '',
-                'logo': '',
-                'dateCreated': '2013-05-29',
-                'cardCover': '/assets/projects/service-group/service-group-cover.jpg',
-                'images': [],
-                'shortDescription': 'Symfony 4 project used twig templates with Vue widgets and Bootstrap 4',
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/service-group/service-group.jpg',
-                        'description': 'Symfony 4 project used twig templates with Vue widgets and Bootstrap 4. For backend was used Entities with Value Objects and Repositories.',
-                    },
-                ],
-            },
-            {
-                'id': 'data.eandkphoto.com',
-                'name': 'E&K Photo API Service',
-                'companyName': 'E and K Photography',
-                'website': 'https://data.eandkphoto.com/',
-                'github': 'https://github.com/evgeniypoznyak/data.eandkphoto.com',
-                'logo': '',
-                'dateCreated': '2013-05-29',
-                'cardCover': '/assets/projects/data-eandkphoto.com/data-eandkphoto.com-cover.jpg',
-                'shortDescription': 'API Service build in Laravel. Utilized JWT for authentication/authorization purposes. Used Eloquent model as ORM, MySQL as database and filesystem.',
-                'images': [],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/data-eandkphoto.com/data-eandkphoto.com.jpg',
-                        'description': 'API Service build in Laravel. Used Eloquent model as ORM. Fully CRUD service with JWT protected sensitive routes. Receiving data as binary from Angular and passed into database and file systems according to business needs.\nService also taking care of emailing into Google Gmail API.',
-                    },
-                ],
-            },
-            {
-                'id': 'evgeniy.poznyaks.com_v1',
-                'name': 'Portfolio Website',
-                'companyName': '',
-                'website': 'https://evgeniy.poznyaks.com',
-                'github': 'https://github.com/evgeniypoznyak/evgeniy.poznyaks.com',
-                'logo': '/assets/projects/evgeniy.poznyaks.com_v1/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'Portfolio Website Build on PHP Framework Laravel with Eloquent ORM. For frontend used Bootstrap 4.',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/front.jpg',
-                    },
-                    {
-                        'label': 'Skills',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/skills.jpg',
-                    },
-                    {
-                        'label': 'Professional Experience',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/prof-exp.jpg',
-                    },
-                    {
-                        'label': 'Personal Experience',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/pers-exp.jpg',
-                    },
-                    {
-                        'label': 'Project Page',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/project-page.jpg',
-                    },
-                    {
-                        'label': 'Contact Us',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/contact-us.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/evgeniy.poznyaks.com_v1/portfolio_website_v1.jpg',
-                        'description': 'Application was on VPS with Apache server. Laravel was chosen as PHP framework and for front end was blade templates with Bootstrap and jQueryUI. Eloquent was used as ORM and MySQL as a storage unit.',
-                    },
-                ],
-            },
-            {
-                'id': 'pacificnorthern',
-                'name': 'Pacific Northern Company Website',
-                'companyName': 'Pacific Northern Inc.',
-                'website': 'https://www.pacificnorthern.com/',
-                'github': '',
-                'logo': '/assets/projects/pacificnerthern.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/pacificnerthern.com/front-page.jpg',
-                    },
-                    {
-                        'label': 'Portfolio Page',
-                        'path': '/assets/projects/pacificnerthern.com/portfolio-page.jpg',
-                    },
-                    {
-                        'label': 'Portfolio Item Page',
-                        'path': '/assets/projects/pacificnerthern.com/portfolio-item-page.jpg',
-                    },
-                    {
-                        'label': 'What We Do Page',
-                        'path': '/assets/projects/pacificnerthern.com/what-we-do-page.jpg',
-                    },
-                    {
-                        'label': 'Our Team Page',
-                        'path': '/assets/projects/pacificnerthern.com/our-team-page.jpg',
-                    },
-                    {
-                        'label': 'About Us Page',
-                        'path': '/assets/projects/pacificnerthern.com/about-us-page.jpg',
-                    },
-                ],
-                'shortDescription': 'Company presentation website for displaying company information and products. Website utilized WordPress technology.',
-                'longDescription': [],
-            },
-            {
-                'id': 'infocenter.pacificnorthern',
-                'name': 'Internal Company’s Information Center',
-                'companyName': 'Pacific Northern Inc.',
-                'website': '',
-                'github': '',
-                'logo': '/assets/projects/infocenter.pacificnorthern.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'This is company’s internal website build on WordPress and using Active Directory Integration.',
-                'images': [
-                    {
-                        'label': 'Active Directory Cards View',
-                        'path': '/assets/projects/infocenter.pacificnorthern.com/ad-cards.jpg',
-                    },
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/infocenter.pacificnorthern.com/front.jpg',
-                    },
-                    {
-                        'label': 'Active Directory List View',
-                        'path': '/assets/projects/infocenter.pacificnorthern.com/ad-list.jpg',
-                    },
-                    {
-                        'label': 'Active Directory Profile View',
-                        'path': '/assets/projects/infocenter.pacificnorthern.com/profile.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/infocenter.pacificnorthern.com/infocenter.pacificnorthern.jpg',
-                        'description': 'I created integration with windows active directory from Wordpress internal website. Cron job was kicking the script and script was updating and making record into database. After that WordPress custom build plugin pull these changes and reflect them into website.',
-                    },
-                ],
-            },
-            {
-                'id': 'pndisplay.com',
-                'name': 'PN Display, E-Commerce Website',
-                'companyName': 'Pacific Northern Inc.',
-                'website': '',
-                'github': '',
-                'logo': '/assets/projects/pndisplay.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'E-Commerce Website. With custom more than 300 variations, fabrics and tiers for each product and platforms combos.',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/pndisplay.com/front.jpg',
-                    },
-                    {
-                        'label': 'Product List',
-                        'path': '/assets/projects/pndisplay.com/product-list.jpg',
-                    },
-                    {
-                        'label': 'Single Item',
-                        'path': '/assets/projects/pndisplay.com/single-item.jpg',
-                    },
-                    {
-                        'label': 'Multiple Custom Variations',
-                        'path': '/assets/projects/pndisplay.com/variations.jpg',
-                    },
-                    {
-                        'label': 'Backend Setup',
-                        'path': '/assets/projects/pndisplay.com/backend-setup.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/pndisplay.com/pndisplay.com.jpg',
-                        'description': 'Very complex WordPress/Woocomerce plugin. Plugin extends variant selections, by price tier, color, fabric and base made. Also admin can setup in custom made menu pages what exactly is going to be used by this plugin.',
-                    },
-                    {
-                        'picture': '/assets/projects/pndisplay.com/pndisplay.com_email.jpg',
-                        'description': 'Another plugin make multiple email blasts by chunks and specific time for that, witch can be configured in custom admin menu.',
-                    },
-                ],
-            },
-            {
-                'id': 'video.pacificnorthern.com',
-                'name': 'Internal Video Content System',
-                'companyName': 'Pacific Northern Inc.',
-                'website': '',
-                'github': 'https://github.com/evgeniypoznyak/video.pacificnorthern.com',
-                'logo': '/assets/projects/video.pacificnorthern.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'Utilizing PHP Framework Laravel for backend and jQueryUI for frontend. A little similar to NETFLIX.',
-                'images': [
-                    {
-                        'label': 'Folders',
-                        'path': '/assets/projects/video.pacificnorthern.com/folders.jpg',
-                    },
-                    {
-                        'label': 'Video List',
-                        'path': '/assets/projects/video.pacificnorthern.com/video-list.jpg',
-                    },
-                    {
-                        'label': 'Video Player',
-                        'path': '/assets/projects/video.pacificnorthern.com/video.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/video.pacificnorthern.com/video.pacificnorthern.com.jpg',
-                        'description': 'Laravel is handling filesystem and database connection. Also in top level user’s information passed by Active Directory. Front end build with bootstrap and jQuery UI.',
-                    },
-                ],
-            },
-            {
-                'id': 'info.pndisplay.com',
-                'name': 'Information for PN Display',
-                'companyName': 'Pacific Northern Inc.',
-                'website': 'http://info.pndisplay.com/',
-                'github': '',
-                'logo': '/assets/projects/info.pndisplay.com/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'Simple website providing more information about E-Commerce PN Display website. Build on WordPress engine.',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/info.pndisplay.com/front.jpg',
-                    },
-                    {
-                        'label': 'List Page',
-                        'path': '/assets/projects/info.pndisplay.com/list.jpg',
-                    },
-                    {
-                        'label': 'Platforms Page',
-                        'path': '/assets/projects/info.pndisplay.com/platforms.jpg',
-                    },
-                    {
-                        'label': 'News Page',
-                        'path': '/assets/projects/info.pndisplay.com/news.jpg',
-                    },
-                ],
-                'longDescription': [],
-            },
-            {
-                'id': 'namesday.info',
-                'name': 'Names Day info',
-                'companyName': 'Andrei Pervychine',
-                'website': 'https://www.namesday.info/',
-                'github': '',
-                'logo': '',
-                'dateCreated': '2013-05-29',
-                'cardCover': '/assets/projects/namesday.info/cover.jpg',
-                'shortDescription': 'This is was my first professional work. I worked as intern an helped with backend and frontend. Mostly my work done for frontend.',
-                'images': [],
-                'longDescription': [],
-            },
-            {
-                'id': 'wordpress.poznyaks.com',
-                'name': 'WordPress Plugins Website',
-                'companyName': 'WordPress',
-                'website': 'https://wordpress.poznyaks.com/',
-                'github': 'https://github.com/evgeniypoznyak/poznyaks.com.wordpress',
-                'logo': '',
-                'dateCreated': '2017-03-24',
-                'cardCover': '',
-                'shortDescription': 'Information website for my WordPress plugins. Build in vanilla PHP with Object Oriented Design Model. And Google API for ReCaptcha.',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/wordpress.poznyaks.com/front.jpg',
-                    },
-                    {
-                        'label': 'Project Page',
-                        'path': '/assets/projects/wordpress.poznyaks.com/project.jpg',
-                    },
-                    {
-                        'label': 'Contact Us Page',
-                        'path': '/assets/projects/wordpress.poznyaks.com/contact-us.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/wordpress.poznyaks.com/wordpress.poznyaks.com.jpg',
-                        'description': 'Simple application with backend in Object Oriented Design in PHP and front end just HTML/CSS.',
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        '_id': {
             '$oid': '5d5c6c6b52b65ac348575089',
         },
         'id': 'seo',
@@ -3490,7 +2755,7 @@ export const skills = [
         'version': '0',
         'logo': '/assets/skills/seo.png',
         'order': '288',
-        'description': 'Some awesome description',
+        'description': 'Knowledge of how keywords works. How unique content works. Why is organic search is more important than referral and direct searches. Why React and Angular has a problem with CEO and why Server Side Rendering is coming in a rescue. All these and a little more detailed answers is important for public application. I build a several applications with SEO support.',
         'projects': [
             {
                 'id': 'ssr-reactjs-for-portfolio',
@@ -3507,6 +2772,49 @@ export const skills = [
                     {
                         'picture': '/assets/projects/ssr-evgeniy.poznyaks.com/ssr-evgeniy.poznyaks.com-shema.jpg',
                         'description': 'Running in VPS via Apache server as a proxy to NodeJS. Dockerized Server Side Rendering ReactJS application utilizing Material Design and logging into MongoDB. For storing simple files such as resume and biography application utilizing NodeJS IO library to store locally in the NodeJS server.',
+                    },
+                ],
+            },
+            {
+                'id': 'holyskete-react',
+                'name': 'Holy Skete',
+                'companyName': 'The Hermitage Of The Holy Protection',
+                'website': 'http://holyskete.com/',
+                'github': 'https://github.com/evgeniypoznyak/holy-skete',
+                'logo': '/assets/projects/holyskete-react/logo.jpg',
+                'dateCreated': '2013-05-29',
+                'cardCover': '',
+                'shortDescription': 'Complex multi-language application. Utilized React with Redux Sagas and custom UI elements. And API server for emailing, proxying and providing data.',
+                'images': [
+                    {
+                        'label': 'Front Page',
+                        'path': '/assets/projects/holyskete-react/home.jpg',
+                    },
+                    {
+                        'label': 'Slideshow',
+                        'path': '/assets/projects/holyskete-react/slideshow.jpg',
+                    },
+                    {
+                        'label': 'Cemetery',
+                        'path': '/assets/projects/holyskete-react/cemetery.jpg',
+                    },
+                    {
+                        'label': 'Clergy',
+                        'path': '/assets/projects/holyskete-react/clergy.jpg',
+                    },
+                    {
+                        'label': 'Google Maps API',
+                        'path': '/assets/projects/holyskete-react/google-maps.jpg',
+                    },
+                    {
+                        'label': 'Contact Us',
+                        'path': '/assets/projects/holyskete-react/contact-us.jpg',
+                    },
+                ],
+                'longDescription': [
+                    {
+                        'picture': '/assets/projects/holyskete-react/holyskete-react-shema.jpg',
+                        'description': 'Complex multi-language application. Utilized React with Redux Sagas and custom UI elements. And API server for emailing, proxying and providing data. Language changes by Redux Saga event. All side-effects handheld by Redux Saga.',
                     },
                 ],
             },
@@ -3720,7 +3028,7 @@ export const skills = [
         },
         'id': 'wordpress',
         'name': 'Wordpress Core',
-        'panel': 'left',
+        'panel': 'right',
         'version': '0',
         'logo': '/assets/skills/WordPress.png',
         'order': '299',
@@ -3994,5 +3302,4 @@ export const skills = [
             },
         ],
     },
-
 ];
