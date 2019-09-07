@@ -7,6 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import {Link} from 'react-router-dom';
 
 function TabContainer({children, dir}) {
     return (
@@ -27,6 +28,8 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
+
 export default function Footer() {
     const classes = useStyles();
     const [value, setValue] = useState(0);
@@ -45,9 +48,9 @@ export default function Footer() {
                     textColor="primary"
                     variant="fullWidth"
                 >
-                    <Tab label="Item One"/>
-                    <Tab label="Item Two"/>
-                    <Tab label="Item Three"/>
+                    <Tab label="Contact Us" component={AdapterLink} to={'/contact-us/'}/>
+                    <Tab label="Make me a call" href="tel:518-772-8217"/>
+                    <Tab label="Resume" href={'/resume'} color="inherit" target="_blank"/>
                 </Tabs>
             </AppBar>
         </div>

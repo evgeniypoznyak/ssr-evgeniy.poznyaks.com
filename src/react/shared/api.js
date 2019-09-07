@@ -32,6 +32,24 @@ export async function fetchSkills(path = 'all') {
     }
 }
 
+export async function sendEmail(data) {
+    try {
+        const url = `${apiPublic}/api/email`;
+        console.log('[POST] processing url: ', `${url}`);
+        const result = await axios.post(url, data);
+        return result.data;
+    } catch (e) {
+        const error = {
+            status: e.response.data.status,
+            message: e.response.data.message,
+            errorMessage: e.message,
+        };
+        console.log('Error: ', e.message);
+        console.log('Something wrong happened with API Gateway! Returning default response.');
+        return error;
+    }
+}
+
 export async function fetchBiography(path) {
     console.log(path);
     const url = '/biography';

@@ -5,6 +5,8 @@ import Auth from './containers/Admin/Auth/Auth';
 import Resume from './containers/Admin/Resume/Resume';
 import Biography from './containers/Admin/Biography/Biography';
 import ImportSkills from './containers/Admin/Import/ImportSkills/ImportSkills';
+import Email from './containers/Email/Email';
+import Skills from './containers/Skills/Skills';
 
 const reactRoutes = [
     {
@@ -29,6 +31,12 @@ const reactRoutes = [
         fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
     },
     {
+        path: '/skills/',
+        exact: true,
+        component: Skills,
+        fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
+    },
+    {
         path: '/skills/import',
         component: ImportSkills,
         fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
@@ -36,6 +44,11 @@ const reactRoutes = [
     {
         path: '/skills/:id',
         component: Skill,
+        fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
+    },
+    {
+        path: '/contact-us',
+        component: Email,
         fetchInitialData: (path = '') => fetchSkills(path.split('/').pop()),
     },
 ];

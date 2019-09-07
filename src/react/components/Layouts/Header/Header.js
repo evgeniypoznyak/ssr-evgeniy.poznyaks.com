@@ -15,14 +15,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import {NavLink} from 'react-router-dom';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import {Link} from 'react-router-dom';
 import {processToggleDrawer} from './HeaderUtils';
 import AdminMenu from './AdminMenu/AdminMenu';
+import {Email} from '@material-ui/icons';
+import {Phone} from '@material-ui/icons';
 
 function ElevationScroll(props) {
     const {children, window} = props;
@@ -72,6 +72,9 @@ function Header(props) {
         skillName: {
             margin: 'auto',
         },
+        skillsHeader: {
+            textAlign: 'center',
+        },
     }));
 
     const [state, setState] = React.useState({
@@ -97,19 +100,34 @@ function Header(props) {
             onKeyDown={toggleDrawer(side, false)}
         >
             <List>
-                {/* todo replace this loop */}
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                        <ListItemText primary={text}/>
-                    </ListItem>
-                ))}
+                <ListItem
+                    onClick={scrollToTop}
+                    button key={'email'}
+                    component={AdapterLink}
+                    to={'/contact-us/'}>
+                    <ListItemIcon>
+                        <Email/>
+                    </ListItemIcon>
+                    <ListItemText primary={'Email Me'}/>
+                </ListItem>
+
+                <ListItem button component="a" href="tel:518-772-8217">
+                    <ListItemIcon>
+                        <Phone/>
+                    </ListItemIcon>
+                    <ListItemText primary="Call Me"/>
+                </ListItem>
             </List>
             <Divider/>
             <List>
-                <Typography variant={'h6'} align={'center'}>
-                    My skills
-                </Typography>
+                <ListItem
+                    className={classes.skillsHeader}
+                    onClick={scrollToTop}
+                    button key={'skills'}
+                    component={AdapterLink}
+                    to={'/skills/'}>
+                    <ListItemText primary={'My Skills'}/>
+                </ListItem>
                 {props.context.data.rawData.map(skill => (
                     <Fragment key={skill.id}>
                         <ListItem
@@ -147,7 +165,7 @@ function Header(props) {
                         >
                             <MenuIcon/>
                         </IconButton>
-                        <Typography variant="h6" >
+                        <Typography variant="h6">
                             <NavLink
                                 onClick={scrollToTop}
                                 to={'/'}
