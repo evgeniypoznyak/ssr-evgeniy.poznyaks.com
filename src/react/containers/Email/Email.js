@@ -88,7 +88,6 @@ export default function Email(props) {
     let button = null;
     if (emailStatus === EMAIL_NOT_PROCEED || emailStatus === EMAIL_FAIL || emailStatus === EMAIL_SUCCESS) {
         button = <Button
-            fullWidth
             disabled={!isAllRequiredValid()}
             className={classes.button}
             color={'primary'}
@@ -150,7 +149,6 @@ export default function Email(props) {
             onChange={handleChange('message')}
             value={values.message}
             label="Message"
-            fullWidth
             className={clsx(classes.textField, classes.dense)}
             variant="outlined"
             margin="dense"

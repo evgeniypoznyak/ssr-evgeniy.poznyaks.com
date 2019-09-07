@@ -25,7 +25,8 @@ const useStyles = makeStyles(theme => ({
         margin: 'auto',
     },
     avatar: {
-        // marginLeft: 5,
+        marginLeft: 2,
+        marginRight: 5,
     },
 }));
 
