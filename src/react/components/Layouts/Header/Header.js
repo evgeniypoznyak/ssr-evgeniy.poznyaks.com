@@ -21,7 +21,7 @@ import Avatar from '@material-ui/core/Avatar';
 import {Link} from 'react-router-dom';
 import {processToggleDrawer} from './HeaderUtils';
 import AdminMenu from './AdminMenu/AdminMenu';
-import {Email} from '@material-ui/icons';
+import {Email, PictureAsPdf} from '@material-ui/icons';
 import {Phone} from '@material-ui/icons';
 
 function ElevationScroll(props) {
@@ -75,6 +75,13 @@ function Header(props) {
         skillsHeader: {
             textAlign: 'center',
         },
+        resume: {
+            paddingLeft: 7,
+        },
+        menuAvatar: {
+            height: 24,
+            width: 24,
+        },
     }));
 
     const [state, setState] = React.useState({
@@ -117,9 +124,6 @@ function Header(props) {
                     </ListItemIcon>
                     <ListItemText primary="Call Me"/>
                 </ListItem>
-            </List>
-            <Divider/>
-            <List>
                 <ListItem
                     onClick={scrollToTop}
                     button
@@ -130,7 +134,11 @@ function Header(props) {
                     alignItems={'center'}
                 >
                     <ListItemAvatar>
-                        <Avatar alt={'My GitHub'} src={'/assets/github.jpg'}/>
+                        <Avatar
+                            className={classes.menuAvatar}
+                            alt={'My GitHub'}
+                            src={'/assets/github-grey.jpg'}
+                        />
                     </ListItemAvatar>
                     <ListItemText primary={'My GitHub'} className={classes.skillName}/>
                 </ListItem>
@@ -144,7 +152,11 @@ function Header(props) {
                     alignItems={'center'}
                 >
                     <ListItemAvatar>
-                        <Avatar alt={'My LinkedIn Profile'} src={'/assets/linkedin.jpg'}/>
+                        <Avatar
+                            className={classes.menuAvatar}
+                            alt={'My LinkedIn Profile'}
+                            src={'/assets/linkedin-grey.jpg'}
+                        />
                     </ListItemAvatar>
                     <ListItemText primary={'My LinkedIn'} className={classes.skillName}/>
                 </ListItem>
@@ -168,7 +180,7 @@ function Header(props) {
                             component={AdapterLink}
                             to={'/skills/' + skill.id}>
                             <ListItemAvatar>
-                                <Avatar alt={skill.name} src={skill.logo}/>
+                                <Avatar alt={skill.name} src={skill.logo} className={classes.menuAvatar}/>
                             </ListItemAvatar>
                             <ListItemText primary={skill.name} className={classes.skillName}/>
                         </ListItem>
@@ -214,7 +226,7 @@ function Header(props) {
                             href={'/resume'}
                             color="inherit"
                             target="_blank"
-                        >Resume</Button>
+                        ><PictureAsPdf/><span className={classes.resume}>Resume</span></Button>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>

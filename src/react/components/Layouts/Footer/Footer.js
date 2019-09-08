@@ -2,7 +2,6 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import {PictureAsPdf} from '@material-ui/icons/';
 import {Link} from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import {Paper} from '@material-ui/core';
@@ -10,10 +9,10 @@ import {Email, Phone} from '@material-ui/icons';
 
 const useStyles = makeStyles({
     root: {
-        'marginTop': 20,
-        '@media (max-width: 960px)': {
-            display: 'none',
-        },
+        marginTop: 20,
+        // '@media (max-width: 960px)': {
+        //     display: 'none',
+        // },
     },
     menuWrapper: {
         display: 'flex',
@@ -52,21 +51,11 @@ export default function Footer() {
                     icon={<Email/>}
                 />
                 <BottomNavigationAction
-                    onClick={scrollToTop}
                     label="Call Me"
                     href="tel:518-772-8217"
                     icon={<Phone/>}
                 />
                 <BottomNavigationAction
-                    onClick={scrollToTop}
-                    href={'/resume'}
-                    color="inherit"
-                    target="_blank"
-                    label="My Resume"
-                    icon={<PictureAsPdf/>}
-                />
-                <BottomNavigationAction
-                    onClick={scrollToTop}
                     color="inherit"
                     target="_blank"
                     label="My GuiHub"
@@ -74,7 +63,6 @@ export default function Footer() {
                     icon={<Avatar className={classes.avatar} alt={'My GitHub'} src={'/assets/github-grey.jpg'}/>}
                 />
                 <BottomNavigationAction
-                    onClick={scrollToTop}
                     color="inherit"
                     target="_blank"
                     label="My LinkedIn"
