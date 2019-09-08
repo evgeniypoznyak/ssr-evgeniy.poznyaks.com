@@ -1,58 +1,88 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-import {
-    makeStyles,
-} from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
+import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import {PictureAsPdf} from '@material-ui/icons/';
 import {Link} from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
+import {Paper} from '@material-ui/core';
+import {Email, Phone} from '@material-ui/icons';
 
-function TabContainer({children, dir}) {
-    return (
-        <Typography component="div" dir={dir} style={{padding: 8 * 3}}>
-            {children}
-        </Typography>
-    );
-}
-
-TabContainer.propTypes = {
-    children: PropTypes.node.isRequired,
-    dir: PropTypes.string.isRequired,
-};
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
     root: {
-        marginTop: 20,
+        'marginTop': 20,
+        '@media (max-width: 960px)': {
+            display: 'none',
+        },
     },
-}));
-
-const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
+    menuWrapper: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-evenly',
+    },
+    avatar: {
+        height: 25,
+        width: 25,
+    },
+});
 
 export default function Footer() {
+    const AdapterLink = React.forwardRef((props, ref) => <Link innerRef={ref} {...props} />);
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
     const classes = useStyles();
-    const [value, setValue] = useState(0);
-
-    function handleChange(event, newValue) {
-        setValue(newValue);
-    }
+    const [value, setValue] = React.useState(null);
 
     return (
-        <div className={classes.root}>
-            <AppBar position="static" color="inherit">
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    variant="fullWidth"
-                >
-                    <Tab label="Contact Us" component={AdapterLink} to={'/contact-us/'}/>
-                    <Tab label="Make me a call" href="tel:518-772-8217"/>
-                    <Tab label="Resume" href={'/resume'} color="inherit" target="_blank"/>
-                </Tabs>
-            </AppBar>
-        </div>
+        <Paper className={classes.root}>
+            <BottomNavigation
+                value={value}
+                onChange={(event, newValue) => {
+                    setValue(newValue);
+                }}
+                showLabels
+                className={classes.menuWrapper}
+            >
+                <BottomNavigationAction
+                    onClick={scrollToTop}
+                    label="Email Me"
+                    component={AdapterLink}
+                    to={'/contact-us/'}
+                    icon={<Email/>}
+                />
+                <BottomNavigationAction
+                    onClick={scrollToTop}
+                    label="Call Me"
+                    href="tel:518-772-8217"
+                    icon={<Phone/>}
+                />
+                <BottomNavigationAction
+                    onClick={scrollToTop}
+                    href={'/resume'}
+                    color="inherit"
+                    target="_blank"
+                    label="My Resume"
+                    icon={<PictureAsPdf/>}
+                />
+                <BottomNavigationAction
+                    onClick={scrollToTop}
+                    color="inherit"
+                    target="_blank"
+                    label="My GuiHub"
+                    href={'https://github.com/evgeniypoznyak/'}
+                    icon={<Avatar className={classes.avatar} alt={'My GitHub'} src={'/assets/github-grey.jpg'}/>}
+                />
+                <BottomNavigationAction
+                    onClick={scrollToTop}
+                    color="inherit"
+                    target="_blank"
+                    label="My LinkedIn"
+                    href={'https://www.linkedin.com/in/evgeniypoznyak/'}
+                    icon={<Avatar alt={'My LinkedIn'} className={classes.avatar} src={'/assets/linkedin-grey.jpg'}/>}
+                />
+            </BottomNavigation>
+        </Paper>
+
     );
 }

@@ -121,6 +121,37 @@ function Header(props) {
             <Divider/>
             <List>
                 <ListItem
+                    onClick={scrollToTop}
+                    button
+                    key={'github-profile'}
+                    component="a"
+                    target={'_blank'}
+                    href={'https://github.com/evgeniypoznyak/'}
+                    alignItems={'center'}
+                >
+                    <ListItemAvatar>
+                        <Avatar alt={'My GitHub'} src={'/assets/github.jpg'}/>
+                    </ListItemAvatar>
+                    <ListItemText primary={'My GitHub'} className={classes.skillName}/>
+                </ListItem>
+                <ListItem
+                    onClick={scrollToTop}
+                    button
+                    key={'linkedIn-profile'}
+                    component="a"
+                    target={'_blank'}
+                    href={'https://www.linkedin.com/in/evgeniypoznyak/'}
+                    alignItems={'center'}
+                >
+                    <ListItemAvatar>
+                        <Avatar alt={'My LinkedIn Profile'} src={'/assets/linkedin.jpg'}/>
+                    </ListItemAvatar>
+                    <ListItemText primary={'My LinkedIn'} className={classes.skillName}/>
+                </ListItem>
+            </List>
+            <Divider/>
+            <List>
+                <ListItem
                     className={classes.skillsHeader}
                     onClick={scrollToTop}
                     button key={'skills'}
