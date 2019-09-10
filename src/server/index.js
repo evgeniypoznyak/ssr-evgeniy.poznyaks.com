@@ -10,37 +10,43 @@ import {State} from '../react/shared/StateManager';
 import {getSkillsByPanes} from '../react/shared/api';
 import {skills} from '../react/shared/initialData/skills';
 import biography from '../../public/docs/biography';
-
 import routes from './routes';
 
 const app = express();
 routes(app);
 
-// process.on('unhandledRejection', ex => {
-//     console.log('unhandledRejection: ', ex);
-//     throw ex;
-// });
-// process.on('uncaughtException', err => {
-//     console.log('uncaughtException: ', err);
-// });
-
 function renderStartUpPage({html, css, data} = {}) {
     return `
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <title>Evgeniy Poznyak - Software Engineer</title>
-        <style id="jss-server-side">${css}</style>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-      </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Evgeniy Poznyak - Software Engineer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+<meta property="og:title" content="Evgeniy Poznyak - Software Engineer">
+<meta
+    property="og:description" 
+    content="Engineer Skills, Projects, Portfolio and Resume. Hire an awesome developer">
+<meta name="description" content="Engineer Skills, Projects, Portfolio and Resume. Hire an awesome developer">
+<meta name="author" content="Evgeniy Poznyak">
+<meta property="og:image" content="/assets/me2.jpg">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta name="Description" 
+CONTENT="Author: Evgeniy Poznyak, Category: Software Engineer Portfolio Website, Software Engineer Blog, Blog">
+<meta name="robots" content="all">
+<meta name="google" content="notranslate"/>
+<style id="jss-server-side">${css}</style>
+</head>
       <body>
         <div id="root">${html}</div>
         <script>window.__INITIAL_DATA__ = ${serialize(data)}</script>
         <script async src="/bundle.js" async></script>
       </body>
-    </html>
-  `;
+</html>
+`;
 }
 
 app.get('*', (req, res, next) => {

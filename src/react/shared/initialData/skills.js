@@ -43,11 +43,101 @@ export const skills = [
                         'path': '/assets/projects/eandkphoto.com/portfolio.jpg',
                     },
                 ],
-                'shortDescription': 'In very beginning I created this website from scratch on vanilla PHP. Today this website is completely different.',
+                'shortDescription': 'When I originally created this website, it was created from scratch on vanilla PHP. Today this website is entirely different.',
                 'longDescription': [
                     {
                         'picture': '/assets/projects/eandkphoto.com/eandkphoto_php.jpg',
-                        'description': 'Project was lived in Virtual Private Server (VPS), used Apache Server on Linux system. Filesystem is been used to display list of pictures by year, month and date. Contact Us form utilized Google API such as reCaptcha. User data was stored in MySQL.',
+                        'description': 'This website was located in a Virtual Private Server (VPN), using Apache Server on the Linux system. The file system has been used to display a list of pictures by year, month, and date. The Contact Us form utilized Google API such as reCaptcha, and user data was stored in MySQL.',
+                    },
+                ],
+            },
+            {
+                'id': 'data.eandkphoto.com',
+                'name': 'E&K Photo API Service',
+                'companyName': 'E and K Photography',
+                'website': 'https://data.eandkphoto.com/',
+                'github': 'https://github.com/evgeniypoznyak/data.eandkphoto.com',
+                'logo': '',
+                'dateCreated': '2013-05-29',
+                'cardCover': '/assets/projects/data-eandkphoto.com/data-eandkphoto.com-cover.jpg',
+                'shortDescription': 'I build this API Service with PHP framework Laravel. The service utilizes Jayson Web Token for authentication/authorization purposes. For database connection, the application uses the Eloquent ORM and MySQL as a database type.',
+                'images': [],
+                'longDescription': [
+                    {
+                        'picture': '/assets/projects/data-eandkphoto.com/data-eandkphoto.com.jpg',
+                        'description': 'This API Service was created with PHP framework Laravel. It uses the Eloquent model as ORM. All endpoints are run under CRUD operations with JWT protected sensitive routes. It receives data as a binary from Angular and then passed into the database. The service manipulates file systems according to business needs and takes care of emailing through Google Gmail API.',
+                    },
+                ],
+            },
+            {
+                'id': 'express-recoveries-v1',
+                'name': 'Express Recoveries v1',
+                'companyName': 'Cox Automotive',
+                'website': '',
+                'github': '',
+                'logo': '',
+                'dateCreated': '2013-06-18',
+                'cardCover': '',
+                'images': [],
+                'shortDescription': 'This enterprise-level application connects high complexity API, workflows and different system integrations.',
+                'longDescription': [
+                    {
+                        'picture': '/assets/projects/express-recoveries-v1/express-recoveries-v1.jpg',
+                        'description': 'This is an enterprise-level application. It connects high complexity API, workflows and different systems integrations. With the IP range protection layer, the client can access the application via the UI or FTP protocol. Some scripts are running daily with cron jobs. Frontend was built in pure HTML/CSS and pages are being rendered on the PHP server.',
+                    },
+                ],
+            },
+            {
+                'id': 'express-recoveries-v2',
+                'name': 'Express Recoveries v2',
+                'companyName': 'Cox Automotive',
+                'website': '',
+                'github': '',
+                'logo': '',
+                'dateCreated': '2013-06-18',
+                'cardCover': '/assets/projects/express-recoveries-v2/microservices-application.jpg',
+                'images': [],
+                'shortDescription': 'This is an enterprise-level application with connection to high complexity API, workflows and different systems integrations.',
+                'longDescription': [
+                    {
+                        'picture': '/assets/projects/express-recoveries-v2/express-recoveries-v2.jpg',
+                        'description': 'This is an enterprise-level application with connection to high complexity API, workflows and different systems integrations. With the IP range protection layer, the client can access the application via UI, SFTP protocol or via AWS Gateway and microservices. Some scripts are running daily with cron jobs. Frontend was built in AngularJS with AgGrid. Also by decoupling monolithic applications, we are creating microservices (C# with .Net Core and frontend on React) that are running in the Docker container.',
+                    },
+                ],
+            },
+            {
+                'id': 'data.holyskete.com',
+                'name': 'Holy Skete API Service',
+                'companyName': 'The Hermitage Of The Holy Protection',
+                'website': 'https://data.holyskete.com/rss?url=https://orthochristian.com/xml/rss.xml',
+                'github': 'https://github.com/evgeniypoznyak/holy-skete-data',
+                'logo': '/assets/projects/holyskete-api/logo.jpg',
+                'dateCreated': '2013-05-29',
+                'cardCover': '/assets/projects/holyskete-api/data.holyskete.com-cover.jpg',
+                'shortDescription': 'This is a Symfony 4 based API Service. It provides an email service and XML to JSON service.',
+                'images': [],
+                'longDescription': [
+                    {
+                        'picture': '/assets/projects/holyskete-api/data.holyskete.com.jpg',
+                        'description': 'This is a Symfony 4 based API Service. It provides an email service and XML to JSON service. Any potential XML news feed could be parsed into JSON format and returned back to UI with CORS headers for better UI integration. API service provides two types of XML news feeds and they have been transferred over to JSON format for a React multi-language application.',
+                    },
+                ],
+            },
+            {
+                'id': 'service-group',
+                'name': 'Service Group',
+                'companyName': 'Cox Automotive',
+                'website': '',
+                'github': '',
+                'logo': '',
+                'dateCreated': '2013-05-29',
+                'cardCover': '/assets/projects/service-group/service-group-cover.jpg',
+                'images': [],
+                'shortDescription': 'This is a Symfony 4 project using twig templates with Vue widgets and Bootstrap 4.',
+                'longDescription': [
+                    {
+                        'picture': '/assets/projects/service-group/service-group.jpg',
+                        'description': 'This is a Symfony 4 project using twig templates with Vue widgets and Bootstrap 4. Entities with Value Objects and Repositories were used for the backend segment of the site.',
                     },
                 ],
             },
@@ -60,7 +150,7 @@ export const skills = [
                 'logo': '/assets/projects/wp-holyskete.com/logo.jpg',
                 'dateCreated': '2013-05-29',
                 'cardCover': '',
-                'shortDescription': 'Multilingual mobile responsive web platform for displaying small business. Google API integrations for reCaptcha and Google Maps.',
+                'shortDescription': 'This website was created on a multilingual mobile responsive web platform, for the purpose to display a small business. The application implements Google API integrations for reCaptcha and Google Maps.',
                 'images': [
                     {
                         'label': 'Front Page',
@@ -92,139 +182,6 @@ export const skills = [
                     },
                 ],
                 'longDescription': [],
-            },
-            {
-                'id': 'express-recoveries-v1',
-                'name': 'Express Recoveries v1',
-                'companyName': 'Cox Automotive',
-                'website': '',
-                'github': '',
-                'logo': '',
-                'dateCreated': '2013-06-18',
-                'cardCover': '',
-                'images': [],
-                'shortDescription': 'Enterprise level application. Connect together high complexity API, workflows and different systems integrations.',
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/express-recoveries-v1/express-recoveries-v1.jpg',
-                        'description': 'Enterprise level application. Connect together high complexity API, different workflow and variant systems integrations.\nWith IP range protection layer, client can access to application via UI or sftp protocol. Some scripts are running daily with cron jobs. Frontend was build in pure HTML/CSS and pages being rendered on the PHP server.',
-                    },
-                ],
-            },
-            {
-                'id': 'express-recoveries-v2',
-                'name': 'Express Recoveries v2',
-                'companyName': 'Cox Automotive',
-                'website': '',
-                'github': '',
-                'logo': '',
-                'dateCreated': '2013-06-18',
-                'cardCover': '/assets/projects/express-recoveries-v2/microservices-application.jpg',
-                'images': [],
-                'shortDescription': 'Enterprise level application. Connect together high complexity API, workflows and different systems integrations.',
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/express-recoveries-v2/express-recoveries-v2.jpg',
-                        'description': 'Enterprise level application. Connect together high complexity API, workflows and different systems integrations. With IP range protection layer, client can access to application via UI, sftp protocol or via AWS Gateway and microservices. Some scripts are running daily with cron jobs. Frontend was build in AngularJS with Angular AgGrid.\nAlso by decoupling monolithic application we are introduced are microservices (C# with .Net Core) running in docker container and frontend for them in React.',
-                    },
-                ],
-            },
-            {
-                'id': 'data.holyskete.com',
-                'name': 'Holy Skete API Service',
-                'companyName': 'The Hermitage Of The Holy Protection',
-                'website': 'https://data.holyskete.com/rss?url=https://orthochristian.com/xml/rss.xml',
-                'github': 'https://github.com/evgeniypoznyak/holy-skete-data',
-                'logo': '/assets/projects/holyskete-api/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '/assets/projects/holyskete-api/data.holyskete.com-cover.jpg',
-                'shortDescription': 'Symfony 4 based API Service. Providing Email service and XML to JSON service.',
-                'images': [],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/holyskete-api/data.holyskete.com.jpg',
-                        'description': 'Symfony 4 based API Service. Providing Email service and XML to JSON service. Basically any potential XML news feed could be parsed into JSON format and returned back to UI with CORS headers for better UI integration. In this current scenario two types of XML news feeds is been transferred over to JSON format for React multi language application.',
-                    },
-                ],
-            },
-            {
-                'id': 'service-group',
-                'name': 'Service Group',
-                'companyName': 'Cox Automotive',
-                'website': '',
-                'github': '',
-                'logo': '',
-                'dateCreated': '2013-05-29',
-                'cardCover': '/assets/projects/service-group/service-group-cover.jpg',
-                'images': [],
-                'shortDescription': 'Symfony 4 project used twig templates with Vue widgets and Bootstrap 4',
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/service-group/service-group.jpg',
-                        'description': 'Symfony 4 project used twig templates with Vue widgets and Bootstrap 4. For backend was used Entities with Value Objects and Repositories.',
-                    },
-                ],
-            },
-            {
-                'id': 'data.eandkphoto.com',
-                'name': 'E&K Photo API Service',
-                'companyName': 'E and K Photography',
-                'website': 'https://data.eandkphoto.com/',
-                'github': 'https://github.com/evgeniypoznyak/data.eandkphoto.com',
-                'logo': '',
-                'dateCreated': '2013-05-29',
-                'cardCover': '/assets/projects/data-eandkphoto.com/data-eandkphoto.com-cover.jpg',
-                'shortDescription': 'API Service build in Laravel. Utilized JWT for authentication/authorization purposes. Used Eloquent model as ORM, MySQL as database and filesystem.',
-                'images': [],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/data-eandkphoto.com/data-eandkphoto.com.jpg',
-                        'description': 'API Service build in Laravel. Used Eloquent model as ORM. Fully CRUD service with JWT protected sensitive routes. Receiving data as binary from Angular and passed into database and file systems according to business needs.\nService also taking care of emailing into Google Gmail API.',
-                    },
-                ],
-            },
-            {
-                'id': 'evgeniy.poznyaks.com_v1',
-                'name': 'Portfolio Website',
-                'companyName': '',
-                'website': 'https://evgeniy.poznyaks.com',
-                'github': 'https://github.com/evgeniypoznyak/evgeniy.poznyaks.com',
-                'logo': '/assets/projects/evgeniy.poznyaks.com_v1/logo.jpg',
-                'dateCreated': '2013-05-29',
-                'cardCover': '',
-                'shortDescription': 'Portfolio Website Build on PHP Framework Laravel with Eloquent ORM. For frontend used Bootstrap 4.',
-                'images': [
-                    {
-                        'label': 'Front Page',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/front.jpg',
-                    },
-                    {
-                        'label': 'Skills',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/skills.jpg',
-                    },
-                    {
-                        'label': 'Professional Experience',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/prof-exp.jpg',
-                    },
-                    {
-                        'label': 'Personal Experience',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/pers-exp.jpg',
-                    },
-                    {
-                        'label': 'Project Page',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/project-page.jpg',
-                    },
-                    {
-                        'label': 'Contact Us',
-                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/contact-us.jpg',
-                    },
-                ],
-                'longDescription': [
-                    {
-                        'picture': '/assets/projects/evgeniy.poznyaks.com_v1/portfolio_website_v1.jpg',
-                        'description': 'Application was on VPS with Apache server. Laravel was chosen as PHP framework and for front end was blade templates with Bootstrap and jQueryUI. Eloquent was used as ORM and MySQL as a storage unit.',
-                    },
-                ],
             },
             {
                 'id': 'pacificnorthern',
@@ -261,7 +218,7 @@ export const skills = [
                         'path': '/assets/projects/pacificnerthern.com/about-us-page.jpg',
                     },
                 ],
-                'shortDescription': 'Company presentation website for displaying company information and products. Website utilized WordPress technology.',
+                'shortDescription': 'This project is a company presentation website for displaying business information and products. The website utilizes WordPress technology.',
                 'longDescription': [],
             },
             {
@@ -273,7 +230,7 @@ export const skills = [
                 'logo': '/assets/projects/infocenter.pacificnorthern.com/logo.jpg',
                 'dateCreated': '2013-05-29',
                 'cardCover': '',
-                'shortDescription': 'This is company’s internal website build on WordPress and using Active Directory Integration.',
+                'shortDescription': 'This is the company’s internal website build on WordPress and uses Active Directory Integration.',
                 'images': [
                     {
                         'label': 'Active Directory Cards View',
@@ -295,7 +252,7 @@ export const skills = [
                 'longDescription': [
                     {
                         'picture': '/assets/projects/infocenter.pacificnorthern.com/infocenter.pacificnorthern.jpg',
-                        'description': 'I created integration with windows active directory from Wordpress internal website. Cron job was kicking the script and script was updating and making record into database. After that WordPress custom build plugin pull these changes and reflect them into website.',
+                        'description': 'I created this integration with the windows active directory from the WordPress internal website. Cron job was kicking the script, and the script was running updates for active directory employees, and then making records into the database. After all cron jobs are done, the plugin takes data and reflects it into corporate a website.',
                     },
                 ],
             },
@@ -308,7 +265,7 @@ export const skills = [
                 'logo': '/assets/projects/pndisplay.com/logo.jpg',
                 'dateCreated': '2013-05-29',
                 'cardCover': '',
-                'shortDescription': 'E-Commerce Website. With custom more than 300 variations, fabrics and tiers for each product and platforms combos.',
+                'shortDescription': 'This is an E-Commerce Website. It is custom made with more than 300 variations. It has many variation combos for fabrics and tiers for each product and platform.',
                 'images': [
                     {
                         'label': 'Front Page',
@@ -334,11 +291,11 @@ export const skills = [
                 'longDescription': [
                     {
                         'picture': '/assets/projects/pndisplay.com/pndisplay.com.jpg',
-                        'description': 'Very complex WordPress/Woocomerce plugin. Plugin extends variant selections, by price tier, color, fabric and base made. Also admin can setup in custom made menu pages what exactly is going to be used by this plugin.',
+                        'description': 'This website was created with a complex WordPress/Woocomerce plugin. The plugin extends variant selections, by price tier, color, fabric, and type of base. Admin can set up exactly what is going to be used by this plugin. ',
                     },
                     {
                         'picture': '/assets/projects/pndisplay.com/pndisplay.com_email.jpg',
-                        'description': 'Another plugin make multiple email blasts by chunks and specific time for that, witch can be configured in custom admin menu.',
+                        'description': '. In addition, I created another plugin that makes multiple email blasts by chunks with a specified time for that, which can be configured in the custom admin menu.',
                     },
                 ],
             },
@@ -351,7 +308,7 @@ export const skills = [
                 'logo': '/assets/projects/video.pacificnorthern.com/logo.jpg',
                 'dateCreated': '2013-05-29',
                 'cardCover': '',
-                'shortDescription': 'Utilizing PHP Framework Laravel for backend and jQueryUI for frontend. A little similar to NETFLIX.',
+                'shortDescription': 'This site utilizes PHP Framework Laravel for backend and jQueryUI for frontend. A little similar to NETFLIX.',
                 'images': [
                     {
                         'label': 'Folders',
@@ -369,7 +326,7 @@ export const skills = [
                 'longDescription': [
                     {
                         'picture': '/assets/projects/video.pacificnorthern.com/video.pacificnorthern.com.jpg',
-                        'description': 'Laravel is handling filesystem and database connection. Also in top level user’s information passed by Active Directory. Front end build with bootstrap and jQuery UI.',
+                        'description': 'Laravel is handling the file system and database connection. The user’s information is being passed on from the Active Directory. Front end was built with Bootstrap and jQuery UI.',
                     },
                 ],
             },
@@ -382,7 +339,7 @@ export const skills = [
                 'logo': '/assets/projects/info.pndisplay.com/logo.jpg',
                 'dateCreated': '2013-05-29',
                 'cardCover': '',
-                'shortDescription': 'Simple website providing more information about E-Commerce PN Display website. Build on WordPress engine.',
+                'shortDescription': 'This is a simple website providing more information about the E-Commerce PN Display website. It was built on the WordPress engine.',
                 'images': [
                     {
                         'label': 'Front Page',
@@ -412,7 +369,7 @@ export const skills = [
                 'logo': '',
                 'dateCreated': '2013-05-29',
                 'cardCover': '/assets/projects/namesday.info/cover.jpg',
-                'shortDescription': 'This is was my first professional work. I worked as intern an helped with backend and frontend. Mostly my work done for frontend.',
+                'shortDescription': 'This is was my first professional project. I worked as an intern and helped with the backend and frontend. My work was mostly concentrated on the frontend part.',
                 'images': [],
                 'longDescription': [],
             },
@@ -425,7 +382,7 @@ export const skills = [
                 'logo': '',
                 'dateCreated': '2017-03-24',
                 'cardCover': '',
-                'shortDescription': 'Information website for my WordPress plugins. Build in vanilla PHP with Object Oriented Design Model. And Google API for ReCaptcha.',
+                'shortDescription': 'This is an information website for my WordPress plugins. It has built-in vanilla PHP with an Object-Oriented Design Model. In addition, it also uses Google API for ReCaptcha.',
                 'images': [
                     {
                         'label': 'Front Page',
@@ -443,7 +400,50 @@ export const skills = [
                 'longDescription': [
                     {
                         'picture': '/assets/projects/wordpress.poznyaks.com/wordpress.poznyaks.com.jpg',
-                        'description': 'Simple application with backend in Object Oriented Design in PHP and front end just HTML/CSS.',
+                        'description': 'This is a simple application with backend in Object-Oriented Design in PHP and front end just utilizing HTML/CSS.',
+                    },
+                ],
+            },
+            {
+                'id': 'evgeniy.poznyaks.com_v1',
+                'name': 'Portfolio Website v1',
+                'companyName': '',
+                'website': 'https://evgeniy.poznyaks.com',
+                'github': 'https://github.com/evgeniypoznyak/evgeniy.poznyaks.com',
+                'logo': '/assets/projects/evgeniy.poznyaks.com_v1/logo.jpg',
+                'dateCreated': '2013-05-29',
+                'cardCover': '',
+                'shortDescription': 'This is my portfolio website. It was originally built on the PHP framework Laravel. It utilizes the Eloquent ORM and MySQL database. Now my portfolio application is running in Docker containers with frontend server-side rendered React, with API Gateway running in NodeJS and C# with .Net Core.',
+                'images': [
+                    {
+                        'label': 'Front Page',
+                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/front.jpg',
+                    },
+                    {
+                        'label': 'Skills',
+                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/skills.jpg',
+                    },
+                    {
+                        'label': 'Professional Experience',
+                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/prof-exp.jpg',
+                    },
+                    {
+                        'label': 'Personal Experience',
+                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/pers-exp.jpg',
+                    },
+                    {
+                        'label': 'Project Page',
+                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/project-page.jpg',
+                    },
+                    {
+                        'label': 'Contact Us',
+                        'path': '/assets/projects/evgeniy.poznyaks.com_v1/contact-us.jpg',
+                    },
+                ],
+                'longDescription': [
+                    {
+                        'picture': '/assets/projects/evgeniy.poznyaks.com_v1/portfolio_website_v1.jpg',
+                        'description': 'The application was originally on a VPN with the Apache server. Laravel was then chosen as the PHP framework and the front end was created with blade templates with Bootstrap and jQueryUI. Eloquent was also used as ORM and MySQL as a storage unit.',
                     },
                 ],
             },
@@ -456,7 +456,7 @@ export const skills = [
                 'logo': '',
                 'dateCreated': '2017-06-01',
                 'cardCover': '',
-                'shortDescription': 'Plugin for excluding IP’s from Google Analytics, to not been tracked. Very helpful for companies with range of ips.',
+                'shortDescription': 'This is a plugin for excluding IPs from Google Analytics, so they are not to be tracked. It is very helpful for companies with a range of IPs.',
                 'images': [
                     {
                         'label': 'Plugin Information',
@@ -478,7 +478,7 @@ export const skills = [
                 'logo': '',
                 'dateCreated': '2017-06-01',
                 'cardCover': '',
-                'shortDescription': 'Plugin for Login With Google reCaptcha For WordPress And Woocomerce. Plugin utilize Google API.',
+                'shortDescription': 'This is a plugin for Login with Google reCaptcha For WordPress and Woocommerce. This plugin utilizes Google API.',
                 'images': [
                     {
                         'label': 'Plugin Information',
@@ -508,7 +508,7 @@ export const skills = [
                 'logo': '',
                 'dateCreated': '2017-06-01',
                 'cardCover': '',
-                'shortDescription': 'Plugin is adding the user\'s internet provider information (based on IP address), to the body of the email.',
+                'shortDescription': 'This plugin was created to adds the user\'s internet provider information (based on IP address), to the body of the email.',
                 'images': [
                     {
                         'label': 'Plugin Information',
