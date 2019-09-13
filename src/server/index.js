@@ -32,7 +32,7 @@ function renderStartUpPage({html, css, data} = {}) {
     content="Engineer Skills, Projects, Portfolio and Resume. Hire an awesome developer">
 <meta name="description" content="Engineer Skills, Projects, Portfolio and Resume. Hire an awesome developer">
 <meta name="author" content="Evgeniy Poznyak">
-<meta property="og:image" content="/assets/me2.jpg">
+<meta property="og:image" content="/assets/evgeniy-poznyak-logo.jpg">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta name="Description" 
 CONTENT="Author: Evgeniy Poznyak, Category: Software Engineer Portfolio Website, Software Engineer Blog, Blog">

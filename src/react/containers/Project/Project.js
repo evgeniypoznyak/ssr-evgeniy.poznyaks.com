@@ -137,7 +137,7 @@ export default function Project(props) {
 
     let dateCreated = null;
     if (props.project.dateCreated && props.project.dateCreated.length > 0) {
-        dateCreated = 'Created: ' + getMonthAndDay(props.project.dateCreated);
+        dateCreated = 'Involved since: ' + getMonthAndDay(props.project.dateCreated);
     }
 
     let gitHubProjectLink = null;
