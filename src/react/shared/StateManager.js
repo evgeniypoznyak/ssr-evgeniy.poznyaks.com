@@ -23,6 +23,4 @@ export const compareByOrder = (a, b) => {
     return 0;
 };
 
-
-
 export const State = createContext(null);

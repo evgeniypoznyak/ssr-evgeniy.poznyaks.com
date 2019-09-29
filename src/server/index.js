@@ -44,6 +44,14 @@ CONTENT="Author: Evgeniy Poznyak, Category: Software Engineer Portfolio Website,
         <div id="root">${html}</div>
         <script>window.__INITIAL_DATA__ = ${serialize(data)}</script>
         <script async src="/bundle.js" async></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148962831-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-148962831-1');
+        </script>        
       </body>
 </html>
 `;
