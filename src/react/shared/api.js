@@ -1,5 +1,6 @@
 import axios from './axios';
 import {skills} from './initialData/skills';
+import * as biographyData from './initialData/biography.json';
 
 const url = process.env.API_GATEWAY ||
     'https://api.evgeniy.poznyaks.com'
@@ -186,7 +187,7 @@ export async function getBiography() {
     } catch (e) {
         console.log('Error: ', e.message);
         console.log('Something wrong happened with this server! Returning default response.');
-        return 'Biography not been uploaded';
+        return JSON.parse(biographyData).biography;
     }
 }
 
