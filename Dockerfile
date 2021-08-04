@@ -1,6 +1,7 @@
+# Deployment
+# docker build -t evgen1y/ssr-react . && docker push evgen1y/ssr-react
 # docker build -t evgen1y/ssr-react .
 # docker tag f36ce7cfc892 evgen1y/ssr-react
-# docker build -t evgen1y/ssr-react . && docker push evgen1y/ssr-react
 # docker push evgen1y/ssr-react
 
 # docker run -p 3001:8080 -d --env-file ./.env --name evgeniy-ssr-react --network evgeniy_poznyaks_com evgen1y/ssr-react
