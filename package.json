@@ -46,7 +46,7 @@
     "jooks": "0.0.16",
     "nodemon": "^1.19.1",
     "react-test-renderer": "^16.8.6",
-    "webpack": "^3.10.0",
+    "webpack": "^5.75.0",
     "webpack-node-externals": "^1.7.2",
     "clsx": "latest"
   },
